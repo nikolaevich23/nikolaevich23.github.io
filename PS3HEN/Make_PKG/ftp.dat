@@ -2,6 +2,6 @@ user MYLOGIN
 MYPASSW
 cd dev_hdd0
 cd packages
-put ps3hen_491.pkg_signed.pkg
+put for_4.91_latest_rus_sign.pkg
 quit
-Режим вывода команд на экран (ECHO) отключен.
+

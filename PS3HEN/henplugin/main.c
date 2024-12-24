@@ -167,6 +167,36 @@ static void * getNIDfunc(const char * vsh_module, uint32_t fnid, int offset)
 #define SC_PAD_SET_DATA_INSERT_MODE		(573)
 #define SC_PAD_REGISTER_CONTROLLER		(574)
 #define BETWEEN(a, b, c)	( ((a) <= (b)) && ((b) <= (c)) )
+#define NONE -1
+static vu8 working = 1;
+
+static bool islike(const char *param, const char *text)
+{
+	if(!param || !text) return false;
+	while(*text && (*text == *param)) text++, param++;
+	return !*text;
+}
+
+static u64 convertH(const char *val) // convert hex string to unsigned integer 64bit
+{
+	if(!val || (*val == 0)) return 0;
+	
+	char *end;
+	return _Stoll(val, &end, 16);
+}
+
+static s64 val(const char *c)
+{
+	if(!c) return 0;
+
+	if(islike(c, "0x"))
+	{
+		return convertH(c);
+	}
+	
+	char *end;
+	return _Stoll(c, &end, 10);
+}
 
 static bool IS(const char *a, const char *b)
 {
@@ -174,8 +204,22 @@ static bool IS(const char *a, const char *b)
 	return !strcmp(a, b); // compare two strings. returns true if they are identical
 }
 
+void _memset(void *m, size_t n);
+void _memset(void *m, size_t n)
+{
+	if(!m || !n) return;
+	u8 p = n & 7; // remaining bytes (same as n % 8)
+
+	n >>= 3; // same as n /= 8;
+	u64 *s = (u64 *) m;
+	while (n--) *s++ = 0LL; // 64bit memset
+
+	if(p)
+		memset(s, 0, p);
+}
+
 static u32 vcombo = 0;
-static s32 vpad_handle = NULL;
+static s32 vpad_handle = NONE;
 
 static inline void sys_pad_dbg_ldd_register_controller(u8 *data, s32 *handle, u8 addr, u32 capability)
 {
@@ -192,16 +236,15 @@ static inline void sys_pad_dbg_ldd_set_data_insert_mode(s32 handle, u16 addr, u3
 static s32 register_ldd_controller(void)
 {
 	// register ldd controller with custom device capability
-	if (vpad_handle <= NULL)
+	if (vpad_handle <= NONE)
 	{
 		u8 data[0x114];
 		s32 port;
 		u32 capability, mode, port_setting;
 
 		capability = 0xFFFF; // CELL_PAD_CAPABILITY_PS3_CONFORMITY | CELL_PAD_CAPABILITY_PRESS_MODE | CELL_PAD_CAPABILITY_HP_ANALOG_STICK | CELL_PAD_CAPABILITY_ACTUATOR;
-		sys_pad_dbg_ldd_register_controller(data, (s32 *)&(vpad_handle), 5, (u32)capability << 1); //vpad_handle = cellPadLddRegisterController();
-		sys_timer_usleep(500000);
-		//sys_ppu_thread_usleep(500000); // allow some time for ps3 to register ldd controller
+		sys_pad_dbg_ldd_register_controller(data, (s32 *)&(vpad_handle), 5, (u32)capability << 1); //vpad_handle = cellPadLddRegisterController();		
+		sys_timer_usleep(800000); // allow some time for ps3 to register ldd controller
 
 		if (vpad_handle < 0) return(vpad_handle);
 
@@ -226,7 +269,7 @@ static s32 unregister_ldd_controller(void)
 	{
 		s32 r = cellPadLddUnregisterController(vpad_handle);
 		if (r != CELL_OK) return(r);
-		vpad_handle = NULL;
+		vpad_handle = NONE;
 	}
 	return(CELL_PAD_OK);
 }
@@ -236,7 +279,7 @@ static u8 parse_pad_command(const char *pad_cmds, u8 is_combo)
 	register_ldd_controller();
 
 	CellPadData data;
-	memset(&data, NULL, sizeof(CellPadData));
+	_memset(&data, sizeof(CellPadData));
 	data.len = CELL_PAD_MAX_CODES;
 
 	// set default controller values
@@ -262,7 +305,7 @@ static u8 parse_pad_command(const char *pad_cmds, u8 is_combo)
 
 		if(sep && BETWEEN('0', *param, '9'))
 		{
-			sys_timer_usleep(5000);
+			sys_timer_usleep(val(param)*100);
 			param = sep + 1;
 			goto parse_buttons;
 		}
@@ -324,11 +367,10 @@ static u8 parse_pad_command(const char *pad_cmds, u8 is_combo)
 
 		if(!strcasestr(param, "hold"))
 		{
-			//sys_ppu_thread_usleep(delay); // hold for 70ms
-			sys_timer_usleep(delay);
+			sys_timer_usleep(delay); // hold for 70ms			
 
 			// release all buttons and set default values
-			memset(&data, NULL, sizeof(CellPadData));
+			_memset(&data, sizeof(CellPadData));
 			data.len = CELL_PAD_MAX_CODES;
 
 			data.button[CELL_PAD_BTN_OFFSET_ANALOG_LEFT_X]  = // 0x0080;
@@ -478,10 +520,8 @@ static void reload_xmb(void)
 	{
 	 explore_interface->ExecXMBcommand("close_all_list", 0, 0);
 	 explore_interface->ExecXMBcommand("focus_category user", 0, 0);
-//	 sys_timer_usleep(140000);
+	 explore_interface->ExecXMBcommand("exec_push", 0, 0);
 	 press_accept_button();
-//	 sys_timer_usleep(2000);
-//	 press_accept_button();
 	 explore_interface->ExecXMBcommand("exec_push", 0, 0);
 	}
 }

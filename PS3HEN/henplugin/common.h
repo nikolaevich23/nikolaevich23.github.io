@@ -21,6 +21,7 @@
 #endif
 
 char *strcasestr(const char *s1, const char *s2);
+static s64 val(const char *c);
 static inline void sys_pad_dbg_ldd_register_controller(u8 *data, s32 *handle, u8 addr, u32 capability);
 static inline void sys_pad_dbg_ldd_set_data_insert_mode(s32 handle, u16 addr, u32 *mode, u8 addr2);
 static s32 register_ldd_controller(void);

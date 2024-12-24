@@ -24,7 +24,7 @@ static inline void sys_pad_dbg_ldd_register_controller(u8 *data, s32 *handle, u8
 static inline void sys_pad_dbg_ldd_set_data_insert_mode(s32 handle, u16 addr, u32 *mode, u8 addr2);
 static s32 register_ldd_controller(void);
 static s32 unregister_ldd_controller(void);
-static void press_cancel_button(bool do_enter);
+static void press_cancel_button(int do_enter);
 static void press_accept_button(void);
 static u8 parse_pad_command(const char *pad_cmds, u8 is_combo);
 

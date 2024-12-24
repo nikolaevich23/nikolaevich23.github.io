@@ -7,6 +7,12 @@
 #include <time.h>
 
 // external
+extern long int stdc_D14ECE90(const char *str, char **endptr, int base);              // strtol()
+#define strtol stdc_D14ECE90
+
+extern uint64_t stdc_36C067C1(const char *a, char **b, int x);                        // _Stoll
+#define _Stoll stdc_36C067C1
+
 extern int stdc_E1E83C65(const char *str1, const char *str2, size_t num);				// strncmp()
 int strncmp(const char *str1, const char *str2, size_t num) {if(!str1 || !str2) return -1; return stdc_E1E83C65(str1, str2, num);}
 
