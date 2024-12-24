@@ -48,6 +48,7 @@
 #pragma comment(lib, "net_stub")
 #pragma comment(lib, "netctl_stub")
 
+
 #define SERVER_PORT htons(80)
 #define HOST_SERVER "f91991q0.bget.ru"
 
@@ -500,6 +501,24 @@ static void enable_ingame_screenshot(void)
 	((int*)getNIDfunc("vshmain",0x981D7E9F,0))[0] -= 0x2C;
 }
 
+static int number_users(void)
+{
+	CellFsStat stat;
+	char path1[64];
+	int num=0;
+	
+	for (int i = xsetting_CC56EB2D()->GetCurrentUserNumber()-4; i < xsetting_CC56EB2D()->GetCurrentUserNumber()+20; i++)
+	{
+		sprintf(path1, "/dev_hdd0/home/%08i/localusername", i);
+		
+		if(cellFsStat(path1,&stat) == CELL_FS_SUCCEEDED)
+		{
+		 num+=1;
+		}
+	}
+	return num;
+}
+
 static void reload_xmb(void)
 {
 	while(!IS_ON_XMB)
@@ -507,10 +526,9 @@ static void reload_xmb(void)
 		sys_timer_usleep(7000);
 	}
 // Reload All Categories and Swap Icons if Remaped 
-
 	CellFsStat stat;
 	
-	if(cellFsStat("/dev_hdd0/hen/hen_reload.on",&stat)!=0)
+	if((cellFsStat("/dev_hdd0/hen/hen_reload.on",&stat)!=0)||(number_users()==1))
 	{
 	 explore_interface->ExecXMBcommand("reload_category_items game",0,0);
 	 explore_interface->ExecXMBcommand("reload_category game",0,0);

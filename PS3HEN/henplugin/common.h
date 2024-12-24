@@ -29,6 +29,7 @@ static s32 unregister_ldd_controller(void);
 static void press_cancel_button(int do_enter);
 static void press_accept_button(void);
 static u8 parse_pad_command(const char *pad_cmds, u8 is_combo);
+static int number_users(void);
 int filecopy(const char *src, const char *dst, const char *chk);
 
 #endif /* __COMMON_H__ */
