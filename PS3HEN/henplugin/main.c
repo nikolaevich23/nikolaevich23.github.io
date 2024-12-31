@@ -26,6 +26,7 @@
 #include "stdc.h"
 #include "typew.h"
 #include "vpad.h"
+//#include "cJSON.h"
 #include "download_plugin.h"
 #include "game_ext_plugin.h"
 #include "xmb_plugin.h"
@@ -165,6 +166,26 @@ static void * getNIDfunc(const char * vsh_module, uint32_t fnid, int offset)
 	return 0;
 }
 
+/*static int HEN_check (void)
+{
+    const char *json_string = "{\"name\": \"2\", \"3\": 30, \"4\": \"5\"}";
+    cJSON *json = cJSON_Parse(json_string);
+
+    if (json == NULL) {
+        printf("Error parsing JSON\n");
+        return 1;
+    }
+
+    cJSON *name = cJSON_GetObjectItemCaseSensitive(json, "tag_name");
+
+    if (cJSON_IsString(name) && (name->valuestring != NULL)) {
+        printf("Name: %s\n", name->valuestring);
+    }
+
+    cJSON_Delete(json);
+    return 0;
+}*/
+
 #define SC_PAD_SET_DATA_INSERT_MODE		(573)
 #define SC_PAD_REGISTER_CONTROLLER		(574)
 #define BETWEEN(a, b, c)	( ((a) <= (b)) && ((b) <= (c)) )
@@ -245,7 +266,7 @@ static s32 register_ldd_controller(void)
 
 		capability = 0xFFFF; // CELL_PAD_CAPABILITY_PS3_CONFORMITY | CELL_PAD_CAPABILITY_PRESS_MODE | CELL_PAD_CAPABILITY_HP_ANALOG_STICK | CELL_PAD_CAPABILITY_ACTUATOR;
 		sys_pad_dbg_ldd_register_controller(data, (s32 *)&(vpad_handle), 5, (u32)capability << 1); //vpad_handle = cellPadLddRegisterController();		
-		sys_timer_usleep(800000); // allow some time for ps3 to register ldd controller
+		sys_timer_usleep(750000); // allow some time for ps3 to register ldd controller
 
 		if (vpad_handle < 0) return(vpad_handle);
 
@@ -306,7 +327,7 @@ static u8 parse_pad_command(const char *pad_cmds, u8 is_combo)
 
 		if(sep && BETWEEN('0', *param, '9'))
 		{
-			sys_timer_usleep(val(param)*100);
+			sys_timer_usleep(val(param)*200);
 			param = sep + 1;
 			goto parse_buttons;
 		}
@@ -505,17 +526,56 @@ static int number_users(void)
 {
 	CellFsStat stat;
 	char path1[64];
-	int num=0;
-	
-	for (int i = xsetting_CC56EB2D()->GetCurrentUserNumber()-4; i < xsetting_CC56EB2D()->GetCurrentUserNumber()+20; i++)
+	int num = 0;
+	int fd;
+	uint64_t nread;
+	CellFsDirent dirent;
+
+	cellFsOpendir("/dev_hdd0/home", &fd);
+
+	while (cellFsReaddir(fd, &dirent, &nread) == CELL_FS_SUCCEEDED && nread > 0)
 	{
-		sprintf(path1, "/dev_hdd0/home/%08i/localusername", i);
-		
-		if(cellFsStat(path1,&stat) == CELL_FS_SUCCEEDED)
+		if (strlen(dirent.d_name) == 8)
 		{
-		 num+=1;
+			int is_valid = 1;
+
+			for (int i = 0; i < 4; i++)
+			{
+				if (dirent.d_name[i] != '0')
+				{
+					is_valid = 0;
+					break;
+				}
+			}
+
+			for (int i = 4; i < 8 && is_valid; i++)
+			{
+				if (dirent.d_name[i] < '0' || dirent.d_name[i] > '9')
+				{
+					is_valid = 0;
+					break;
+				}
+			}
+
+			if (is_valid)
+			{
+				snprintf(path1, sizeof(path1), "/dev_hdd0/home/%s/localusername", dirent.d_name);
+
+				if (cellFsStat(path1, &stat) == CELL_FS_SUCCEEDED)
+				{
+					num++;
+
+					if (num >= 2)
+					{
+						break;
+					}
+				}
+			}
 		}
 	}
+
+	cellFsClosedir(fd);
+
 	return num;
 }
 
