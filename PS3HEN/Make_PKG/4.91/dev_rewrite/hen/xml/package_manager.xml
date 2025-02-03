@@ -1,0 +1,433 @@
+﻿<XMBML version="1.0">
+	<View id="seg_package_files">
+		<Attributes>
+			<Table key="package_files">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="icon_notation"><String>WNT_XmbItemAlbum</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_package_file</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_package_file_info</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query  class="type:x-xmb/folder-pixmap"  key="package_files" attr="package_files" src="#seg_package_fixed"/>
+		</Items></View>
+	
+	<View id="seg_package_fixed">
+		<Attributes>
+			<Table key="package_files_install">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_install_file</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_install_file_info</String></Pair>
+			</Table>
+			<Table key="host_psn">
+				<Pair key="icon_rsc"><String>item_tex_online_storage</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_psn_file</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_psn_file_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_tool_no_psn_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>			
+			<Table key="seg_package_files_delete">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_delete_file</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_delete_file_info</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="package_files_install" attr="package_files_install" src="#seg_install_package"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_psn" attr="host_psn" src="#seg_install_files_psn_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="seg_package_files_delete" attr="seg_package_files_delete" src="#seg_delete_package"/>
+			<!--<Query class="type:x-xmb/folder-pixmap" key="mg" attr="mg" src="#mount_game"/>-->
+		</Items></View>
+		
+	<View id="mount_game">
+		<Attributes>
+			<Table key="mount_items">
+				<Pair key="icon_rsc"><String>item_tex_disc_install</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_mount</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_mount_info</String></Pair>
+				<Pair key="module_name"><String>xai_plugin</String></Pair>
+				<Pair key="module_action"><String>mount_hdd_game</String></Pair>
+				<Pair key="bar_action"><String>none</String></Pair>
+				<Pair key="lbl_half"><String>1</String></Pair>
+			</Table>
+			<Table key="unmount_items">
+				<Pair key="icon_rsc"><String>item_tex_disc_icon</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_unmount</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_unmount_info</String></Pair>
+				<Pair key="module_name"><String>xai_plugin</String></Pair>
+				<Pair key="module_action"><String>unmount_hdd</String></Pair>
+				<Pair key="bar_action"><String>none</String></Pair>
+				<Pair key="lbl_half"><String>1</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/module-action"  key="mount_items" attr="mount_items" />
+			<Item class="type:x-xmb/module-action"  key="unmount_items" attr="unmount_items" />
+		</Items>
+	</View>
+
+	<View id="seg_install_files_psn_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="seg_hdd_install" src="ese://localhost/query?type=install_game"/>
+			<Query class="type:x-xmb/folder-pixmap" key="seg_pkg_install" src="ese://localhost/query?type=install_pkg"/>
+		</Items></View>
+	
+	<View id="seg_install_package">
+		<Attributes>
+			<Table key="host_device">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="icon_notation"><String>WNT_XmbItemAlbum</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_all_file</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_all_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+				<Pair key="ingame"><String>disable</String></Pair>
+			</Table>
+			<Table key="host_device_1">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_hdd0_file</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_hdd0_install_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_tool_no_package</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="host_device_2">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_usb_file</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_usb_install_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_tool_no_package</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="host_device_3">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_og_file</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_og_install_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_tool_no_package</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="pkg_linker">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_lw</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_lw_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_tool_no_package</String></Pair>
+			</Table>			
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_device" attr="host_device" src="#seg_install_files_alldev_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_device_1" attr="host_device_1" src="#seg_install_files_hdd0_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_device_2" attr="host_device_2" src="#seg_install_usb_path"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_device_3" attr="host_device_3" src="#seg_install_files_og_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="pkg_linker"  attr="pkg_linker" src="xmb://localhost/dev_hdd0/game/PKGLINKER/USRDIR/package_link.xml#pkg_items"/>
+		</Items>
+	</View>
+	
+	<View id="seg_install_files_alldev_path">
+		<Items>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_flash" src="host://localhost/q?path=/dev_flash/rebug/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_bdvd" src="host://localhost/q?path=/dev_bdvd&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_home_pkg1" src="host://localhost/q?path=/app_home/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_home_pkg2" src="host://localhost/q?path=/app_home/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_hdd0_pkg1" src="host://localhost/q?path=/dev_hdd0/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_hdd0_pkg2" src="host://localhost/q?path=/dev_hdd0/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_hdd0_dl" src="host://localhost/q?path=/dev_hdd0/downloads&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0" src="host://localhost/q?path=/dev_usb000&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0_pkg1" src="host://localhost/q?path=/dev_usb000/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0_pkg2" src="host://localhost/q?path=/dev_usb000/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0_dl" src="host://localhost/q?path=/dev_usb000/PS3/DOWNLOADS&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1" src="host://localhost/q?path=/dev_usb001&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1_pkg1" src="host://localhost/q?path=/dev_usb001/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1_pkg2" src="host://localhost/q?path=/dev_usb001/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1_dl" src="host://localhost/q?path=/dev_usb001/PS3/DOWNLOADS&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb2" src="host://localhost/q?path=/dev_usb002&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb2_pkg1" src="host://localhost/q?path=/dev_usb002/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb2_pkg2" src="host://localhost/q?path=/dev_usb002/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb2_dl" src="host://localhost/q?path=/dev_usb002/PS3/DOWNLOADS&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb3" src="host://localhost/q?path=/dev_usb003&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb3_pkg1" src="host://localhost/q?path=/dev_usb003/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb3_pkg2" src="host://localhost/q?path=/dev_usb003/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb3_dl" src="host://localhost/q?path=/dev_usb003/PS3/DOWNLOADS&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb4" src="host://localhost/q?path=/dev_usb004&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb4_pkg1" src="host://localhost/q?path=/dev_usb004/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb4_pkg2" src="host://localhost/q?path=/dev_usb004/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb4_dl" src="host://localhost/q?path=/dev_usb004/PS3/DOWNLOADS&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb5" src="host://localhost/q?path=/dev_usb005&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb5_pkg1" src="host://localhost/q?path=/dev_usb005/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb5_pkg2" src="host://localhost/q?path=/dev_usb005/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb5_dl" src="host://localhost/q?path=/dev_usb005/PS3/DOWNLOADS&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb6" src="host://localhost/q?path=/dev_usb006&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb6_pkg1" src="host://localhost/q?path=/dev_usb006/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb6_pkg2" src="host://localhost/q?path=/dev_usb006/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb6_dl" src="host://localhost/q?path=/dev_usb006/PS3/DOWNLOADS&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb7" src="host://localhost/q?path=/dev_usb007&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb7_pkg1" src="host://localhost/q?path=/dev_usb007/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb7_pkg2" src="host://localhost/q?path=/dev_usb007/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb7_dl" src="host://localhost/q?path=/dev_usb007/PS3/DOWNLOADS&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_ms" 	src="host://localhost/q?path=/dev_ms&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_ms_pkg1" 	src="host://localhost/q?path=/dev_ms/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_ms_pkg2" src="host://localhost/q?path=/dev_ms/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_ms_dl" src="host://localhost/q?path=/dev_ms/PS3/DOWNLOADS&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_sd" 	src="host://localhost/q?path=/dev_sd&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_sd_pkg1" 	src="host://localhost/q?path=/dev_sd/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_sd_pkg2" src="host://localhost/q?path=/dev_sd/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_sd_dl" src="host://localhost/q?path=/dev_sd/PS3/DOWNLOADS&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_cf" 	src="host://localhost/q?path=/dev_cf&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_cf_pkg1" 	src="host://localhost/q?path=/dev_cf/packages&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_cf_pkg2" src="host://localhost/q?path=/dev_cf/PKG&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_cf_dl" src="host://localhost/q?path=/dev_cf/PS3/DOWNLOADS&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_hdd0" src="host://localhost/q?path=/dev_hdd0/tmp/np_pkg&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/folder-pixmap" key="seg_hdd_install" src="ese://localhost/query?type=install_game"/>
+			<Query class="type:x-xmb/folder-pixmap" key="seg_pkg_install" src="ese://localhost/query?type=install_pkg"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb00" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000000&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb01" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000001&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb02" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000002&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb03" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000003&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb04" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000004&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb05" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000005&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb06" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000006&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb07" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000007&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb08" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000008&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb09" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000009&suffix=.pkg&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso01" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000001&suffix=.iso&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso02" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000002&suffix=.iso&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso03" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000003&suffix=.iso&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso04" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000004&suffix=.iso&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso05" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000005&suffix=.iso&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso06" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000006&suffix=.iso&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso07" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000007&suffix=.iso&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso08" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000008&suffix=.iso&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso09" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000009&suffix=.iso&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg01" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000001&suffix=.pkg&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg02" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000002&suffix=.pkg&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg03" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000003&suffix=.pkg&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg04" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000004&suffix=.pkg&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg05" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000005&suffix=.pkg&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg06" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000006&suffix=.pkg&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg07" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000007&suffix=.pkg&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg08" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000008&suffix=.pkg&subclass=x-host/package"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg09" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000009&suffix=.pkg&subclass=x-host/package"/>
+		</Items>
+	</View>
+
+	<View id="seg_install_files_hdd0_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="mount" attr="mount" src="#mount_items"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_flash" src="host://localhost/q?path=/dev_flash/packages/pkg&suffix=.pkg&subclass=x-host/package"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_hdd0" src="host://localhost/q?path=/dev_hdd0/packages&suffix=.pkg&subclass=x-host/package"/>		  
+		</Items>
+	</View>
+
+	<View id="seg_install_usb_path">
+		<Items>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_bdvd" src="host://localhost/q?path=/dev_bdvd/packages&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_ms" 	src="host://localhost/q?path=/dev_ms/packages&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0" src="host://localhost/q?path=/dev_usb000/packages&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1" src="host://localhost/q?path=/dev_usb001/packages&suffix=.pkg&subclass=x-host/package" />			
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb2" src="host://localhost/q?path=/dev_usb002/packages&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb3" src="host://localhost/q?path=/dev_usb003/packages&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb4" src="host://localhost/q?path=/dev_usb004/packages&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb5" src="host://localhost/q?path=/dev_usb005/packages&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb6" src="host://localhost/q?path=/dev_usb006/packages&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb7" src="host://localhost/q?path=/dev_usb007/packages&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0" src="host://localhost/q?path=/dev_usb000/pkg&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1" src="host://localhost/q?path=/dev_usb001/pkg&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0" src="host://localhost/q?path=/dev_usb000&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1" src="host://localhost/q?path=/dev_usb001&suffix=.pkg&subclass=x-host/package" />
+		</Items></View>
+
+	<View id="seg_install_files_og_path">
+		<Items>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_bdvd" src="host://localhost/q?path=/dev_bdvd&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_ms" 	src="host://localhost/q?path=/dev_ms&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0" src="host://localhost/q?path=/dev_usb000&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1" src="host://localhost/q?path=/dev_usb001&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb2" src="host://localhost/q?path=/dev_usb002&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb3" src="host://localhost/q?path=/dev_usb003&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb4" src="host://localhost/q?path=/dev_usb004&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb5" src="host://localhost/q?path=/dev_usb005&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb6" src="host://localhost/q?path=/dev_usb006&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb7" src="host://localhost/q?path=/dev_usb007&suffix=.pkg&subclass=x-host/package" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_host" src="host://localhost/q?path=/app_home&suffix=.pkg&subclass=x-host/package" />
+		</Items>
+	</View>
+
+	<View id="mount_items">
+		<Attributes>
+			<Table key="mount_items">
+				<Pair key="icon_rsc"><String>item_tex_disc_install</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_mount</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_mount_info</String></Pair>
+				<Pair key="module_name"><String>xai_plugin</String></Pair>
+				<Pair key="module_action"><String>mount_hdd</String></Pair>
+				<Pair key="bar_action"><String>none</String></Pair>
+				<Pair key="lbl_half"><String>1</String></Pair>
+			</Table>
+			<Table key="unmount_items">
+				<Pair key="icon_rsc"><String>item_tex_disc_icon</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_unmount</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_unmount_info</String></Pair>
+				<Pair key="module_name"><String>xai_plugin</String></Pair>
+				<Pair key="module_action"><String>unmount_hdd</String></Pair>
+				<Pair key="bar_action"><String>none</String></Pair>
+				<Pair key="lbl_half"><String>1</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/module-action"  key="mount_items" attr="mount_items" />
+			<Item class="type:x-xmb/module-action"  key="unmount_items" attr="unmount_items" />
+		</Items>
+	</View>
+	
+	<View id="seg_delete_package">
+		<Attributes>
+			<Table key="host_device">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="icon_notation"><String>WNT_XmbItemAlbum</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_all_file</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_all_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+				<Pair key="ingame"><String>disable</String></Pair>
+			</Table>
+			<Table key="host_device_1">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_hdd0_file</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_hdd0_delete_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_tool_no_package</String></Pair>				
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="host_device_2">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_usb_file</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_usb_delete_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_tool_no_package</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="host_device_3">
+				<Pair key="icon_rsc"><String>tex_album_icon</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_og_file</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_og_delete_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_tool_no_package</String></Pair>				
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_device" attr="host_device" src="#seg_del_files_alldev_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_device_1" attr="host_device_1" src="#seg_delete_files_hdd0_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_device_2" attr="host_device_2" src="#seg_delete_usb_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_device_3" attr="host_device_3" src="#seg_delete_files_og_path"/>
+		</Items></View>
+		
+	<View id="seg_del_files_alldev_path">
+		<Items>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_flash" src="host://localhost/q?path=/dev_flash/rebug/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_bdvd" src="host://localhost/q?path=/dev_bdvd&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_home_pkg1" src="host://localhost/q?path=/app_home/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_home_pkg2" src="host://localhost/q?path=/app_home/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_hdd0_pkg1" src="host://localhost/q?path=/dev_hdd0/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_hdd0_pkg2" src="host://localhost/q?path=/dev_hdd0/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_hdd0_dl" src="host://localhost/q?path=/dev_hdd0/downloads&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0" src="host://localhost/q?path=/dev_usb000&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0_pkg1" src="host://localhost/q?path=/dev_usb000/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0_pkg2" src="host://localhost/q?path=/dev_usb000/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0_dl" src="host://localhost/q?path=/dev_usb000/PS3/DOWNLOADS&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1" src="host://localhost/q?path=/dev_usb001&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1_pkg1" src="host://localhost/q?path=/dev_usb001/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1_pkg2" src="host://localhost/q?path=/dev_usb001/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1_dl" src="host://localhost/q?path=/dev_usb001/PS3/DOWNLOADS&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb2" src="host://localhost/q?path=/dev_usb002&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb2_pkg1" src="host://localhost/q?path=/dev_usb002/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb2_pkg2" src="host://localhost/q?path=/dev_usb002/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb2_dl" src="host://localhost/q?path=/dev_usb002/PS3/DOWNLOADS&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb3" src="host://localhost/q?path=/dev_usb003&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb3_pkg1" src="host://localhost/q?path=/dev_usb003/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb3_pkg2" src="host://localhost/q?path=/dev_usb003/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb3_dl" src="host://localhost/q?path=/dev_usb003/PS3/DOWNLOADS&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb4" src="host://localhost/q?path=/dev_usb004&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb4_pkg1" src="host://localhost/q?path=/dev_usb004/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb4_pkg2" src="host://localhost/q?path=/dev_usb004/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb4_dl" src="host://localhost/q?path=/dev_usb004/PS3/DOWNLOADS&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb5" src="host://localhost/q?path=/dev_usb005&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb5_pkg1" src="host://localhost/q?path=/dev_usb005/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb5_pkg2" src="host://localhost/q?path=/dev_usb005/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb5_dl" src="host://localhost/q?path=/dev_usb005/PS3/DOWNLOADS&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb6" src="host://localhost/q?path=/dev_usb006&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb6_pkg1" src="host://localhost/q?path=/dev_usb006/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb6_pkg2" src="host://localhost/q?path=/dev_usb006/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb6_dl" src="host://localhost/q?path=/dev_usb006/PS3/DOWNLOADS&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb7" src="host://localhost/q?path=/dev_usb007&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb7_pkg1" src="host://localhost/q?path=/dev_usb007/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb7_pkg2" src="host://localhost/q?path=/dev_usb007/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb7_dl" src="host://localhost/q?path=/dev_usb007/PS3/DOWNLOADS&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_ms" 	src="host://localhost/q?path=/dev_ms&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_ms_pkg1" 	src="host://localhost/q?path=/dev_ms/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_ms_pkg2" src="host://localhost/q?path=/dev_ms/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_ms_dl" src="host://localhost/q?path=/dev_ms/PS3/DOWNLOADS&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_sd" 	src="host://localhost/q?path=/dev_sd&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_sd_pkg1" 	src="host://localhost/q?path=/dev_sd/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_sd_pkg2" src="host://localhost/q?path=/dev_sd/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_sd_dl" src="host://localhost/q?path=/dev_sd/PS3/DOWNLOADS&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_cf" 	src="host://localhost/q?path=/dev_cf&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_cf_pkg1" 	src="host://localhost/q?path=/dev_cf/packages&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_cf_pkg2" src="host://localhost/q?path=/dev_cf/PKG&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_cf_dl" src="host://localhost/q?path=/dev_cf/PS3/DOWNLOADS&suffix=.pkg"/>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_hdd0" src="host://localhost/q?path=/dev_hdd0/tmp/np_pkg&suffix=.pkg" />
+			<Query class="type:x-xmb/folder-pixmap" key="seg_hdd_install" src="ese://localhost/query?type=install_game"/>
+			<Query class="type:x-xmb/folder-pixmap" key="seg_pkg_install" src="ese://localhost/query?type=install_pkg"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb00" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000000&suffix=.pkg"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb01" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000001&suffix=.pkg"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb02" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000002&suffix=.pkg"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb03" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000003&suffix=.pkg"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb04" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000004&suffix=.pkg"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb05" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000005&suffix=.pkg"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb06" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000006&suffix=.pkg"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb07" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000007&suffix=.pkg"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb08" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000008&suffix=.pkg"/>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_usb09" src="host://localhost/q?path=/dev_hdd0/vsh/task/00000009&suffix=.pkg"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso01" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000001&suffix=.iso"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso02" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000002&suffix=.iso"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso03" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000003&suffix=.iso"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso04" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000004&suffix=.iso"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso05" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000005&suffix=.iso"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso06" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000006&suffix=.iso"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso07" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000007&suffix=.iso"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso08" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000008&suffix=.iso"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_iso09" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000009&suffix=.iso"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg01" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000001&suffix=.pkg"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg02" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000002&suffix=.pkg"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg03" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000003&suffix=.pkg"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg04" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000004&suffix=.pkg"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg05" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000005&suffix=.pkg"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg06" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000006&suffix=.pkg"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg07" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000007&suffix=.pkg"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg08" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000008&suffix=.pkg"/>
+            <Query class="type:x-xmb/folder-pixmap" key="host_provider_pkg09" src="host://localhost/q?path=/dev_hdd0/vsh/game_pkg/80000009&suffix=.pkg"/>
+		</Items>
+	</View>	
+		
+	<View id="seg_delete_files_hdd0_path">
+		<Items>			
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_hdd0" attr="host_provider_hdd0" src="host://localhost/q?path=/dev_hdd0/packages&suffix=.pkg"/>		  
+		</Items>
+	</View>	
+
+	<View id="seg_delete_usb_path">
+		<Items>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_host" src="host://localhost/q?path=/app_home/packages/&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_bdvd" src="host://localhost/q?path=/dev_bdvd/packages&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0" src="host://localhost/q?path=/dev_usb000/packages&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1" src="host://localhost/q?path=/dev_usb001/packages&suffix=.pkg" />
+		</Items></View>
+		
+	<View id="seg_delete_files_og_path">
+		<Items>
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_bdvd" src="host://localhost/q?path=/dev_bdvd&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_ms" 	src="host://localhost/q?path=/dev_ms&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb0" src="host://localhost/q?path=/dev_usb000&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb1" src="host://localhost/q?path=/dev_usb001&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb2" src="host://localhost/q?path=/dev_usb002&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb3" src="host://localhost/q?path=/dev_usb003&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb4" src="host://localhost/q?path=/dev_usb004&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb5" src="host://localhost/q?path=/dev_usb005&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb6" src="host://localhost/q?path=/dev_usb006&suffix=.pkg" />
+			<Query class="type:x-xmb/xmlpackagefolder" key="host_provider_usb7" src="host://localhost/q?path=/dev_usb007&suffix=.pkg" />
+		</Items></View>
+</XMBML>

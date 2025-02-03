@@ -1,0 +1,58 @@
+<XMBML version="1.0">
+	<!-- XMB™ Menu > Game Category > Folders -->
+	<View id="seg_game_folders_ps1">
+		<Attributes>
+			<Table key="shared_actions">
+				<Pair key="str_noitem"><String>msg_error_no_title</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<!-- Playstation®1 Games -->
+			<Table key="psx_games_folder" include="shared_actions">
+				<Pair key="icon_rsc"><String>tex_psx_folder</String></Pair>
+				<Pair key="title_rsc"><String>msg_psx_folder</String></Pair>
+				<Pair key="info_rsc"><String>info_psx_folder</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="psx_games_folder" attr="psx_games_folder" src="#seg_psx_games_folder_items"/>
+			
+		</Items>
+	</View>
+	
+	<!-- Game Category > Playstation®1 Folder -->
+	<View id="seg_psx_games_folder_items">
+		<Attributes>
+			<Table key="focus_item">
+				<Pair key="focus_priority"><String>-80</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="psx_games_iso_bin_cue_format" attr="focus_item" src="xmb://localhost/dev_hdd0/xmlhost/game_plugin/mygames.xml#seg_wm_psx_items"/>
+			<Query class="type:x-xmb/folder-pixmap" key="psx_games_pkg_format" attr="focus_item" src="xcb://localhost/query?limit=2048&table=MMS_MEDIA_TYPE_HDD&sort=+Game:Common.title&cond=Ae+Game:Game.category 1P"/>		<Query class="type:x-xmb/folder-pixmap" key="uninstall_games_rom" attr="uninstall_games_rom" src="#seg_uninst"/>
+		</Items>
+	</View>
+	
+	<View id="seg_uninst">
+		<Attributes>
+		<Table key="uninstall_games_ps1">
+				<Pair key="str_noitem"><String>msg_error_no_title</String></Pair>
+				<Pair key="icon_rsc"><String>tex_delete_log</String></Pair>
+				<Pair key="title_rsc"><String>msg_psx_folder</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_delete_file_info</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+		</Table>
+		<Table key="uninstall_games_rom">
+				<Pair key="str_noitem"><String>msg_error_no_title</String></Pair>
+				<Pair key="icon_rsc"><String>tex_delete_log</String></Pair>
+				<Pair key="title_rsc"><String>msg_psx_folder</String></Pair>
+				<Pair key="info_rsc"><String>msg_wait</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+		</Table>
+		</Attributes>	
+		<Items>	
+			<Query class="type:x-xmb/folder-pixmap" key="uninstall_games_ps1" attr="uninstall_games_ps1" src="xmb://localhost//dev_flash/hen/xml/ofw_m.xml#sdvmc_2nd"/>
+			<Query class="type:x-xmb/folder-pixmap" key="uninstall_games_rom" attr="uninstall_games_rom" src="xmb://localhost//dev_flash/hen/xml/uninstall.xml#seg_psx_games_uninstall_items"/>
+		</Items>
+	</View>
+	
+</XMBML>	

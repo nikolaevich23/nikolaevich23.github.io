@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<XMBML version="1.0">
+	<View id="root">
+		<Attributes>
+			<Table key="seg_browser">
+				<Pair key="focus_priority"><String>-1</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_manual"
+				src="#seg_manual"
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_premo"
+				src="sel://localhost/nopremo?category_network.xml#seg_premo"
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_browser"
+				attr="seg_browser"
+				src="#seg_browser"
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_kensaku"
+				src="#seg_kensaku"
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_dlctrl"
+				src="ese://localhost/query?type=download_control"
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_gameexit"
+				src="sel://localhost/ingame?path=category_network.xml#seg_gameexit&type=network"
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="gameDir"
+				attr="gameDir"
+				src="xcb://localhost/query?limit=2048&table=MMS_MEDIA_TYPE_HDD&sort=-Game:Common.stat.rating-Game:Common.timeCreated&cond=Aa+Game:Common.title+Ae+Game:Game.category CB"
+				/>
+			/>
+		</Items>
+	</View>
+
+	<View id="seg_premo">
+		<Items>
+			<Item class="type:x-xmb/xmlpremo" key="PRemo" />
+		</Items>
+	</View>
+
+	<View id="seg_browser">
+		<Attributes>
+			<Table key="browser">
+				<Pair key="icon_rsc"><String>tex_browser</String></Pair>
+				<Pair key="icon_notation"><String>WNT_XmbItemBrowser</String></Pair>
+				<Pair key="title_rsc"><String>msg_browser</String></Pair>
+ 			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/xmlwebbrowser" key="browser" attr="browser" />
+		</Items>
+	</View>
+
+	<View id="seg_manual">
+		<Attributes>
+			<Table key="manual">
+				<Pair key="icon_rsc"><String>tex_onlinemanual</String></Pair>
+				<Pair key="icon_notation"><String>WNT_XmbItemOnlineManual</String></Pair>
+				<Pair key="title_rsc"><String>msg_onlinemanual</String></Pair>
+ 			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/xmlwebbrowser" key="manual" attr="manual" />
+		</Items>
+	</View>
+
+	<View id="seg_kensaku">
+		<Attributes>
+			<Table key="kensaku">
+				<Pair key="icon_rsc"><String>tex_kensaku</String></Pair>
+				<Pair key="icon_notation"><String>WNT_XmbItemInetSearch</String></Pair>
+				<Pair key="title_rsc"><String>msg_internet_search</String></Pair>
+				<Pair key="module_name"><String>kensaku_plugin</String></Pair>
+				<Pair key="module_action"><String>kensaku_google</String></Pair>
+				<Pair key="bar_action"><String>none</String></Pair>
+ 			</Table>
+		</Attributes>
+		<Items>
+			<Item
+				class="type:x-xmb/module-action"
+				key="kensaku"
+				attr="kensaku"
+			/>
+		</Items>
+	</View>
+	
+	<View id="seg_gameexit">
+		<Items>
+			<Item class="type:x-xmb/xmlgameexit" key="gameexit" />
+		</Items>
+	</View>
+</XMBML>

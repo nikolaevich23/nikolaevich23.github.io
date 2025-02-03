@@ -1,0 +1,401 @@
+<XMBML version="1.0">
+		<View id="seg_file_manager_items">
+		<Attributes>
+			<Table key="fileexplorer_xmbm_main">
+				<Pair key="icon_rsc"><String>tex_folder_list</String></Pair>				
+				<Pair key="title_rsc">
+					<String>msg_hfw_fe_main</String>
+				</Pair>
+				<Pair key="info_rsc">
+					<String>msg_hfw_fe_main_info</String>
+				</Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="fileexplorer_xmbm_main" attr="fileexplorer_xmbm_main" src="#seg_fileexplorer_xmbm_items"/>
+		</Items>
+	</View>
+		<View id="seg_fileexplorer_xmbm_items">
+		<Attributes>
+			<Table key="fm_dev_all">
+				<Pair key="icon_rsc"><String>tex_folder_list</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_all_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_all_info</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_hdd0">
+				<Pair key="icon_rsc"><String>tex_dump</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_hdd0_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_hdd0_info</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_hdd1">
+				<Pair key="icon_rsc"><String>tex_dump</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_hdd1_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_hdd1_info</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_usb">
+				<Pair key="icon_rsc"><String>tex_usb</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_usb_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_usb_info</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_flash">
+				<Pair key="icon_rsc"><String>tex_fs</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_flash_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_flash_info</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_optical">
+				<Pair key="icon_rsc"><String>tex_disc</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_optical_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_optical_info</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_memorycard">
+				<Pair key="icon_rsc"><String>tex_produo</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_memorycard_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_memorycard_info</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="media_usb">
+				<Pair key="icon_rsc"><String>item_tex_disc_bd_contents</String></Pair>
+				<Pair key="title_rsc"><String>msg_media_usb</String></Pair>
+				<Pair key="info_rsc"><String>msg_media_usb_info</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_all" 		attr="fm_dev_all" 			src="#seg_filemanager_all"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_hdd0" 		attr="fm_dev_hdd0" 			src="#seg_fm_dev_hdd0_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_hdd1" 		attr="fm_dev_hdd1" 			src="#seg_fm_dev_hdd1_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_usb" 		attr="fm_dev_usb" 			src="#seg_filemanager_usb"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_memorycard" attr="fm_dev_memorycard" 	src="#seg_filemanager_memorycard"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_optical" 	attr="fm_dev_optical" 		src="#seg_filemanager_optical"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_flash" 		attr="fm_dev_flash" 		src="#seg_filemanager_flash"/>
+			<Query class="type:x-xmb/folder-pixmap" key="media_usb" attr="media_usb" src="xmb://localhost/dev_flash/hen/xml/media_usb.xml#media_usb_items"/>
+		</Items>
+	</View>
+	
+	<View id="seg_filemanager_all">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_all" src="host://localhost/"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_hdd0_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_hdd0" src="host://localhost/dev_hdd0"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_hdd1_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_hdd1" src="host://localhost/dev_hdd1"/>
+		</Items>
+	</View>
+
+	<View id="seg_filemanager_usb">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="filemanager_usb_items" attr="filemanager_usb_items" src="#seg_filemanager_usb_items"/>
+		</Items>
+	</View>
+
+	<View id="seg_filemanager_usb_items">
+		<Attributes>
+			<Table key="fm_dev_usb000">
+				<Pair key="icon_rsc"><String>tex_usb</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_usb000_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_usb000_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_usb001">
+				<Pair key="icon_rsc"><String>tex_usb</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_usb001_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_usb001_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_usb002">
+				<Pair key="icon_rsc"><String>tex_usb</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_usb002_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_usb002_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_usb003">
+				<Pair key="icon_rsc"><String>tex_usb</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_usb003_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_usb003_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_usb004">
+				<Pair key="icon_rsc"><String>tex_usb</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_usb004_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_usb004_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_usb005">
+				<Pair key="icon_rsc"><String>tex_usb</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_usb005_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_usb005_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_usb006">
+				<Pair key="icon_rsc"><String>tex_usb</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_usb006_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_usb006_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_usb000" attr="fm_dev_usb000" src="#seg_fm_dev_usb000_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_usb001" attr="fm_dev_usb001" src="#seg_fm_dev_usb001_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_usb002" attr="fm_dev_usb002" src="#seg_fm_dev_usb002_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_usb003" attr="fm_dev_usb003" src="#seg_fm_dev_usb003_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_usb004" attr="fm_dev_usb004" src="#seg_fm_dev_usb004_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_usb005" attr="fm_dev_usb005" src="#seg_fm_dev_usb005_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_usb006" attr="fm_dev_usb006" src="#seg_fm_dev_usb006_path"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_usb000_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_usb000" src="host://localhost/dev_usb000"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_usb001_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_usb001" src="host://localhost/dev_usb001"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_usb002_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_usb002" src="host://localhost/dev_usb002"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_usb003_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_usb003" src="host://localhost/dev_usb003"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_usb004_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_usb004" src="host://localhost/dev_usb004"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_usb005_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_usb005" src="host://localhost/dev_usb005"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_usb006_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_usb006" src="host://localhost/dev_usb006"/>
+		</Items>
+	</View>
+
+	<View id="seg_filemanager_flash">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="filemanager_flash_items" attr="filemanager_flash_items" src="#seg_filemanager_flash_items"/>
+		</Items>
+	</View>
+
+	<View id="seg_filemanager_flash_items">
+		<Attributes>
+			<Table key="fm_dev_flash">
+				<Pair key="icon_rsc"><String>tex_fs</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_flash_item_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_flash_item_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_flash2">
+				<Pair key="icon_rsc"><String>tex_fs</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_flash2_item_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_flash2_item_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_flash3">
+				<Pair key="icon_rsc"><String>tex_fs</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_flash3_item_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_flash3_item_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_blind">
+				<Pair key="icon_rsc"><String>tex_flash_warning</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_blind_item_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_blind_item_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_rewrite">
+				<Pair key="icon_rsc"><String>tex_flash_warning</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_rewrite_item_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_rewrite_item_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>			
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_flash" 	  attr="fm_dev_flash"       src="#seg_fm_dev_flash_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_flash2"   attr="fm_dev_flash2"      src="#seg_fm_dev_flash2_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_flash3"   attr="fm_dev_flash3"      src="#seg_fm_dev_flash3_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_blind" 	  attr="fm_dev_blind"       src="#seg_fm_dev_blind_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_rewrite"  attr="fm_dev_rewrite"     src="#seg_fm_dev_rewrite_path"/>			
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_flash_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_flash" src="host://localhost/dev_flash"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_flash2_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_flash2" src="host://localhost/dev_flash2"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_flash3_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_flash3" src="host://localhost/dev_flash3"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_blind_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_blind" src="host://localhost/dev_blind"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_rewrite_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_rewrite" src="host://localhost/dev_rewrite"/>
+		</Items>
+	</View>
+
+	<View id="seg_filemanager_optical">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="filemanager_optical_items" attr="filemanager_optical_items" src="#seg_filemanager_optical_items"/>
+		</Items>
+	</View>
+
+	<View id="seg_filemanager_optical_items">
+		<Attributes>
+			<Table key="fm_dev_bdvd">
+				<Pair key="icon_rsc"><String>tex_disc</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_bdvd_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_bdvd_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_app_home">
+				<Pair key="icon_rsc"><String>tex_disc</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_app_home_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_app_home_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_ps2disc">
+				<Pair key="icon_rsc"><String>tex_disc</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_ps2disc_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_ps2disc_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_bdvd" 	 attr="fm_dev_bdvd"    src="#seg_fm_dev_bdvd_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_ps2disc" attr="fm_dev_ps2disc" src="#seg_fm_dev_ps2disc"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_app_home" 	 attr="fm_app_home"    src="#seg_fm_app_home_path"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_bdvd_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_bdvd" src="host://localhost/dev_bdvd"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_app_home_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_app_home" src="host://localhost/app_home"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_ps2disc_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_ps2disc" src="host://localhost/dev_ps2disc"/>
+		</Items>
+	</View>
+
+	<View id="seg_filemanager_memorycard">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="filemanager_memorycard_items" attr="filemanager_memorycard_items" src="#seg_filemanager_memorycard_items"/>
+		</Items>
+	</View>
+
+	<View id="seg_filemanager_memorycard_items">
+		<Attributes>
+			<Table key="fm_dev_ms">
+				<Pair key="icon_rsc"><String>tex_produo</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_ms_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_ms_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_sd">
+				<Pair key="icon_rsc"><String>tex_xreg</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_sd_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_sd_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<Table key="fm_dev_cf">
+				<Pair key="icon_rsc"><String>tex_cflash</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_cf_title</String></Pair>
+				<Pair key="info_rsc"><String>msg_fm_dev_cf_info</String></Pair>
+				<Pair key="str_noitem"><String>msg_error_no_content</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_ms" attr="fm_dev_ms" src="#seg_fm_dev_ms_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_sd" attr="fm_dev_sd" src="#seg_fm_dev_sd_path"/>
+			<Query class="type:x-xmb/folder-pixmap" key="fm_dev_cf" attr="fm_dev_cf" src="#seg_fm_dev_cf_path"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_ms_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_ms" src="host://localhost/dev_ms"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_sd_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_sd" src="host://localhost/dev_sd"/>
+		</Items>
+	</View>
+
+	<View id="seg_fm_dev_cf_path">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="host_provider_dev_cf" src="host://localhost/dev_cf"/>
+		</Items>
+	</View>
+</XMBML>

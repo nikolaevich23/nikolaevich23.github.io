@@ -1,0 +1,13 @@
+﻿<XMBML version="1.0">
+	<View id="seg_hen_enabler">
+		<Attributes>
+			<Table key="hen_enabled">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/hen_enable.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_tool_hen_e</String></Pair>
+				</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/module-action" key="hen_enabled" attr="hen_enabled"/>
+		</Items>
+	</View>
+</XMBML>

@@ -1,0 +1,302 @@
+<!-- Coded for PS3™ 4K Pro Lite by Luan Teles -->
+
+<XMBML version="1.0">
+	<!-- XMB™ Menu > Game Category > File Manager > Fan Control (Cobra)-->
+	<!-- Note: This Will Replace webMAN MOD Fan Control, If The User disables webMAN MOD Through: XMB™ Menu > Game Category > File Manager > webMAN Quick Links > webMAN > Disable webMAN -->
+	<View id="seg_cobra_fan_control">
+		<Attributes>
+			<Table key="cobra_fan_control">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_control</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_control</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="cobra_fan_control" attr="cobra_fan_control" src="#seg_cobra_fan_control_items"/>
+		</Items>
+	</View>
+	<View id="seg_cobra_fan_control_items">
+		<Attributes>
+			<Table key="focus_item">
+				<Pair key="focus_priority"><String>-80</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="cobra_fan_speed" src="#cobra_fan_speed_item"/>
+			<Query class="type:x-xmb/folder-pixmap" key="cobra_fan_control_environments" attr="focus_item" src="#seg_cobra_fan_control_environments_items"/>
+		</Items>
+	</View>
+	<View id="cobra_fan_speed_item">
+		<Attributes>
+			<!-- Show Fan Data (Temperature + Speed) -->
+			<Table key="show_fan_speed">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair> 
+				<Pair key="title_rsc"><String>msg_show_fan_data</String></Pair>
+				<Pair key="info_rsc"><String>info_show_fan_data</String></Pair>
+				<Pair key="module_name"><String>xai_plugin</String></Pair>
+				<Pair key="module_action"><String>fan_data</String></Pair>
+				<Pair key="bar_action"><String>none</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/module-action" key="show_fan_speed" attr="show_fan_speed"/>	
+		</Items>
+	</View>
+	<View id="seg_cobra_fan_control_environments_items">
+		<Attributes>
+			<!-- PS3™ Environment Fan Control -->
+			<Table key="seg_cobra_fan_control_ps3_environment">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/ps3.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_control_ps3_environment</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_control_ps3_environment</String></Pair>
+			</Table>
+			<!-- PS2™ Environment Fan Control -->
+			<Table key="seg_cobra_fan_control_ps2_environment">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/ps2.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_control_ps2_environment</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_control_ps2_environment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="seg_cobra_fan_control_ps3_environment" attr="seg_cobra_fan_control_ps3_environment" src="#seg_cobra_fan_control_ps3_environment_items"/>
+			<Query class="type:x-xmb/folder-pixmap" key="seg_cobra_fan_control_ps2_environment" attr="seg_cobra_fan_control_ps2_environment" src="#seg_cobra_fan_control_ps2_environment_items"/>
+		</Items>
+	</View>
+	<!-- Game Category > File Manager > webMAN > Fan Control (webMAN Disabled) > PS3™ Environment -->
+	<View id="seg_cobra_fan_control_ps3_environment_items">
+		<Attributes>
+			<Table key="shared_actions">
+				<Pair key="module_name"><String>xai_plugin</String></Pair>
+				<Pair key="bar_action"><String>none</String></Pair>
+			</Table>
+			<!-- System Mode -->
+			<Table key="cobra_ps3_fan_control_syscon_mode" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_control_syscon_mode</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_control_syscon_mode</String></Pair>
+				<Pair key="module_action"><String>fan_mode_syscon</String></Pair>
+			</Table>
+			<!-- Manual Mode -->
+			<Table key="cobra_ps3_fan_control_manual_mode">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_control_manual_mode</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_control_manual_mode</String></Pair>
+			</Table>
+			<!-- Automatic Mode -->
+			<Table key="cobra_ps3_fan_control_automatic_mode" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_control_automatic_mode</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_control_automatic_mode</String></Pair>
+			</Table>
+			<!-- Disabled Mode -->
+			<Table key="cobra_ps3_fan_control_disabled_mode" include="shared_actions">
+				<Pair key="icon_rsc"><String>tex_fan</String></Pair>
+				<Pair key="title"><String>Disabled Mode</String></Pair>
+				<Pair key="info"><String>Disables the fan control.</String></Pair>
+				<Pair key="module_action"><String>fan_mode_disabled</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/module-action" key="cobra_ps3_fan_control_syscon_mode"	attr="cobra_ps3_fan_control_syscon_mode"/>
+			<Query class="type:x-xmb/folder-pixmap" key="cobra_ps3_fan_control_manual_mode" attr="cobra_ps3_fan_control_manual_mode" src="#seg_cobra_ps3_fan_control_manual_mode_items"/>
+			<Query class="type:x-xmb/folder-pixmap" key="cobra_ps3_fan_control_automatic_mode"	attr="cobra_ps3_fan_control_automatic_mode" src="#seg_cobra_ps3_fan_control_automatic_mode_items"/>
+			<!-- <Item class="type:x-xmb/module-action" key="cobra_ps3_fan_control_disabled_mode" attr="cobra_ps3_fan_control_disabled_mode"/> -->
+			</Items>
+	</View>
+	<!-- Game Category > File Manager > webMAN > Fan Control (webMAN Disabled) > PS3™ Environment Fan Control > Manual Mode -->
+	<View id="seg_cobra_ps3_fan_control_manual_mode_items">
+		<Attributes>
+			<Table key="shared_actions">
+				<Pair key="module_name"><String>xai_plugin</String></Pair>
+				<Pair key="bar_action"><String>none</String></Pair>
+			</Table>
+			<!-- Fan Speed: 40% -->
+			<Table key="fan_speed_40" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_40</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_40</String></Pair>
+				<Pair key="module_action"><String>fan_manual_40</String></Pair>
+			</Table>
+			<!-- Fan Speed: 50% -->
+			<Table key="fan_speed_50" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_50</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_50</String></Pair>
+				<Pair key="module_action"><String>fan_manual_50</String></Pair>
+			</Table>
+			<!-- Fan Speed: 60% -->
+			<Table key="fan_speed_60" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_60</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_60</String></Pair>
+				<Pair key="module_action"><String>fan_manual_60</String></Pair>
+			</Table>
+			<!-- Fan Speed: 70% -->
+			<Table key="fan_speed_70" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_70</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_70</String></Pair>
+				<Pair key="module_action"><String>fan_manual_70</String></Pair>
+			</Table>
+			<!-- Fan Speed: 80% -->
+			<Table key="fan_speed_80" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_80</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_80</String></Pair>
+				<Pair key="module_action"><String>fan_manual_80</String></Pair>
+			</Table>
+			<!-- Fan Speed: 90% -->
+			<Table key="fan_speed_90" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_90</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_90</String></Pair>
+				<Pair key="module_action"><String>fan_manual_90</String></Pair>
+			</Table>
+			<!-- Fan Speed: 99% -->
+			<Table key="fan_speed_99" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_99</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_99</String></Pair>
+				<Pair key="module_action"><String>fan_mode_max</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/module-action" key="fan_speed_40" attr="fan_speed_40"/>
+			<Item class="type:x-xmb/module-action" key="fan_speed_50" attr="fan_speed_50"/>
+			<Item class="type:x-xmb/module-action" key="fan_speed_60" attr="fan_speed_60"/>
+			<Item class="type:x-xmb/module-action" key="fan_speed_70" attr="fan_speed_70"/>
+			<Item class="type:x-xmb/module-action" key="fan_speed_80" attr="fan_speed_80"/>
+			<Item class="type:x-xmb/module-action" key="fan_speed_90" attr="fan_speed_90"/>
+			<Item class="type:x-xmb/module-action" key="fan_speed_99" attr="fan_speed_99"/>
+		</Items>
+	</View>
+	<!-- Game Category > File Manager > webMAN > Fan Control (webMAN Disabled) > PS3™ Environment Fan Control > Automatic Mode -->
+	<View id="seg_cobra_ps3_fan_control_automatic_mode_items">
+		<Attributes>
+			<Table key="shared_actions">
+				<Pair key="module_name"><String>xai_plugin</String></Pair>
+				<Pair key="bar_action"><String>none</String></Pair>
+			</Table>
+			<!-- Target Temperature: 60ºC -->
+			<Table key="max_temp_60c" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_max_temp_60</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_max_temp_60</String></Pair>
+				<Pair key="module_action"><String>fan_mode_60</String></Pair>
+			</Table>
+			<!-- Target Temperature: 65ºC -->
+			<Table key="max_temp_65c" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_max_temp_65</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_max_temp_65</String></Pair>
+				<Pair key="module_action"><String>fan_mode_65</String></Pair>
+			</Table>
+			<!-- Target Temperature: 70ºC -->
+			<Table key="max_temp_70c" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_max_temp_70</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_max_temp_70</String></Pair>
+				<Pair key="module_action"><String>fan_mode_70</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/module-action" key="max_temp_60c" attr="max_temp_60c"/>
+			<Item class="type:x-xmb/module-action" key="max_temp_65c" attr="max_temp_65c"/>
+			<Item class="type:x-xmb/module-action" key="max_temp_70c" attr="max_temp_70c"/>
+		</Items>
+	</View>
+	<!-- Game Category > File Manager > webMAN > Fan Control (webMAN Disabled) > PS2™ Environment -->
+	<View id="seg_cobra_fan_control_ps2_environment_items">
+		<Attributes>
+			<Table key="shared_actions">
+				<Pair key="module_name"><String>xai_plugin</String></Pair>
+				<Pair key="bar_action"><String>none</String></Pair>
+			</Table>
+			<!-- System Mode -->
+			<Table key="cobra_ps2_fan_control_syscon_mode" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_control_syscon_mode</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_control_syscon_mode</String></Pair>
+				<Pair key="module_action"><String>fan_ps2mode_syscon</String></Pair>
+			</Table>
+			<!-- Manual Mode -->
+			<Table key="cobra_ps2_fan_control_manual_mode">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_control_manual_mode</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_control_manual_mode</String></Pair>
+			</Table>
+			<!-- Disabled Mode -->
+			<Table key="cobra_ps2_fan_control_disabled_mode" include="shared_actions">
+				<Pair key="icon_rsc"><String>tex_fan_ps2</String></Pair>
+				<Pair key="title_rsc"><String>Disabled Mode</String></Pair>
+				<Pair key="info_rsc"><String>Disables the fan control.</String></Pair>
+				<Pair key="module_action"><String>fan_ps2mode_disabled</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/module-action" key="cobra_ps2_fan_control_syscon_mode" attr="cobra_ps2_fan_control_syscon_mode"/>
+			<Query class="type:x-xmb/folder-pixmap" key="cobra_ps2_fan_control_manual_mode" attr="cobra_ps2_fan_control_manual_mode" src="#seg_cobra_ps2_fan_control_manual_mode_items"/>
+			<!-- <Item class="type:x-xmb/module-action" key="cobra_ps2_fan_control_disabled_mode" attr="cobra_ps2_fan_control_disabled_mode"/> -->
+		</Items>
+	</View>
+	<!-- Game Category > File Manager > webMAN > Fan Control (webMAN Disabled) > PS2™ Environment Fan Control > Manual Mode -->
+	<View id="seg_cobra_ps2_fan_control_manual_mode_items">
+		<Attributes>
+			<Table key="shared_actions">
+				<Pair key="module_name"><String>xai_plugin</String></Pair>
+				<Pair key="bar_action"><String>none</String></Pair>
+			</Table>
+			<!-- Fan Speed: 40% -->
+			<Table key="fan_speed_40" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_40</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_40</String></Pair>
+				<Pair key="module_action"><String>fan_ps2mode_40</String></Pair>
+			</Table>
+			<!-- Fan Speed: 50% -->
+			<Table key="fan_speed_50" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_50</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_50</String></Pair>
+				<Pair key="module_action"><String>fan_ps2mode_50</String></Pair>
+			</Table>
+			<!-- Fan Speed: 60% -->
+			<Table key="fan_speed_60" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_60</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_60</String></Pair>
+				<Pair key="module_action"><String>fan_ps2mode_60</String></Pair>
+			</Table>
+			<!-- Fan Speed: 70% -->
+			<Table key="fan_speed_70" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_70</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_70</String></Pair>
+				<Pair key="module_action"><String>fan_ps2mode_70</String></Pair>
+			</Table>
+			<!-- Fan Speed: 80% -->
+			<Table key="fan_speed_80" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_80</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_80</String></Pair>
+				<Pair key="module_action"><String>fan_ps2mode_80</String></Pair>
+			</Table>
+			<!-- Fan Speed: 90% -->
+			<Table key="fan_speed_90" include="shared_actions">
+				<Pair key="icon"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/fan.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_webman_fan_speed_90</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_fan_speed_90</String></Pair>
+				<Pair key="module_action"><String>fan_ps2mode_90</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/module-action" key="fan_speed_40" attr="fan_speed_40"/>
+			<Item class="type:x-xmb/module-action" key="fan_speed_50" attr="fan_speed_50"/>
+			<Item class="type:x-xmb/module-action" key="fan_speed_60" attr="fan_speed_60"/>
+			<Item class="type:x-xmb/module-action" key="fan_speed_70" attr="fan_speed_70"/>
+			<Item class="type:x-xmb/module-action" key="fan_speed_80" attr="fan_speed_80"/>
+			<Item class="type:x-xmb/module-action" key="fan_speed_90" attr="fan_speed_90"/>
+		</Items>
+	</View>
+</XMBML>

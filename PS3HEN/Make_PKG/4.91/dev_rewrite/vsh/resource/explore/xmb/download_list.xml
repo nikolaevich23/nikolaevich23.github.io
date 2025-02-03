@@ -1,0 +1,2598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<XMBML version="1.0">
+	<View id="upload_music_hdd_items">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_music_playlist"
+				src="xmb://localhost/%flash/xmb/category_music.xml#seg_playlist_mgmt"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="music_hdd"
+				attr="music_hdd"
+				src="sel://localhost/ex?root.view_selected.music"
+			/>
+		</Items>
+	</View>
+
+	<View id="upload_music_hdd">
+		<Attributes>
+			<Table key="music_hdd">
+				<Pair key="icon_rsc"><String>tex_music</String></Pair>
+				<Pair key="icon_notation"><String>WNT_XmbListMusic</String></Pair>
+				<Pair key="title_rsc"><String>msg_ps3_music</String></Pair>
+				<Pair key="info_rsc"><String>msg_space</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0</String></Pair>
+				<Pair key="logical_sceme"><String>Music</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="music_hdd"
+				attr="music_hdd"
+				src="#upload_music_hdd_items"
+			/>
+		</Items>
+	</View>
+
+	<View id="upload_music_hdd_view_selected">
+		<Attributes>
+			<Table key="music_hdd">
+				<Pair key="icon_rsc"><String>tex_music</String></Pair>
+				<Pair key="icon_notation"><String>WNT_XmbListMusic</String></Pair>
+				<Pair key="title_rsc"><String>msg_ps3_music</String></Pair>
+				<Pair key="info_rsc"><String>msg_space</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0</String></Pair>
+				<Pair key="logical_sceme"><String>Music</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="music_hdd"
+				attr="music_hdd"
+				src="sel://localhost/ex?root.view_selected.music"
+			/>
+		</Items>
+	</View>
+
+	<View id="upload_photo_hdd_items">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_photo_playlist"
+				src="xmb://localhost/%flash/xmb/category_photo.xml#seg_playlist_mgmt"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="photo_hdd"
+				src="sel://localhost/ex?root.view_selected.photo"
+			/>
+		</Items>
+	</View>
+	
+	<View id="upload_video_hdd_items">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="video_hdd"
+				src="sel://localhost/ex?root.view_selected.video"
+			/>
+		</Items>
+	</View>
+	
+	<View id="upload_game_hdd">
+		<Attributes>
+			<Table key="game_hdd">
+				<Pair key="icon_rsc"><String>item_tex_ps3util</String></Pair>
+				<Pair key="title_rsc"><String>msg_game</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0</String></Pair>
+				<Pair key="logical_sceme"><String>Game</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="game_hdd"
+				attr="game_hdd"
+				src="#upload_game_hdd_items"
+			/>
+		</Items>
+	</View>
+	
+	<View id="upload_game_hdd_items">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="game_hddx"
+				src="sel://localhost/ex?root.view_selected.game"
+			/>
+		</Items>
+	</View>
+
+
+	<View id="upload_photo_hdd">
+		<Attributes>
+			<Table key="photo_hdd">
+				<Pair key="icon_rsc"><String>tex_photo</String></Pair>
+				<Pair key="icon_notation"><String>WNT_XmbListPhoto</String></Pair>
+				<Pair key="title_rsc"><String>msg_ps3_photo</String></Pair>
+				<Pair key="info_rsc"><String>msg_space</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0</String></Pair>
+				<Pair key="logical_sceme"><String>Photo</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="photo_hdd"
+				attr="photo_hdd"
+				src="#upload_photo_hdd_items"
+			/>
+		</Items>
+	</View>
+
+	<View id="upload_photo_hdd_view_selected">
+		<Attributes>
+			<Table key="photo_hdd">
+				<Pair key="icon_rsc"><String>tex_photo</String></Pair>
+				<Pair key="icon_notation"><String>WNT_XmbListPhoto</String></Pair>
+				<Pair key="title_rsc"><String>msg_ps3_photo</String></Pair>
+				<Pair key="info_rsc"><String>msg_space</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0</String></Pair>
+				<Pair key="logical_sceme"><String>Photo</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="photo_hdd"
+				attr="photo_hdd"
+				src="sel://localhost/ex?root.view_selected.photo"
+			/>
+		</Items>
+	</View>
+	
+	<View id="upload_video_hdd">
+		<Attributes>
+			<Table key="video_hdd">
+				<Pair key="icon_rsc"><String>tex_video</String></Pair>
+				<Pair key="icon_notation"><String>WNT_XmbListVideo</String></Pair>
+				<Pair key="title_rsc"><String>msg_ps3_video</String></Pair>
+				<Pair key="info_rsc"><String>msg_space</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0</String></Pair>
+				<Pair key="logical_sceme"><String>Video</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="video_hdd"
+				attr="video_hdd"
+				src="#upload_video_hdd_items"
+			/>
+		</Items>
+	</View>
+
+	<View id="upload_photo_root">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd0_main"
+				src="#seg_download_hdd0_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd1_main"
+				src="#seg_download_hdd1_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_blind"
+				src="#seg_download_dev_blind"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash2"
+				src="#seg_download_dev_flash2"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash3"
+				src="#seg_download_dev_flash3"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="upload_game_hdd"
+				src="#upload_game_hdd"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="upload_photo_hdd"
+				src="#upload_photo_hdd"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="upload_music_hdd"
+				src="#upload_music_hdd"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="upload_video_hdd"
+				src="#upload_video_hdd"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_mount_hdd1"
+				src="#seg_mount_hdd1"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_bdvd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_BDROM %xCB_MEDIA_TYPE_DVDPRW" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_cd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_CDROM %xCB_MEDIA_TYPE_CDMRW" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_sd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_SD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_cf_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_CF+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbspecial_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBCAMERA %xCB_DEVICE_TYPE_USBAAD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usb_aad_new_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBAADWM %xCB_DEVICE_TYPE_USBWM+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbmass_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+		</Items>
+	</View>
+	
+	<View id="download_photo_hdd">
+		<Attributes>
+			<Table key="photo_hdd">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/photo.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_ps3_photo</String></Pair>
+				<Pair key="info_rsc"><String>msg_space</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0</String></Pair>
+				<Pair key="logical_sceme"><String>Photo</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="photo_hdd" attr="photo_hdd"/>
+		</Items>
+	</View>
+	
+	<View id="download_video_hdd">
+		<Attributes>
+			<Table key="video_hdd">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/video.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_ps3_video</String></Pair>
+				<Pair key="info_rsc"><String>msg_space</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0</String></Pair>
+				<Pair key="logical_sceme"><String>Video</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="video_hdd" attr="video_hdd"/>
+		</Items>
+	</View>
+
+	<View id="download_music_hdd">
+		<Attributes>
+			<Table key="music_hdd">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/music.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_ps3_music</String></Pair>
+				<Pair key="info_rsc"><String>msg_space</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0</String></Pair>
+				<Pair key="logical_sceme"><String>Music</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="music_hdd" attr="music_hdd"/>
+		</Items>
+	</View>
+
+
+	<View id="download_photo_root">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="download_photo_hdd"
+				src="#download_photo_hdd"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd0_main"
+				src="#seg_download_hdd0_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd1_main"
+				src="#seg_download_hdd1_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_blind"
+				src="#seg_download_dev_blind"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash2"
+				src="#seg_download_dev_flash2"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash3"
+				src="#seg_download_dev_flash3"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_rewrite"
+				src="#seg_download_dev_rewrite"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_sd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_SD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_cf_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_CF+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbspecial_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBCAMERA %xCB_DEVICE_TYPE_USBAAD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usb_aad_new_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBAADWM %xCB_DEVICE_TYPE_USBWM+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbmass_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+		</Items>
+	</View>
+
+	<View id="download_photo_hdd_only">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="download_photo_hdd"
+				src="#download_photo_hdd"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd0_main"
+				src="#seg_download_hdd0_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd1_main"
+				src="#seg_download_hdd1_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_blind"
+				src="#seg_download_dev_blind"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash2"
+				src="#seg_download_dev_flash2"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash3"
+				src="#seg_download_dev_flash3"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_rewrite"
+				src="#seg_download_dev_rewrite"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_sd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_SD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_cf_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_CF+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbspecial_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBCAMERA %xCB_DEVICE_TYPE_USBAAD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usb_aad_new_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBAADWM %xCB_DEVICE_TYPE_USBWM+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbmass_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+		</Items>
+	</View>
+
+	<View id="download_music_root">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="download_music_hdd"
+				src="#download_music_hdd"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd0_main"
+				src="#seg_download_hdd0_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd1_main"
+				src="#seg_download_hdd1_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_blind"
+				src="#seg_download_dev_blind"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash2"
+				src="#seg_download_dev_flash2"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash3"
+				src="#seg_download_dev_flash3"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_rewrite"
+				src="#seg_download_dev_rewrite"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_sd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_SD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_cf_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_CF+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbspecial_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBCAMERA %xCB_DEVICE_TYPE_USBAAD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usb_aad_new_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBAADWM %xCB_DEVICE_TYPE_USBWM+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbmass_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+		</Items>
+	</View>
+
+	<View id="download_music_hdd_only">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="download_music_hdd"
+				src="#download_music_hdd"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd0_main"
+				src="#seg_download_hdd0_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd1_main"
+				src="#seg_download_hdd1_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_blind"
+				src="#seg_download_dev_blind"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash2"
+				src="#seg_download_dev_flash2"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash3"
+				src="#seg_download_dev_flash3"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_rewrite"
+				src="#seg_download_dev_rewrite"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_sd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_SD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_cf_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_CF+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbspecial_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBCAMERA %xCB_DEVICE_TYPE_USBAAD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usb_aad_new_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBAADWM %xCB_DEVICE_TYPE_USBWM+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbmass_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+		</Items>
+	</View>
+
+	<View id="download_video_root">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="download_video_hdd"
+				src="#download_video_hdd"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd0_main"
+				src="#seg_download_hdd0_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd1_main"
+				src="#seg_download_hdd1_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_blind"
+				src="#seg_download_dev_blind"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash2"
+				src="#seg_download_dev_flash2"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash3"
+				src="#seg_download_dev_flash3"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_rewrite"
+				src="#seg_download_dev_rewrite"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_sd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_SD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_cf_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_CF+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbspecial_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBCAMERA %xCB_DEVICE_TYPE_USBAAD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usb_aad_new_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBAADWM %xCB_DEVICE_TYPE_USBWM+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbmass_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+		</Items>
+	</View>
+
+	<View id="download_video_hdd_only">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="download_video_hdd"
+				src="#download_video_hdd"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd0_main"
+				src="#seg_download_hdd0_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd1_main"
+				src="#seg_download_hdd1_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_blind"
+				src="#seg_download_dev_blind"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash2"
+				src="#seg_download_dev_flash2"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_rewrite"
+				src="#seg_download_dev_rewrite"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash3"
+				src="#seg_download_dev_flash3"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_sd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_SD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_cf_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_CF+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbspecial_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBCAMERA %xCB_DEVICE_TYPE_USBAAD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usb_aad_new_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBAADWM %xCB_DEVICE_TYPE_USBWM+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbmass_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_msac_us40_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:StorageMedia.deviceType+StorageMedia:Common.stat.timeImported" 
+				/>
+		</Items>
+	</View>
+
+	<View id="download_unknown_root">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd0_main"
+				src="#seg_download_hdd0_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd1_main"
+				src="#seg_download_hdd1_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_blind"
+				src="#seg_download_dev_blind"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash2"
+				src="#seg_download_dev_flash2"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash3"
+				src="#seg_download_dev_flash3"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_rewrite"
+				src="#seg_download_dev_rewrite"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_media"
+				src="#seg_download_hdd_media"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_sd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_SD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_cf_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_CF+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbspecial_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBCAMERA %xCB_DEVICE_TYPE_USBAAD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usb_aad_new_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBAADWM %xCB_DEVICE_TYPE_USBWM+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbmass_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_msac_us40_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:StorageMedia.deviceType+StorageMedia:Common.stat.timeImported" 
+				/>
+		</Items>
+	</View>
+	
+	<View id="download_unknown_hdd_only">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd0_main"
+				src="#seg_download_hdd0_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd1_main"
+				src="#seg_download_hdd1_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_blind"
+				src="#seg_download_dev_blind"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash2"
+				src="#seg_download_dev_flash2"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash3"
+				src="#seg_download_dev_flash3"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_rewrite"
+				src="#seg_download_dev_rewrite"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_media"
+				src="#seg_download_hdd_media"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_sd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_SD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_cf_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_CF+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbspecial_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBCAMERA %xCB_DEVICE_TYPE_USBAAD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usb_aad_new_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBAADWM %xCB_DEVICE_TYPE_USBWM+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbmass_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_msac_us40_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:StorageMedia.deviceType+StorageMedia:Common.stat.timeImported" 
+				/>
+		</Items>
+	</View>
+
+	<View id="download_psp_only">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd0_main"
+				src="#seg_download_hdd0_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd1_main"
+				src="#seg_download_hdd1_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_blind"
+				src="#seg_download_dev_blind"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash2"
+				src="#seg_download_dev_flash2"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash3"
+				src="#seg_download_dev_flash3"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_rewrite"
+				src="#seg_download_dev_rewrite"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_media"
+				src="#seg_download_hdd_media"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_sd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_SD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_cf_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_CF+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbspecial_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBCAMERA %xCB_DEVICE_TYPE_USBAAD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usb_aad_new_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBAADWM %xCB_DEVICE_TYPE_USBWM+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbmass_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_msac_us40_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:StorageMedia.deviceType+StorageMedia:Common.stat.timeImported" 
+				/>
+		</Items>
+	</View>
+	<View id="download_psp_plus">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd0_main"
+				src="#seg_download_hdd0_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd1_main"
+				src="#seg_download_hdd1_main"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_blind"
+				src="#seg_download_dev_blind"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash2"
+				src="#seg_download_dev_flash2"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_flash3"
+				src="#seg_download_dev_flash3"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_dev_rewrite"
+				src="#seg_download_dev_rewrite"
+			/> 
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_media"
+				src="#seg_download_hdd_media"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_sd_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_SD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_cf_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_CF+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbspecial_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBCAMERA %xCB_DEVICE_TYPE_USBAAD+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usb_aad_new_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+AGL+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBAADWM %xCB_DEVICE_TYPE_USBWM+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbmass_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_usbpsp_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBPSP+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:Common.stat.timeImported" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_ms_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_MS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA" 
+				/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_msac_us40_device"
+				src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED+Ae+StorageMedia:StorageMedia.deviceType %xCB_DEVICE_TYPE_USBMASS+AGL+StorageMedia:StorageMedia.type %xCB_MEDIA_TYPE_MS_STD %xCB_MEDIA_TYPE_MS_R+Ae+StorageMedia:StorageMedia.mediaFormat %xCB_MEDIA_FORMAT_DATA&sort=+StorageMedia:StorageMedia.deviceType+StorageMedia:Common.stat.timeImported" 
+				/>
+		</Items>
+	</View>
+
+	<View id="seg_download_hdd0_main">
+		<Attributes>
+			<Table key="dev_hdd0">
+				<Pair key="icon_rsc"><String>tex_dump</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_hdd0_title</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="dev_hdd0"
+				attr="dev_hdd0"
+				src="#dev_hdd0_items"
+			/>
+		</Items>
+	</View>
+	
+	<View id="dev_hdd0_items">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_download"
+				src="#seg_download_hdd_download"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_covers"
+				src="#seg_download_hdd_covers"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_exdata"
+				src="#seg_download_hdd_exdata"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_game"
+				src="#seg_download_hdd_game"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_hen"
+				src="#seg_download_hdd_hen"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_packages"
+				src="#seg_download_hdd_packages"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_plugins"
+				src="#seg_download_hdd_plugins"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_ps3iso"
+				src="#seg_download_hdd_ps3iso"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_ps2iso"
+				src="#seg_download_hdd_ps2iso"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_psxiso"
+				src="#seg_download_hdd_psxiso"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_pspiso"
+				src="#seg_download_hdd_pspiso"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_bdiso"
+				src="#seg_download_hdd_bdiso"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_roms"
+				src="#seg_download_hdd_roms"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_tmp"
+				src="#seg_download_hdd_tmp"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_theme"
+				src="#seg_download_hdd_theme"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_updater"
+				src="#seg_download_hdd_updater"
+			/>
+		</Items>
+	</View>
+
+	<View id="seg_download_hdd1_main">
+		<Attributes>
+			<Table key="dev_hdd1">
+				<Pair key="icon_rsc"><String>tex_dump</String></Pair>
+				<Pair key="title_rsc"><String>msg_fm_dev_hdd1_title</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd1</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="dev_hdd1"
+				attr="dev_hdd1"
+			/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_media">
+		<Attributes>
+			<Table key="dev_hdd_media">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_play.png</String></Pair>
+				<Pair key="title"><String>Media</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="dev_hdd_media"
+				attr="dev_hdd_media"
+				src="#dev_hdd_media_items"
+			/>
+		</Items>
+	</View>
+	
+	<View id="dev_hdd_media_items">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_photo"
+				src="#seg_download_hdd_photo"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_music"
+				src="#seg_download_hdd_music"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_hdd_video"
+				src="#seg_download_hdd_video"
+			/>
+		</Items>
+	</View>
+
+	
+	
+	<View id="seg_download_dev_blind">
+		<Attributes>
+			<Table key="dev_blind">
+				<Pair key="icon_rsc"><String>tex_fs</String></Pair>
+				<Pair key="title"><String>dev_blind</String></Pair>
+				<Pair key="device_path"><String>/dev_blind</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="dev_blind"
+				attr="dev_blind"
+				src="#dev_blind_items"
+			/>
+		</Items>
+	</View>
+	
+	<View id="dev_blind_items">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_bdp"
+				src="#seg_download_bdp"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_bdjstack"
+				src="#seg_download_bdjstack"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_bdpSYS"
+				src="#seg_download_bdpSYS"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_data"
+				src="#seg_download_data"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_data_cert"
+				src="#seg_download_data_cert"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_data_dic"
+				src="#seg_download_data_dic"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_data_font"
+				src="#seg_download_data_font"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_ps1emu"
+				src="#seg_download_ps1emu"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_ps2emu"
+				src="#seg_download_ps2emu"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_pspemu"
+				src="#seg_download_pspemu"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_pspemu_flash0"
+				src="#seg_download_pspemu_flash0"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_pspemu_release"
+				src="#seg_download_pspemu_release"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_sys"
+				src="#seg_download_sys"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_external"
+				src="#seg_download_external"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_internal"
+				src="#seg_download_internal"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_vsh"
+				src="#seg_download_vsh"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_etc"
+				src="#seg_download_etc"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_module"
+				src="#seg_download_module"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_resource"
+				src="#seg_download_resource"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_qgl"
+				src="#seg_download_qgl"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_explore"
+				src="#seg_download_explore"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_icon"
+				src="#seg_download_icon"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_user"
+				src="#seg_download_user"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_xmb"
+				src="#seg_download_xmb"
+			/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_dev_rewrite">
+		<Attributes>
+			<Table key="dev_rewrite">
+				<Pair key="icon_rsc"><String>tex_fs</String></Pair>
+				<Pair key="title"><String>dev_rewrite</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="dev_rewrite"
+				attr="dev_rewrite"
+				src="#dev_rewrite_items"
+			/>
+		</Items>
+	</View>
+	
+	<View id="dev_rewrite_items">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_bdpr"
+				src="#seg_download_bdpr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_bdjstackr"
+				src="#seg_download_bdjstackr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_bdpSYSr"
+				src="#seg_download_bdpSYSr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_datar"
+				src="#seg_download_datar"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_data_certr"
+				src="#seg_download_data_certr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_data_dicr"
+				src="#seg_download_data_dicr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_data_fontr"
+				src="#seg_download_data_fontr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_ps1emur"
+				src="#seg_download_ps1emur"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_ps2emur"
+				src="#seg_download_ps2emur"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_pspemur"
+				src="#seg_download_pspemur"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_pspemu_flash0r"
+				src="#seg_download_pspemu_flash0r"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_pspemu_releaser"
+				src="#seg_download_pspemu_releaser"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_sysr"
+				src="#seg_download_sysr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_externalr"
+				src="#seg_download_externalr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_internalr"
+				src="#seg_download_internalr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_vshr"
+				src="#seg_download_vshr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_etcr"
+				src="#seg_download_etcr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_moduler"
+				src="#seg_download_moduler"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_resourcer"
+				src="#seg_download_resourcer"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_qglr"
+				src="#seg_download_qglr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_explorer"
+				src="#seg_download_explorer"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_iconr"
+				src="#seg_download_iconr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_userr"
+				src="#seg_download_userr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_xmbr"
+				src="#seg_download_xmbr"
+			/>
+		</Items>
+	</View>
+	
+	
+	<View id="seg_download_dev_flash2">
+		<Attributes>
+			<Table key="dev_flash2">
+				<Pair key="icon_rsc"><String>tex_fs</String></Pair>
+				<Pair key="title"><String>dev_flash2</String></Pair>
+				<Pair key="device_path"><String>/dev_flash2</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="dev_flash2"
+				attr="dev_flash2"
+				src="#dev_flash2_items"
+			/>
+		</Items>
+	</View>
+	
+	<View id="dev_flash2_items">
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_drm"
+				src="#seg_download_drm"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_drm_mgr"
+				src="#seg_download_drm_mgr"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_etc2"
+				src="#seg_download_etc2"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_activation"
+				src="#seg_download_activation"
+			/>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="seg_download_backup"
+				src="#seg_download_backup"
+			/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_dev_flash3">
+		<Attributes>
+			<Table key="dev_flash3">
+				<Pair key="icon_rsc"><String>tex_fs</String></Pair>
+				<Pair key="title"><String>dev_flash3</String></Pair>
+				<Pair key="device_path"><String>/dev_flash3</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query
+				class="type:x-xmb/folder-pixmap"
+				key="dev_flash3"
+				attr="dev_flash3"
+			/>
+		</Items>
+	</View>
+	
+	
+	<View id="seg_download_hdd_download">
+		<Attributes>
+			<Table key="download_hdd_download">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_xmbm.png</String></Pair>
+				<Pair key="title"><String>downloads</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/downloads</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_download" attr="download_hdd_download"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_hen">
+		<Attributes>
+			<Table key="download_hdd_hen">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_xmbm.png</String></Pair>
+				<Pair key="title"><String>hen</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/hen</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_hen" attr="download_hdd_hen"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_plugins">
+		<Attributes>
+			<Table key="download_hdd_plugins">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_plugin.png</String></Pair>
+				<Pair key="title"><String>plugins</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/plugins</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_plugins" attr="download_hdd_plugins"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_home_catalogue">
+		<Attributes>
+			<Table key="download_home_catalogue">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_list.png</String></Pair>
+				<Pair key="title"><String>PlayStation®Home Catalogue</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/game/NPIA00005/USRDIR/OBJECTCATALOGUE</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_home_catalogue" attr="download_home_catalogue"/>
+		</Items>
+	</View>									
+	
+	<View id="seg_download_hdd_packages">
+		<Attributes>
+			<Table key="download_hdd_packages">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_xmbm.png</String></Pair>
+				<Pair key="title"><String>packages</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/packages</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_packages" attr="download_hdd_packages"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_tmp">
+		<Attributes>
+			<Table key="download_hdd_tmp">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_list.png</String></Pair>
+				<Pair key="title"><String>tmp</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/tmp</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_tmp" attr="download_hdd_tmp"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_covers">
+		<Attributes>
+			<Table key="download_hdd_covers">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_list.png</String></Pair>
+				<Pair key="title"><String>covers</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/game/BLES80608/USRDIR/covers</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_covers" attr="download_hdd_covers"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_exdata">
+		<Attributes>
+			<Table key="download_hdd_exdata">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_list.png</String></Pair>
+				<Pair key="title"><String>exdata</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/exdata</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_exdata" attr="download_hdd_exdata"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_roms">
+		<Attributes>
+			<Table key="download_hdd_roms">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_retro.png</String></Pair>
+				<Pair key="title"><String>ROMS</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/ROMS</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_roms" attr="download_hdd_roms"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_theme">
+		<Attributes>
+			<Table key="download_hdd_theme">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_list.png</String></Pair>
+				<Pair key="title"><String>theme</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/theme</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_theme" attr="download_hdd_theme"/>
+		</Items>
+	</View>
+	
+	
+	
+	<View id="seg_download_hdd_updater">
+		<Attributes>
+			<Table key="download_hdd_updater">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_xmbm.png</String></Pair>
+				<Pair key="title"><String>updater/01</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/updater/01</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_updater" attr="download_hdd_updater"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_ps3iso">
+		<Attributes>
+			<Table key="download_hdd_ps3iso">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_ps3.png</String></Pair>
+				<Pair key="title"><String>PS3ISO</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/PS3ISO</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_ps3iso" attr="download_hdd_ps3iso"/>
+		</Items>
+	</View>
+	
+		<View id="seg_download_hdd_game">
+		<Attributes>
+			<Table key="download_hdd_game">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_game.png</String></Pair>
+				<Pair key="title"><String>game</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/game</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_game" attr="download_hdd_game"/>
+		</Items>
+	</View>
+	
+	
+	<View id="seg_download_hdd_bdiso">
+		<Attributes>
+			<Table key="download_hdd_bdiso">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_video.png</String></Pair>
+				<Pair key="title"><String>BDISO</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/BDISO</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_bdiso" attr="download_hdd_bdiso"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_ps2iso">
+		<Attributes>
+			<Table key="download_hdd_ps2iso">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_ps2.png</String></Pair>
+				<Pair key="title"><String>PS2ISO</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/PS2ISO</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_ps2iso" attr="download_hdd_ps2iso"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_psxiso">
+		<Attributes>
+			<Table key="download_hdd_psxiso">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_psx.png</String></Pair>
+				<Pair key="title"><String>PSXISO</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/PSXISO</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_psxiso" attr="download_hdd_psxiso"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_pspiso">
+		<Attributes>
+			<Table key="download_hdd_pspiso">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_psp.png</String></Pair>
+				<Pair key="title"><String>PSPISO</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/PSPISO</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_pspiso" attr="download_hdd_pspiso"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_xmb">
+		<Attributes>
+			<Table key="download_xmb">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>explore/xmb</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/vsh/resource/explore/xmb</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_xmb" attr="download_xmb"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_icon">
+		<Attributes>
+			<Table key="download_icon">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>explore/icon</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/vsh/resource/explore/icon</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_icon" attr="download_icon"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_user">
+		<Attributes>
+			<Table key="download_user">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>explore/user</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/vsh/resource/explore/user</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_user" attr="download_user"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_qgl">
+		<Attributes>
+			<Table key="download_qgl">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>resource/qgl</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/vsh/resource/qgl</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_qgl" attr="download_qgl"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_vsh">
+		<Attributes>
+			<Table key="download_vsh">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>vsh</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/vsh</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_vsh" attr="download_vsh" src="#download_vsh_items"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_resource">
+		<Attributes>
+			<Table key="download_resource">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>vsh/resource</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/vsh/resource</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_resource" attr="download_resource"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_etc">
+		<Attributes>
+			<Table key="download_etc">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>vsh/etc</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/vsh/etc</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_etc" attr="download_etc"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_sys">
+		<Attributes>
+			<Table key="download_sys">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>sys</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/sys</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_sys" attr="download_sys"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_internal">
+		<Attributes>
+			<Table key="download_internal">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>sys/internal</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/sys/internal</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_internal" attr="download_internal"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_external">
+		<Attributes>
+			<Table key="download_external">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>sys/external</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/sys/external</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_external" attr="download_external"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_explore">
+		<Attributes>
+			<Table key="download_explore">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>resource/explore</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/vsh/resource/explore</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_explore" attr="download_explore"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_module">
+		<Attributes>
+			<Table key="download_module">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>vsh/module</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/vsh/module</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_module" attr="download_module"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_ps1emu">
+		<Attributes>
+			<Table key="download_ps1emu">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>ps1emu</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/ps1emu</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_ps1emu" attr="download_ps1emu"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_ps2emu">
+		<Attributes>
+			<Table key="download_ps2emu">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>ps2emu</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/ps2emu</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_ps2emu" attr="download_ps2emu"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_pspemu">
+		<Attributes>
+			<Table key="download_pspemu">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>pspemu</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/pspemu</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_pspemu" attr="download_pspemu"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_pspemu_flash0">
+		<Attributes>
+			<Table key="download_pspemu_flash0">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>pspemu/flash0</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/pspemu/flash0</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_pspemu_flash0" attr="download_pspemu_flash0"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_pspemu_release">
+		<Attributes>
+			<Table key="download_pspemu_release">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>pspemu/release</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/pspemu/release</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_pspemu_release" attr="download_pspemu_release"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_data">
+		<Attributes>
+			<Table key="download_data">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>data</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/data</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_data" attr="download_data"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_data_font">
+		<Attributes>
+			<Table key="download_data_font">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>data/font</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/data/font</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_data_font" attr="download_data_font"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_data_cert">
+		<Attributes>
+			<Table key="download_data_cert">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>data/cert</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/data/cert</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_data_cert" attr="download_data_cert"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_data_dic">
+		<Attributes>
+			<Table key="download_data_dic">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>data/dic</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/data/dic</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_data_dic" attr="download_data_dic"/>
+		</Items>
+	</View>
+	
+	
+	<View id="seg_download_bdp">
+		<Attributes>
+			<Table key="download_bdp">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>bdplayer</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/bdplayer</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_bdp" attr="download_bdp"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_bdjstack">
+		<Attributes>
+			<Table key="download_bdjstack">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>bdplayer/bdjstack</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/bdplayer/bdjstack</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_bdjstack" attr="download_bdjstack"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_bdpSYS">
+		<Attributes>
+			<Table key="download_bdpSYS">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>bdplayer/SYS</String></Pair>
+				<Pair key="device_path"><String>/dev_blind/bdplayer/SYS</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_bdpSYS" attr="download_bdpSYS"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_drm">
+		<Attributes>
+			<Table key="download_drm">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_plain.png</String></Pair>
+				<Pair key="title"><String>drm</String></Pair>
+				<Pair key="device_path"><String>/dev_flash2/drm</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_drm" attr="download_drm"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_drm_mgr">
+		<Attributes>
+			<Table key="download_drm_mgr">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_plain.png</String></Pair>
+				<Pair key="title"><String>drm/mgr</String></Pair>
+				<Pair key="device_path"><String>/dev_flash2/drm/mgr</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_drm_mgr" attr="download_drm_mgr"/>
+		</Items>
+	</View>
+	
+	
+	<View id="seg_download_etc2">
+		<Attributes>
+			<Table key="download_etc2">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_plain.png</String></Pair>
+				<Pair key="title"><String>etc</String></Pair>
+				<Pair key="device_path"><String>/dev_flash2/etc</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_etc2" attr="download_etc2"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_activation">
+		<Attributes>
+			<Table key="download_activation">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_plain.png</String></Pair>
+				<Pair key="title"><String>etc/activation</String></Pair>
+				<Pair key="device_path"><String>/dev_flash2/etc/activation</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_activation" attr="download_activation"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_backup">
+		<Attributes>
+			<Table key="download_backup">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_plain.png</String></Pair>
+				<Pair key="title"><String>etc/backup</String></Pair>
+				<Pair key="device_path"><String>/dev_flash2/etc/backup</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_backup" attr="download_backup"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_photo">
+		<Attributes>
+			<Table key="download_hdd_photo">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/photo.png</String></Pair>
+				<Pair key="title"><String>dev_hdd0/photo</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/photo</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_photo" attr="download_hdd_photo"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_music">
+		<Attributes>
+			<Table key="download_hdd_music">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/music.png</String></Pair>
+				<Pair key="title"><String>dev_hdd0/music</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/music</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_music" attr="download_hdd_music"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_hdd_video">
+		<Attributes>
+			<Table key="download_hdd_video">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/video.png</String></Pair>
+				<Pair key="title"><String>dev_hdd0/video</String></Pair>
+				<Pair key="device_path"><String>/dev_hdd0/video</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_hdd_video" attr="download_hdd_video"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_xmbr">
+		<Attributes>
+			<Table key="download_xmb">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>explore/xmb</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/vsh/resource/explore/xmb</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_xmb" attr="download_xmb"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_iconr">
+		<Attributes>
+			<Table key="download_icon">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>explore/icon</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/vsh/resource/explore/icon</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_icon" attr="download_icon"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_userr">
+		<Attributes>
+			<Table key="download_user">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>explore/user</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/vsh/resource/explore/user</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_user" attr="download_user"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_qglr">
+		<Attributes>
+			<Table key="download_qgl">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>resource/qgl</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/vsh/resource/qgl</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_qgl" attr="download_qgl"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_vshr">
+		<Attributes>
+			<Table key="download_vsh">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>vsh</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/vsh</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_vsh" attr="download_vsh" src="#download_vsh_items"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_resourcer">
+		<Attributes>
+			<Table key="download_resource">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>vsh/resource</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/vsh/resource</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_resource" attr="download_resource"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_etcr">
+		<Attributes>
+			<Table key="download_etc">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>vsh/etc</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/vsh/etc</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_etc" attr="download_etc"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_sysr">
+		<Attributes>
+			<Table key="download_sys">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>sys</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/sys</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_sys" attr="download_sys"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_internalr">
+		<Attributes>
+			<Table key="download_internal">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>sys/internal</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/sys/internal</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_internal" attr="download_internal"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_externalr">
+		<Attributes>
+			<Table key="download_external">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>sys/external</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/sys/external</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_external" attr="download_external"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_explorer">
+		<Attributes>
+			<Table key="download_explore">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>resource/explore</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/vsh/resource/explore</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_explore" attr="download_explore"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_moduler">
+		<Attributes>
+			<Table key="download_module">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>vsh/module</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/vsh/module</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_module" attr="download_module"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_ps1emur">
+		<Attributes>
+			<Table key="download_ps1emu">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>ps1emu</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/ps1emu</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_ps1emu" attr="download_ps1emu"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_ps2emur">
+		<Attributes>
+			<Table key="download_ps2emu">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>ps2emu</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/ps2emu</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_ps2emu" attr="download_ps2emu"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_pspemur">
+		<Attributes>
+			<Table key="download_pspemu">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>pspemu</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/pspemu</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_pspemu" attr="download_pspemu"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_pspemu_flash0r">
+		<Attributes>
+			<Table key="download_pspemu_flash0">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>pspemu/flash0</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/pspemu/flash0</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_pspemu_flash0" attr="download_pspemu_flash0"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_pspemu_releaser">
+		<Attributes>
+			<Table key="download_pspemu_release">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>pspemu/release</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/pspemu/release</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_pspemu_release" attr="download_pspemu_release"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_datar">
+		<Attributes>
+			<Table key="download_data">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>data</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/data</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_data" attr="download_data"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_data_fontr">
+		<Attributes>
+			<Table key="download_data_font">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>data/font</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/data/font</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_data_font" attr="download_data_font"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_data_certr">
+		<Attributes>
+			<Table key="download_data_cert">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>data/cert</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/data/cert</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_data_cert" attr="download_data_cert"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_data_dicr">
+		<Attributes>
+			<Table key="download_data_dic">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>data/dic</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/data/dic</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_data_dic" attr="download_data_dic"/>
+		</Items>
+	</View>
+	
+	
+	<View id="seg_download_bdpr">
+		<Attributes>
+			<Table key="download_bdp">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>bdplayer</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/bdplayer</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_bdp" attr="download_bdp"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_bdjstackr">
+		<Attributes>
+			<Table key="download_bdjstack">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>bdplayer/bdjstack</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/bdplayer/bdjstack</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_bdjstack" attr="download_bdjstack"/>
+		</Items>
+	</View>
+	
+	<View id="seg_download_bdpSYSr">
+		<Attributes>
+			<Table key="download_bdpSYS">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_warn.png</String></Pair>
+				<Pair key="title"><String>bdplayer/SYS</String></Pair>
+				<Pair key="device_path"><String>/dev_rewrite/bdplayer/SYS</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/folder-pixmap" key="download_bdpSYS" attr="download_bdpSYS"/>
+		</Items>
+	</View>
+	
+
+</XMBML>

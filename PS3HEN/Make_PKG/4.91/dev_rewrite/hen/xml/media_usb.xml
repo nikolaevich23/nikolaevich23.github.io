@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<XMBML version="1.0">
+	<View id="media_usb_items">
+		<Attributes>
+			<Table key="music_internal">
+				<Pair key="icon_rsc"><String>tex_music</String></Pair>
+				<Pair key="title_rsc"><String>msg_music_internal</String></Pair>
+				<Pair key="str_noitem"><String>msg_no_data</String></Pair>
+			</Table>
+			<Table key="music_external">
+				<Pair key="icon_rsc"><String>tex_music</String></Pair>
+				<Pair key="title_rsc"><String>msg_music_external</String></Pair>
+				<Pair key="str_noitem"><String>msg_no_data</String></Pair>
+			</Table>
+			<Table key="video_internal">
+				<Pair key="icon_rsc"><String>tex_video</String></Pair>
+				<Pair key="title_rsc"><String>msg_video_internal</String></Pair>
+				<Pair key="str_noitem"><String>msg_no_data</String></Pair>
+			</Table>
+			<Table key="video_external">
+				<Pair key="icon_rsc"><String>tex_video</String></Pair>
+				<Pair key="title_rsc"><String>msg_video_external</String></Pair>
+				<Pair key="str_noitem"><String>msg_no_data</String></Pair>
+			</Table>
+			<Table key="photo_internal">
+				<Pair key="icon_rsc"><String>tex_photo</String></Pair>
+				<Pair key="title_rsc"><String>msg_photo_internal</String></Pair>
+				<Pair key="str_noitem"><String>msg_no_data</String></Pair>
+			</Table>
+			<Table key="photo_external">
+				<Pair key="icon_rsc"><String>tex_photo</String></Pair>
+				<Pair key="title_rsc"><String>msg_photo_external</String></Pair>
+				<Pair key="str_noitem"><String>msg_no_data</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="music_external" attr="music_external" src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Music&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED"/>
+			<Query class="type:x-xmb/folder-pixmap" key="video_external" attr="video_external" src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Video&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED"/>
+			<Query class="type:x-xmb/folder-pixmap" key="photo_external" attr="photo_external" src="xcb://localhost/query?table=MMS_MEDIA_TYPE_SYSTEM&genre=Photo&cond=Ae+StorageMedia:StorageMedia.stat.mediaStatus %xCB_MEDIA_INSERTED"/>
+			<Query class="type:x-xmb/folder-pixmap" key="music_internal" attr="music_internal" src="sel://localhost/ex?root.view_selected.music"/>
+			<Query class="type:x-xmb/folder-pixmap" key="video_internal" attr="video_internal" src="sel://localhost/ex?root.view_selected.video"/>
+			<Query class="type:x-xmb/folder-pixmap" key="photo_internal" attr="photo_internal" src="sel://localhost/ex?root.view_selected.photo"/>
+		</Items>
+	</View>
+</XMBML>

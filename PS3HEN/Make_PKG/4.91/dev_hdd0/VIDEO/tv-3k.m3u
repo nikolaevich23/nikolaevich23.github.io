@@ -1,0 +1,180 @@
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Cinema HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Cinema/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://klimedia.space/logo/sovkino.png\" catchup=\"flussonic\" catchup-days=\"2\",Советское кино
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Serial/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",START Air HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/START_Air_HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",START World HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/START_World_HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"1\",Дорама HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Dorama/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Комедия
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/rucomedy/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",KinoJam 1 HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Kinojam_1/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",KinoJam 2 HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Kinojam_2/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Иллюзион+
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/ilizi/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Киноужас HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/kinohorror/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",РОДНОЕ КИНО
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/radnoekino/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Кинокомедия HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/kinokomedia/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",КИНОСВИДАНИЕ
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/kinosedania/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"1\",Наше новое кино HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/nahenovoekino/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0,ИНДИЙСКОЕ КИНО
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/indiakino/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Киносерия HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/kinoseria/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Киномикс HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Kinomiks-HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/987.png\" catchup=\"flussonic\" catchup-days=\"2\",Киносемья HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Kinosem-ya-HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/542.png\" catchup=\"flussonic\" catchup-days=\"2\",Кинохит HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Kinohit-HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/1584.png\" catchup=\"flussonic\" catchup-days=\"2\",Мужское кино
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Muzhskoe-kino/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/566.png\" catchup=\"flussonic\" catchup-days=\"2\",Кинопремьера HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Kinoprem-era-HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/2835.png\" catchup=\"flussonic\" catchup-days=\"2\",Наше мужское HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/NasheMuzskoeHD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"1\",Дом Кино Премиум HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/domkinopremum/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/834.png\" catchup=\"flussonic\" catchup-days=\"2\",Дом Кино
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/domkino/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",НСТ
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/nst/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Остросюжетное HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/OstrosuzetnoeHD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Шокирующее HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/shokhd/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://klimedia.space/icon/Премиальное HD 50fps.png\" catchup=\"flussonic\" catchup-days=\"1\",Премиальное HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/premiumhd/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/2019.png\" catchup=\"flussonic\" catchup-days=\"1\",Душевное HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/dusevnoehd/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"1\",Наше HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/nahehd/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Русский детектив
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Russkiy_detektiv/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Русский бестселлер
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Rus_Bests/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"1\",Русский роман HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/Russkiy-Roman/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0,Детское кино International
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/derskoekinoInternational/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Viju TV1000 HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/TV-1000-HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Viju TV1000 Русское
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/TV1000_Rus_Kino/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Viju TV1000 Русское HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/TV1000_Rus_Kino_HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"2\",Viju TV1000 Action HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/TV1000_Action/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"1\",Viju+ Comedy HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/ViP-Comedy-HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://klimedia.space/icon/ViP Serial HD.png\" catchup=\"flussonic\" catchup-days=\"1\",Viju+ Serial HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/ViP-Serial-HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"1\",Viju+ Megahit HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/ViPMegahitHD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"1\",Viju+ Premiere HD
+#EXTGRP:Кино
+http://cdn.klimedia.space/lb/ViPPremiereHD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://klimedia.space/icon/Матч! Футбол 1 HD 50fps.png\" catchup=\"flussonic\" catchup-days=\"1\",Матч! Футбол 1 FHD
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/MatchFutbol1HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/1042.png\" catchup=\"flussonic\" catchup-days=\"1\",Матч! Футбол 2 FHD
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/MatchFutbol2HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/2005.png\" catchup=\"flussonic\" catchup-days=\"1\",Матч! Футбол 3 FHD
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/MatchFutbol3HD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/2044.png\" catchup=\"flussonic\" catchup-days=\"1\",Матч! Футбол 1 HD
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/mathf1/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/1042.png\" catchup=\"flussonic\" catchup-days=\"1\",Матч! Футбол 2 HD
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/math2/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/2005.png\" catchup=\"flussonic\" catchup-days=\"1\",Матч! Футбол 3 HD
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/math3/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://klimedia.space/icon/МАТЧ ПРЕМЬЕР HD.png\" catchup=\"flussonic\" catchup-days=\"1\",Матч! Премьер HD
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/MatchPremyerHD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://klimedia.space/icon/МАТЧ ПРЕМЬЕР.png\",Матч! Премьер
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/football_50/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/2003.png\",Матч! Арена
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/arena_hd50/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/2054.png\" catchup=\"flussonic\" catchup-days=\"1\",Матч! Боец HD
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/Boetc/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/2051.png\" catchup=\"flussonic\" catchup-days=\"1\",Матч!
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/Match/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"1\",Матч! HD
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/MatchHD/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://streaming-elbrus.su/img/logos/sport/match-tv.png\",Матч! HD 50
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/match_hd50/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/2003.png\" catchup=\"flussonic\" catchup-days=\"1\",Матч! Игра HD
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/MatchIgra/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/2003.png\" catchup=\"flussonic\" catchup-days=\"1\",Матч! Арена HD
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/MatchArena/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://klimedia.space/icon/МАТЧ! СТРАНА orig.png\" catchup=\"flussonic\" catchup-days=\"1\",Матч! Страна
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/Mahtstranahd/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 tvg-logo=\"http://epg.it999.ru/img2/2782.png\" catchup=\"flussonic\" catchup-days=\"1\",Телеканал Футбол HD
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/football50/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=
+#EXTINF:0 catchup=\"flussonic\" catchup-days=\"1\",MMA-TV.com
+#EXTGRP:Спорт
+http://cdn.klimedia.space/lb/M1_Global/index.m3u8?token=klimedia.space:a2RnanNmMDhzN2cwc2Zmc2Y6a2RnanNmMDhzN2cwc2Zmc2Y=

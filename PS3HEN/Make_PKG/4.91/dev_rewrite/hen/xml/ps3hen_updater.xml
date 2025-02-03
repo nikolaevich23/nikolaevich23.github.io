@@ -1,0 +1,185 @@
+<XMBML version="1.0">
+
+<!-- Category Network > ★ PS3HEN Updater -->
+
+	<View id="seg_ps3hen_updater">
+		<Attributes>
+			<!-- Category Network > ★ PS3HEN Updater > Update PS3HEN -->
+			<Table key="ps3hen_update">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/hen_update_main.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_hfw_ps3hen_update</String></Pair>
+				<Pair key="info_rsc"><String>msg_hfw_ps3hen_update_info</String></Pair>
+			</Table>
+			
+			<!-- Category Network > ★ PS3HEN Updater > Update Themes 
+			<Table key="ps3hen_update_themes">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/hen_update_theme.png</String></Pair>
+				<Pair key="title"><String>Обновить темы к HEN</String></Pair>
+				<Pair key="info_rsc"><String>Скачать и установить с сайта PS3Xploit.com</String></Pair>
+			</Table>-->
+			
+			<!-- Category Network > ★ PS3HEN Updater > Changelog -->
+			<Table key="ps3hen_about">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/hen_update_info.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_hfw_ps3hen_about</String></Pair>
+				<Pair key="info_rsc"><String>msg_hfw_ps3hen_about_info</String></Pair>
+				<Pair key="module_name"><String>webrender_plugin</String></Pair>
+				<Pair key="module_action"><String>javascript:window.resizeTo(screen.width,screen.height);window.moveTo(0,0);eval('var changelogs,$lastButton=null;function trimFn(t){return t.replace(/^\\s+|\\s+$/g,"")}function $(t){return"#"===t[0]?document.getElementById(t):document.querySelectorAll(t)}function toArray(t){return Array.prototype.slice.call(t)}function render(t,e){var n=toArray($(\47script[type="cl"]\47));$lastButton&&$lastButton.setAttribute("class",""),$(".content")[0].innerHTML="\74h1\76"+n[t].getAttribute("id")+"\74/h1\76"+changelogs[t].replace(/\\\74p\\\76\\\74\\/p\\\76/g,"").replace(/\\[(.+?)]\\((http[s]?:\\/\\/.+?)\\)/g,\47\74a href="$2" target="_blank"\76$1\74/a\76\47),e.setAttribute("class","-active"),$lastButton=e}function renderMenu(){var t=$(".side-menu")[0],e=toArray($(\47script[type="cl"]\47));t.innerHTML="\74li title\76PS3HEN info\74/li\76"+e.map(function(t,e){return"\74li tabindex=\470\47 onclick=\47render("+e+",this)\47\76\74button\76"+t.getAttribute("id")+"\74/button\76\74/li\76"}).join("")}function main(){var t=toArray($(\47script[type="cl"]\47));changelogs=t.map(function(t){var e=t.innerHTML.split("\\n"),n=!1,r=e.reduce(function(t,e){var r=trimFn(e),u=r[0];if(""===r)return t+=n?"\74/ul\76":"",n=!1,t;switch(!0){case"#"===u:t+=n?"\74/ul\76":"",t+="\74h2\76"+r.substr(1)+"\74/h2\76",n=!1;break;case"-"===u:t+=n?"":"\74ul\76",t+="\74li\76"+r.substr(1)+"\74/li\76",n=!0;break;case"@"===u:t+=n?"\74/ul\76":"",t+="\74blockquote\76"+r.substr(1)+"\74/blockquote\76",n=!1;break;default:t+=n?"\74/ul\76":"",t+="\74p\76"+r+"\74/p\76",n=!1}return t},"");return r+=n?"\74/ul\76":""}),renderMenu(),render(0,$(".side-menu li")[1])}document.write(\47\74html\76\74head\76\74style\76body,html{height:100%;margin:0;overflow:hidden;padding:0;width:100%}*{-webkit-box-sizing:border-box}aside{background-color:#282828;border-right:3px solid #161616;display:block;height:100%;padding-top:8px;position:fixed;width:170px}section{background-color:#2e2e2e;height:100%;left:170px;margin:0;padding:32px;position:absolute;width:1654px}.side-menu{background-color:#2e2e2e;border-right:3px solid #373737;display:block;height:100%;list-style-type:none;margin:0;overflow:hidden;padding:0;position:fixed;top:0;width:200px;left:170px}.side-menu li{cursor:pointer;font-size:14px;font-weight:light;padding:10px 14px;padding-left:50px;position:relative;text-align:left}.side-menu li[title]{border-bottom:3px solid #373737;color:#fff;font-weight:700;margin-bottom:16px;margin-top:16px;user-select:none}.side-menu li:hover{background-color:#373737}.side-menu li button{background-color:transparent;border:0;color:#fff;text-align:left;width:100%}.side-menu li.-active{background-color:#ebebeb;font-size:20px;font-weight:700;left:-32px;margin-right:-32px}.side-menu li.-active button{color:#272727}.-scrollbar::-webkit-scrollbar{width:8px}.-scrollbar::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 6px #161616}.-scrollbar::-webkit-scrollbar-thumb{-webkit-border-radius:4px;background-color:rgba(0,0,0,.6)}.content{background-color:#4e4e4e;color:#fff;height:100%;left:370px;overflow:hidden;overflow-y:auto;padding:32px;padding-top:32px;position:absolute;top:0;width:846px}.content h1,.content h2{-webkit-border-radius:5px;border-bottom:3px solid #161616;font-weight:700;margin:0;padding:8px 16px;text-shadow:2px 2px #000}.content h1{background-color:#181818;font-size:44px;margin-bottom:32px}.content h2{background-color:#202020;border-bottom:3px solid #161616;font-size:24px}.content\76ul{padding-bottom:16px}.content li{font-size:18px;margin-bottom:4px}.content\76blockquote{font-weight:700}blockquote{font-size:20px;background-color:#161616;border-bottom:3px solid #161616;border-left:4px solid #0f0;margin:8px 10px;padding:8px 16px;margin-left:48px;margin-bottom:32px;-webkit-border-radius:10px}a{color:#000;font-weight:700;text-decoration:none}a::after{content:"";font-size:12px;position:relative;margin-left:4px;top:-6px;text-decoration:underline}@media only screen and (min-width:1824px){.side-menu{width:360px}.side-menu li{font-size:24px;padding:16px 14px;padding-left:80px}.side-menu li.-active{font-size:32px}.content{left:530px;width:1294px}.content h1,.content h2{padding:16px}blockquote{padding:16px}}\74/style\76\74/head\76\74body\76 \74aside\76\74img src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw==" /\76\74/aside\76 \74section\76\74ul class="side-menu"\76\74/ul\76\74/section\76\74div class="content -scrollbar" tabindex="0"\76\74/div\76\47+["\74script type=\\"cl\\" id=\\"3.3.5\\"\76","- To view full changelog, please visit pspx.ru/forum or github.com/nikolaevich23","\74/script\76",""].join("\\n")+\47\74/body\76\74/html\76\47),main();')</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<!-- UNCOMMENT THE APPROPRIATE BUILD BELOW -->
+			<Query class="type:x-xmb/folder-pixmap" key="ps3hen_update" attr="ps3hen_update" src="#hen_menu"/>		
+			<!-- <Query class="type:x-xmb/folder-pixmap" key="ps3hen_update_themes" attr="ps3hen_update_themes" src="#ps3hen_update_themes_items"/>-->
+			<Query class="type:x-xmb/module-action" key="ps3hen_about"  attr="ps3hen_about"/>
+		</Items>
+	</View>
+
+<!-- Category Network > ★ PS3HEN Updater > Update Themes -->
+
+	<View id="ps3hen_update_themes_items">
+		<Attributes>
+			<Table key="ps3hen_update_themes_default">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_theme_sub.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_hfw_ps3hen_update_themes</String></Pair>
+				<Pair key="info_rsc"><String>msg_hfw_ps3hen_update_themes_info</String></Pair>
+			</Table>
+			<Table key="ps3hen_update_themes_1">
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/folder_theme_sub.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_hfw_ps3hen_update_themes2</String></Pair>
+				<Pair key="info_rsc"><String>msg_hfw_ps3hen_update_themes2_info</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="ps3hen_update_themes_default" attr="ps3hen_update_themes_default" src="#ps3hen_update_themepacks_dl_default"/>
+			<Query class="type:x-xmb/folder-pixmap" key="ps3hen_update_themes_1" attr="ps3hen_update_themes_1" src="#ps3hen_update_themepacks_dl1"/>
+		</Items>
+	</View>
+
+<!-- Category Network > ★ PS3HEN Updater > Update Themes > Theme Packs -->
+
+	<View id="ps3hen_update_themepacks_dl_default">
+		<Attributes>
+			<Table key="ps3hen_update_themes_download_default">
+				<Pair key="info"><String>net_package_install</String></Pair>
+				<Pair key="pkg_src"><String>http://ps3xploit.com/hen/theme/HEN_Theme_Pack_Default_signed.pkg</String></Pair>
+				<Pair key="pkg_src_qa"><String>http://ps3xploit.com/hen/theme/HEN_Theme_Pack_Default_signed.pkg</String></Pair>
+				<Pair key="content_name"><String>pkg_pc</String></Pair>
+				<Pair key="content_id"><String>CUSTOM-INSTALLER_00-0000000000000000</String></Pair>
+				<Pair key="prod_pict_path"><String>/dev_flash/vsh/resource/explore/icon/hen_update_main.png</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/xmlnpsignup" key="ps3hen_update_themes_download_default" attr="ps3hen_update_themes_download_default"/>
+		</Items>
+	</View>
+
+	<View id="ps3hen_update_themepacks_dl1">
+		<Attributes>
+			<Table key="ps3hen_update_themes_download_1">
+				<Pair key="info"><String>net_package_install</String></Pair>
+				<Pair key="pkg_src"><String>http://ps3xploit.com/hen/theme/HEN_Theme_Pack_by_Itroublve_Hacker_signed.pkg</String></Pair>
+				<Pair key="pkg_src_qa"><String>http://ps3xploit.com/hen/theme/HEN_Theme_Pack_by_Itroublve_Hacker_signed.pkg</String></Pair>
+				<Pair key="content_name"><String>pkg_pc</String></Pair>
+				<Pair key="content_id"><String>CUSTOM-INSTALLER_00-0000000000000000</String></Pair>
+				<Pair key="prod_pict_path"><String>/dev_flash/vsh/resource/explore/icon/hen_update_main.png</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/xmlnpsignup" key="ps3hen_update_themes_download_1" attr="ps3hen_update_themes_download_1"/>
+		</Items>
+	</View>
+
+		<View id="hen_menu">
+		<Attributes>
+			<Table key="hen_f21_item">			
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/hen_update_main.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_hfw_hen_f21_item</String></Pair>
+				<Pair key="info_rsc"><String>msg_hfw_hen_f21_item_info</String></Pair>	
+			</Table>
+			<Table key="hen_f23_item">			
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/hen_update_main.png</String></Pair>
+				<Pair key="title_rsc"><String>msg_hfw_hen_f23_item</String></Pair>
+				<Pair key="info_rsc"><String>msg_hfw_hen_f23_item_info</String></Pair>
+			</Table>
+			</Attributes>
+			<Items>
+			<Query 
+				class="type:x-xmb/folder-pixmap" 
+				key="hen_f21_item"
+				attr="hen_f21_item"
+				src="#ps3hen_update_en"
+				/>			
+			<Query 
+				class="type:x-xmb/folder-pixmap" 
+				key="hen_f23_item"
+				attr="hen_f23_item"
+				src="#ps3hen_update_rus"
+				/>		
+			</Items>
+		</View>	
+		
+		<View id="ps3hen_update_en">
+		<Attributes>
+			<Table key="hen_f91">			
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/hen_update_main.png</String></Pair>
+				<Pair key="title"><String>4.91</String></Pair>
+				<Pair key="info"><String>4.91 English</String></Pair>	
+			</Table>
+			</Attributes>
+			<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="hen_f91"	attr="hen_f91"	src="#ps3en_f91"/>
+			</Items>
+		</View>	
+		
+		<View id="ps3hen_update_rus">
+		<Attributes>
+			<Table key="hen_f91">			
+				<Pair key="icon"><String>/dev_flash/vsh/resource/explore/icon/hen_update_main.png</String></Pair>
+				<Pair key="title"><String>4.91</String></Pair>
+				<Pair key="info"><String>4.91 Rus</String></Pair>	
+			</Table>
+			</Attributes>
+			<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="hen_f91"	attr="hen_f91"	src="#ps3ru_f91"/>
+			</Items>
+		</View>	
+
+<!-- Category Network > ★ PS3HEN Updater > Default Noob Setup -->
+
+		
+	<View id="ps3en_f91">
+		<Attributes>
+			<Table key="en491">
+				<Pair key="info"><String>net_package_install</String></Pair>
+				<Pair key="pkg_src"><String>http://ps3xploit.me/hen/release/491/cex/installer/Latest_HEN_Installer_signed.pkg</String></Pair>
+				<Pair key="pkg_src_qa"><String>http://ps3xploit.me/hen/release/491/cex/installer/Latest_HEN_Installer_signed.pkg</String></Pair>
+				<Pair key="content_name"><String>pkg_pc</String></Pair>
+				<Pair key="content_id"><String>CUSTOM-INSTALLER_00-0000000000000000</String></Pair>
+				<Pair key="prod_pict_path"><String>/dev_flash/vsh/resource/explore/icon/hen_update_main.png</String></Pair>
+ 			</Table>
+		</Attributes>
+		<Items>
+			<Item class="type:x-xmb/xmlnpsignup" key="en491" attr="en491"/>
+		</Items>
+	</View>
+
+<!-- RUS -->
+	
+	<View id="ps3ru_f91">
+		<Attributes>
+			<Table key="ru491">
+				<Pair key="info"><String>net_package_install</String></Pair>
+				<Pair key="pkg_src"><String>https://nikolaevich23.github.io/alt/4.91/for_4.91_latest_rus_sign.pkg</String></Pair>
+				<Pair key="pkg_src_qa"><String>https://nikolaevich23.github.io/alt/4.91/for_4.91_latest_rus_sign.pkg</String></Pair>
+				<Pair key="content_name"><String>pkg_install_pc</String></Pair>
+				<Pair key="content_id"><String>CUSTOM-INSTALLER_00-0000000000000000</String></Pair>
+				<Pair key="prod_pict_path"><String>/dev_flash/vsh/resource/explore/icon/hen_update_main.png</String></Pair>				
+ 			</Table>
+		</Attributes> 
+			<Items>
+			<Item class="type:x-xmb/xmlnpsignup" key="ru491" attr="ru491"/>
+		</Items> 
+		</View>
+
+</XMBML>

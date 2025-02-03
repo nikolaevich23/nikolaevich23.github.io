@@ -1,0 +1,109 @@
+<XMBML version="1.0">
+<!-- XMB™ Menu > Game Category > Folders -->
+	<View id="seg_game_rg">
+		<Attributes>
+			<Table key="shared_actions">
+				<Pair key="str_noitem"><String>msg_error_no_title</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<!-- Retro®Consoles Games -->
+			<Table key="retro_games_folder" include="shared_actions">
+				<Pair key="icon_rsc"><String>tex_retro_folder</String></Pair>
+				<Pair key="title_rsc"><String>msg_retro_folder</String></Pair>
+				<Pair key="info_rsc"><String>info_retro_folder</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="retro_games_folder" attr="retro_games_folder" src="#seg_retro_games_folder_items"/>			
+		</Items>
+	</View>
+	
+<!-- Game Category > Retro Folder -->
+	<View id="seg_retro_games_folder_items">
+		<Attributes>
+			<Table key="focus_item">
+				<Pair key="focus_priority"><String>-80</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="retro_games_zip_format" src="xmb://localhost/dev_hdd0/xmlhost/game_plugin/retro.xml#seg_wm_rom_items"/>
+			<Query class="type:x-xmb/folder-pixmap" key="retro_pkg_format" src="xcb://localhost/query?limit=2048&table=MMS_MEDIA_TYPE_HDD&sort=+Game:Common.title&cond=OGL+Game:Game.titleId RX0000000 RXZZZZZZZ+OGL+Game:Game.titleId ZUKO00000 ZUKOZZZZZ+OGL+Game:Game.titleId SMEGA0000 SMEGA9999+OGL+Game:Game.titleId JSNES0000 JSNES9999+Ae+Game:Game.category HG"/>
+			<Query class="type:x-xmb/folder-pixmap" key="retro_games_pc_engine_pkg_format" src="xcb://localhost/query?limit=2048&table=MMS_MEDIA_TYPE_HDD&sort=+Game:Common.title&cond=Ae+Game:Game.category X0"/>
+			<Query class="type:x-xmb/folder-pixmap" key="retro_games_neogeo_pkg_format" src="xcb://localhost/query?limit=2048&table=MMS_MEDIA_TYPE_HDD&sort=+Game:Common.title&cond=Ae+Game:Game.category X4"/>			
+			<Query class="type:x-xmb/folder-pixmap" key="retro_launcher" attr="retro_launcher" src="#seg_retro_launcher"/>
+			<Query class="type:x-xmb/folder-pixmap" key="uninstall_games" attr="uninstall_games" src="#seg_uninst"/>			
+		</Items>
+	</View>
+
+	<!-- Game Category > Retro Folder > Retro Launchers (webMAN) -->
+	<View id="seg_retro_launcher">
+		<Attributes>
+			<Table key="retro_launcher">
+				<Pair key="icon_rsc"><String>tex_retro_folder</String></Pair>
+				<Pair key="title"><String>Retro Launcher</String></Pair>
+				<Pair key="info_rsc"><String>info_webman_retro_launcher</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>	
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="retro_launcher" attr="retro_launcher" src="#seg_retro_launcher_items"/>
+		</Items>
+	</View>
+
+	<View id="seg_retro_launcher_items">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="rom_launcher" src="xcb://localhost/query?sort=+Game:Common.titleForSort&cond=Oe+Game:Game.titleId PKGLAUNCH+Ae+Game:Game.category SF"/>
+			<Query class="type:x-xmb/folder-pixmap" key="rom_launcher_downloader" src="xcb://localhost/exists?having=off&rquery=root.fixed_items.rom_launcher&cond=Ae+Game:Common.dirPath /dev_hdd0/game+Ae+Game:Common.fileName PKGLAUNCH"/>
+			<Query class="type:x-xmb/folder-pixmap" key="retroarch" src="xcb://localhost/query?sort=+Game:Common.titleForSort&cond=Oe+Game:Game.titleId RETROARCH+Ae+Game:Game.category HG"/>
+			<Query class="type:x-xmb/folder-pixmap" key="retroarch_downloader" src="xcb://localhost/exists?having=off&rquery=root.fixed_items.retroarch&cond=Ae+Game:Common.dirPath /dev_hdd0/game+Ae+Game:Common.fileName RETROARCH"/>
+		</Items>
+	</View>
+
+	<View id="seg_rom_launcher"> 	
+		<Attributes>
+			<Table key="rom_launcher_download">
+				<Pair key="info"><String>net_package_install</String></Pair>
+				<Pair key="pkg_src"><String>http://github.com/PS3-4K-Pro/Packages/releases/download/Homebrews/PKG_Roms_Launcher.pkg</String></Pair>
+				<Pair key="pkg_src_qa"><String>http://github.com/PS3-4K-Pro/Packages/releases/download/Homebrews/PKG_Roms_Launcher.pkg</String></Pair>
+				<Pair key="content_name"><String>msg_retro_launcher</String></Pair>
+				<Pair key="content_id"><String>UP0001-PKGLAUNCH_00-0000000000000000</String></Pair>
+				<Pair key="prod_pict_path"><String>/dev_flash/vsh/resource/explore/icon/folder_download.png</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/xmlnpsignup" key="rom_launcher_download" attr="rom_launcher_download"/> 
+		</Items>
+	</View>
+
+	<View id="seg_retroarch"> 	
+		<Attributes>
+			<Table key="seg_retroarch_download">
+				<Pair key="info"><String>net_package_install</String></Pair>
+				<Pair key="pkg_src"><String>http://github.com/PS3-4K-Pro/Packages/releases/download/Emulators/RetroArch_Community_Edition.pkg</String></Pair>
+				<Pair key="pkg_src_qa"><String>http://github.com/PS3-4K-Pro/Packages/releases/download/Emulators/RetroArch_Community_Edition.pkg</String></Pair>
+				<Pair key="content_name"><String>seg_retroarch</String></Pair>
+				<Pair key="content_id"><String>RETROA-RETROARCH_00-0000000000000000</String></Pair>
+				<Pair key="prod_pict_path"><String>/dev_hdd0/game/PS34KPROL/USRDIR/toolbox/icons/launcher_icons/retroarch.png</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/xmlnpsignup" key="seg_retroarch_download" attr="seg_retroarch_download"/> 
+		</Items>
+	</View>
+	
+	<View id="seg_uninst">
+		<Attributes>
+		<Table key="uninstall_ps3_games">
+				<Pair key="str_noitem"><String>msg_error_no_title</String></Pair>
+				<Pair key="icon_rsc"><String>tex_delete_log</String></Pair>
+				<Pair key="title_rsc"><String>msg_retro_folder</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_delete_file_info</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+		</Table>
+		</Attributes>	
+		<Items>			
+			<Query class="type:x-xmb/folder-pixmap" key="uninstall_ps3_games" attr="uninstall_ps3_games" src="xmb://localhost//dev_flash/hen/xml/uninstall.xml#seg_retro_games_uninstall_items"/>	
+		</Items>
+	</View>
+	
+</XMBML>	

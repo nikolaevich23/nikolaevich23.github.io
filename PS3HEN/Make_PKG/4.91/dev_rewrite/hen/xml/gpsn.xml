@@ -1,0 +1,30 @@
+<XMBML version="1.0">
+	<!-- XMB™ Menu > Game Category > Folders -->
+	<View id="seg_psn">
+		<Attributes>
+			<Table key="shared_actions">
+				<Pair key="str_noitem"><String>msg_error_no_title</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<!-- Playstation™Network Games -->
+			<Table key="xross_media_bar_folder" include="shared_actions">
+				<Pair key="icon_rsc"><String>tex_xmb_folder</String></Pair>
+				<Pair key="title_rsc"><String>msg_psn_folder</String></Pair>
+				<Pair key="info_rsc"><String>info_psn_folder</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="xross_media_bar_folder" attr="xross_media_bar_folder" src="#seg_xross_media_bar_folder_items"/>
+			
+		</Items>
+	</View>
+	
+	<!-- Game Category > Playstation™Network Folder -->
+	<View id="seg_xross_media_bar_folder_items">
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="all_games" src="xcb://localhost/query?sort=+Game:Common.titleForSort&cond=Oe+Game:Game.category HG+Oe+Game:Game.category 1P+Oe+Game:Game.category 2P+Oe+Game:Game.category MN+Oe+Game:Game.category PE+Oe+Game:Game.category X0+Oe+Game:Game.category X4+An+Game:Game.category 2D+An+Game:Game.category BV+An+Game:Game.category GD+An+Game:Game.category HM+An+Game:Game.category SD+An+Game:Game.category VF+An+Game:Game.category WT+An+Game:Game.titleId PS34KPROX+An+Game:Game.titleId PS34KPROL"/>
+			<Query class="type:x-xmb/folder-pixmap" key="uninstall_ps3_games" attr="uninstall_ps3_games" src="xmb://localhost//dev_flash/hen/xml/ofw_m.xml#seg_fixed_items"/>
+		</Items>
+	</View>	
+	
+</XMBML>	

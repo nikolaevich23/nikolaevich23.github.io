@@ -1,0 +1,7 @@
+user MYLOGIN 
+MYPASSW
+cd dev_hdd0
+cd packages
+put for_4.91_latest_rus_sign.pkg
+quit
+

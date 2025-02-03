@@ -1,0 +1,498 @@
+Stackframe Mapping For PS3HEN v3
+
+
+------------------------------------------------------------------------------
+PS3HEN.BIN Layout
+
+0x00000000 - 0x0006FFFF webkit (vsh) gadgets #1: stackframe base
+0x00070000 - 0x0007FFF7 sprx (max size: 0xFFF8)
+0x0007FFF8 - 0x0007FFFF size of stage2 (0x8 bytes)
+0x00080000 - 0x0009FFF7 stage2 (max size: 0x1FFF8)
+0x0009FFF8 - 0x000A0387 webkit (vsh) gadgets #2: ???
+0x000A0388 - 0x000A4FAF padding (all 0s) (0x4C28 bytes)
+0x000A4FB0 - 0x000A5EEF socket lv2 value 8000000000670000
+0x000A5EF0 - 0x000FFFDF padding (all 0s) (0x5A0F0 bytes)
+0x000FFFE0 - 0x00101FFF stackframe lv2/vsh offsets
+0x00102000 - 0x0010EFFF stage0 (max size: 0xD000)
+0x0010F000 - 0x0010FFFF padding ??? (all Fs) (0x1000 bytes)
+
+TOC Locations
+0x000A0044 - 0x000A0047 vsh toc
+0x000FFFF4 - 0x000FFFF7 vsh toc
+
+Other offsets in between ranges
+0x001008B8 - 0x001008BF size of stage0 (0x8 bytes)
+------------------------------------------------------------------------------
+
+
+------------------------------------------------------------------------------
+Example 4.82 CEX Port
+
+var default_vsh_pub_toc_484=0x6ED5AC; // -0xc74 // used
+var vsh_ps3xploit_key_toc_484=0x70786C; // used
+var toc_entry1_addr_484=0x6DA3D0; -0xc74 // used
+var toc_entry3_addr_484=0x6DA3C8; -0xc74 // used
+var toc_entry5_addr_484=0x6EB6C8; -0xc74 // used
+
+var gadget8_addr_484=0x020000;//memcpy // used
+var gadget_mod1_addr_484=0x60EFD8; // USED
+var gadget_mod2_addr_484=0x013B74; // USED
+var gadget_mod3_addr_484=0x0B8E00;  // USED
+var gadget_mod4a_addr_484=0x0D9684; // USED
+var gadget_mod4b_addr_484=0x42C778; // USED
+var gadget_mod6_addr_484=0x020C00;  // USED????
+var gadget_mod7_addr_484=0x01A6AC;  // USED
+var gadget_mod8_addr_484=0x2BACB8;   // USED
+------------------------------------------------------------------------------
+
+
+4.84 CEX Stackframe
+
+-----------------------
+0x00000000 - 0x0006FFFF
+-----------------------
+0x00000004	8FD8DCC0	sp_exit
+0x00000014	00013B74	gadget_mod2_addr
+0x0000007C	8D000000	wk_temp_addr_8D_stage0
+0x00000094	0060EFD8	gadget_mod1_addr
+0x000000F4	00000324	???
+0x0000013C	8E000000	wk_temp_addr_8E_stage0
+0x00000154	0042C778	gadget_mod4b_addr
+0x000001BC	8D000000	wk_temp_addr_8D_stage0
+0x000001C4	8FD8DCC0	sp_exit
+0x000001D4	00013B74	gadget_mod2_addr
+0x0000023C	8D000000	wk_temp_addr_8D_stage0
+0x00000254	0060EFD8	gadget_mod1_addr
+0x000002B4	00000080	???
+0x000002C4	00000001	???
+0x000002CC	8A0F0000	wk_temp_addr_8A_stage0+0x0F0000
+0x000002FC	8D0FF060	services* / wk_temp_addr_8D_stage0+0xFF060
+0x00000314	00013B74	gadget_mod2_addr
+0x0000037C	8D000000	wk_temp_addr_8D_stage0
+0x00000394	000D9684	gadget_mod4a_addr
+0x000003FC	8D000000	wk_temp_addr_8D_stage0
+0x00000404	8FD8DCC0	sp_exit
+0x00000414	00013B74	gadget_mod2_addr
+0x0000047C	8D000000	wk_temp_addr_8D_stage0
+0x00000494	0060EFD8	gadget_mod1_addr
+0x000004F4	00000204	r11_sys_net_socket
+0x0000050C	8D000500	handle_opened*** / wk_temp_addr_8D_stage0+0x500
+0x0000053C	8D0FF060	services* / wk_temp_addr_8D_stage0+0xFF060
+0x00000554	0042C778	gadget_mod4b_addr
+0x000005BC	8D000000	wk_temp_addr_8D_stage0
+0x000005C4	8FD8DCC0	sp_exit
+0x000005D4	00019D44	???
+0x00000648	FFFFFFFF	???
+0x0000064C	FFFFFFFF	???
+0x00000654	8FD8DCC0	sp_exit
+0x00000664	00019E00	???
+0x000006E4	8FD8DCC0	sp_exit
+0x000006F4	00013B74	gadget_mod2_addr
+0x0000075C	8D000000	wk_temp_addr_8D_stage0
+0x00000774	0060EFD8	gadget_mod1_addr
+0x000007D4	00000209	r11_sys_net_socket
+0x000007DC	0000F000	???
+0x000007E0	8A100000	wk_temp_addr_8A_stage0+0x100000
+0x000007E4	00000001	r4_sys_net_socket
+0x000007EC	52344C54	dummy / set r4 later
+0x000007F4	8D0FF050	services* / wk_temp_addr_8D_stage0+0xFF050
+0x00000808	80000000	kernel_64_bit_prepend_value
+0x0000080C	00000070	???
+0x0000081C	8D000500	handle_opened*** / wk_temp_addr_8D_stage0+0x500
+0x00000834	0057CE48	wk_gadget mr r4,r29
+0x000008AC	8D000500	handle_opened*** / wk_temp_addr_8D_stage0+0x500
+0x000008C4	0042C778	gadget_mod4b_addr
+0x0000092C	8D000000	wk_temp_addr_8D_stage0
+0x00000934	8FD8DCC0	sp_exit
+0x00000944	00013B74	gadget_mod2_addr
+0x000009AC	8D000000	wk_temp_addr_8D_stage0
+0x000009C4	0060EFD8	gadget_mod1_addr
+0x000009CC	00000050	??? unk_incr +0x20
+0x000009DC	8D000500	handle_opened*** / wk_temp_addr_8D_stage0+0x500
+0x00000A24	00000209	r11_sys_net_socket
+0x00000A2C	0000F000	???
+0x00000A30	8A100000	wk_temp_addr_8A_stage0+0x100000
+0x00000A34	00000001	r4_sys_net_socket
+0x00000A3C	52344C54	dummy / set r4 later
+0x00000A44	8D0FF054	services* / wk_temp_addr_8D_stage0+0x0FF054
+0x00000A58	80000000	kernel_64_bit_prepend_value
+0x00000A5C	00000040	???
+0x00000A6C	8D000500	handle_opened*** / wk_temp_addr_8D_stage0+0x500
+0x00000A84	0057CE48	wk_gadget mr r4,r29
+0x00000AFC	8D000500	handle_opened*** / wk_temp_addr_8D_stage0+0x500
+0x00000B14	0042C778	gadget_mod4b_addr
+0x00000B7C	8D000000	wk_temp_addr_8D_stage0
+0x00000B84	8FD8DCC0	sp_exit
+0x00000B94	00013B74	gadget_mod2_addr
+0x00000BFC	8D000000	wk_temp_addr_8D_stage0
+0x00000C14	0060EFD8	gadget_mod1_addr
+0x00000C74	00000209	r11_sys_net_socket
+0x00000C7C	0000F000	???
+0x00000C80	8A100000	wk_temp_addr_8A_stage0+0x100000
+0x00000C84	00000001	r4_sys_net_socket
+0x00000C8C	52344C54	dummy / set r4 later
+0x00000C94	8D0FF058	services* / wk_temp_addr_8D_stage0+0x0FF058
+0x00000CA8	80000000	kernel_64_bit_prepend_value
+0x00000CAC	00000050	??? unk_incr +0x20
+0x00000CBC	8D000500	handle_opened*** / wk_temp_addr_8D_stage0+0x500
+0x00000CD4	0057CE48	wk_gadget mr r4,r29
+0x00000D4C	8D000500	handle_opened*** / wk_temp_addr_8D_stage0+0x500
+0x00000D64	0042C778	gadget_mod4b_addr
+0x00000DCC	8D000000	wk_temp_addr_8D_stage0
+0x00000DD4	8FD8DCC0	sp_exit
+0x00000DE4	00013B74	gadget_mod2_addr
+0x00000E4C	8D000000	wk_temp_addr_8D_stage0
+0x00000E64	0060EFD8	gadget_mod1_addr
+0x00000EC4	00000209	r11_sys_net_socket
+0x00000ECC	0000F000	???
+0x00000ED0	8A100000	wk_temp_addr_8A_stage0+0x100000
+0x00000ED4	00000001	r4_sys_net_socket
+0x00000EDC	52344C54	dummy / set r4 later
+0x00000EE4	8D0FF05C	services* / wk_temp_addr_8D_stage0+0x0FF05C
+0x00000EF8	80000000	kernel_64_bit_prepend_value
+0x00000EFC	00000050	??? unk_incr +0x20
+0x00000F0C	8D000500	handle_opened*** / wk_temp_addr_8D_stage0+0x500
+0x00000F24	0057CE48	wk_gadget mr r4,r29
+0x00000F9C	8D000500	handle_opened*** / wk_temp_addr_8D_stage0+0x500
+0x00000FB4	0042C778	gadget_mod4b_addr
+0x0000101C	8D000000	wk_temp_addr_8D_stage0
+0x00001024	8FD8DCC0	sp_exit
+0x00001034	00013B74	gadget_mod2_addr
+0x0000109C	8D000000	wk_temp_addr_8D_stage0
+0x000010B4	0060EFD8	gadget_mod1_addr
+0x0000115C	00000002	r3_sys_net_socket
+0x000011F4	000D9684	gadget_mod4a_addr
+0x00001264	8FD8DCC0	sp_exit
+0x00001274	00075480	wk_gadget stw r3,0(r31)
+0x000012E4	8FD8DCC0	sp_exit
+0x000012F4	00013B74	gadget_mod2_addr
+0x00001344	000002C9	r11_sys_net_socket
+0x0000135C	8D000000	wk_temp_addr_8D_stage0
+0x00001374	0060EFD8	gadget_mod1_addr
+0x000013D4	000002C9	r11_sys_net_socket
+0x000013EC	00000001	r4_sys_net_socket
+0x0000141C	00000002	r3_sys_net_socket
+0x00001434	00013B74	gadget_mod2_addr
+0x0000149C	8D000104	socket id pointer / wk_temp_addr_8D_stage0+0x104
+0x000014B4	000D9684	gadget_mod4a_addr
+0x00001524	8FD8DCC0	sp_exit
+0x00001534	00075480	wk_gadget stw r3,0(r31)
+0x000015A4	8FD8DCC0	sp_exit
+0x000015B4	00013B74	gadget_mod2_addr
+0x00001604	000002C9	r11_sys_net_socket
+0x0000161C	8D000000	wk_temp_addr_8D_stage0
+0x00001634	0060EFD8	gadget_mod1_addr
+0x00001694	000002C9	r11_sys_net_socket
+0x000016AC	00000001	r4_sys_net_socket
+0x000016DC	00000002	r3_sys_net_socket
+0x000016F4	00013B74	gadget_mod2_addr
+0x0000175C	8D000108	socket id pointer / wk_temp_addr_8D_stage0+0x108
+0x00001774	000D9684	gadget_mod4a_addr
+0x000017E4	8FD8DCC0	sp_exit
+0x000017F4	00075480	wk_gadget stw r3,0(r31)
+0x00001864	8FD8DCC0	sp_exit
+0x00001874	00013B74	gadget_mod2_addr
+0x000018DC	8D000000	wk_temp_addr_8D_stage0
+0x000018F4	0060EFD8	gadget_mod1_addr
+0x00001954	000002C9	r11_sys_net_socket
+0x0000196C	00000001	r4_sys_net_socket
+0x0000199C	00000002	r3_sys_net_socket
+0x000019B4	00013B74	gadget_mod2_addr
+0x00001A1C	8D00010C	socket id pointer / wk_temp_addr_8D_stage0+0x10C
+0x00001A34	000D9684	gadget_mod4a_addr
+0x00001AA4	8FD8DCC0	sp_exit
+0x00001AB4	00075480	wk_gadget stw r3,0(r31)
+0x00001B24	8FD8DCC0	sp_exit
+0x00001B34	00013B74	gadget_mod2_addr
+0x00001B9C	8D000000	wk_temp_addr_8D_stage0
+0x00001BB4	0060EFD8	gadget_mod1_addr
+0x00001C14	000002C9	r11_sys_net_socket
+0x00001C2C	00000001	r4_sys_net_socket
+0x00001C5C	00000002	r3_sys_net_socket
+0x00001C74	00013B74	gadget_mod2_addr
+0x00001CDC	8D000110	socket id pointer / wk_temp_addr_8D_stage0+0x110
+0x00001CF4	000D9684	gadget_mod4a_addr
+0x00001D64	8FD8DCC0	sp_exit
+0x00001D74	00075480	wk_gadget stw r3,0(r31)
+0x00001DE4	8FD8DCC0	sp_exit
+0x00001DF4	00013B74	gadget_mod2_addr
+0x00001E5C	8D000000	wk_temp_addr_8D_stage0
+0x00001E74	0060EFD8	gadget_mod1_addr
+0x00001ED4	000002C9	r11_sys_net_socket
+0x00001EEC	00000001	r4_sys_net_socket
+0x00001F1C	00000002	r3_sys_net_socket
+0x00001F34	00013B74	gadget_mod2_addr
+0x00001F9C	8D000114	socket id pointer / wk_temp_addr_8D_stage0+0x114
+0x00001FB4	000D9684	gadget_mod4a_addr
+0x00002024	8FD8DCC0	sp_exit
+0x00002034	00075480	wk_gadget stw r3,0(r31)
+0x000020A4	8FD8DCC0	sp_exit
+0x000020B4	00013B74	gadget_mod2_addr
+0x0000211C	8D000000	wk_temp_addr_8D_stage0
+0x00002134	0060EFD8	gadget_mod1_addr
+0x00002194	000002C9	r11_sys_net_socket
+0x000021AC	00000001	r4_sys_net_socket
+0x000021DC	00000002	r3_sys_net_socket
+0x000021F4	00013B74	gadget_mod2_addr
+0x0000225C	8D000118	socket id pointer / wk_temp_addr_8D_stage0+0x118
+0x00002274	000D9684	gadget_mod4a_addr
+0x000022E4	8FD8DCC0	sp_exit
+0x000022F4	00075480	wk_gadget stw r3,0(r31)
+0x00002364	8FD8DCC0	sp_exit
+0x00002374	00013B74	gadget_mod2_addr
+0x000023DC	8D000000	wk_temp_addr_8D_stage0
+0x000023F4	0060EFD8	gadget_mod1_addr
+0x00002454	000002C9	r11_sys_net_socket
+0x0000246C	00000001	r4_sys_net_socket
+0x0000249C	00000002	r3_sys_net_socket
+0x000024B4	00013B74	gadget_mod2_addr
+0x0000251C	8D00011C	socket id pointer / wk_temp_addr_8D_stage0+0x11C
+0x00002534	000D9684	gadget_mod4a_addr
+0x000025A4	8FD8DCC0	sp_exit
+0x000025B4	00075480	wk_gadget stw r3,0(r31)
+0x00002624	8FD8DCC0	sp_exit
+0x00002634	00013B74	gadget_mod2_addr
+0x0000269C	8D000000	wk_temp_addr_8D_stage0
+0x000026B4	0060EFD8	gadget_mod1_addr
+0x00002714	000002C9	r11_sys_net_socket
+0x0000272C	00000001	r4_sys_net_socket
+0x0000275C	00000002	r3_sys_net_socket
+0x00002774	00013B74	gadget_mod2_addr
+0x000027DC	8D000120	socket id pointer / wk_temp_addr_8D_stage0+0x120
+0x000027F4	000D9684	gadget_mod4a_addr
+0x00002864	8FD8DCC0	sp_exit
+0x00002874	00075480	wk_gadget stw r3,0(r31)
+0x000028E4	8FD8DCC0	sp_exit
+0x000028F4	00013B74	gadget_mod2_addr
+0x0000295C	8D000000	wk_temp_addr_8D_stage0
+0x00002974	0060EFD8	gadget_mod1_addr
+0x000029D4	000002C9	r11_sys_net_socket
+0x000029EC	00000001	r4_sys_net_socket
+0x00002A1C	00000002	r3_sys_net_socket
+0x00002A34	00013B74	gadget_mod2_addr
+0x00002A9C	8D000124	socket id pointer / wk_temp_addr_8D_stage0+0x124
+0x00002AB4	000D9684	gadget_mod4a_addr
+0x00002B24	8FD8DCC0	sp_exit
+0x00002B34	00075480	wk_gadget stw r3,0(r31)
+0x00002BA4	8FD8DCC0	sp_exit
+0x00002BB4	00013B74	gadget_mod2_addr
+0x00002C1C	8D000000	wk_temp_addr_8D_stage0
+0x00002C34	0060EFD8	gadget_mod1_addr
+0x00002C94	000002C9	r11_sys_net_socket
+0x00002CAC	00000001	r4_sys_net_socket
+0x00002CDC	00000002	r3_sys_net_socket
+0x00002CF4	00013B74	gadget_mod2_addr
+0x00002D5C	8D000128	socket id pointer / wk_temp_addr_8D_stage0+0x128
+
+************************************************
+THIS AREA REPEATS UNTIL THE NEXT LISTED OFFSETS
+
+0x0000	000D9684	gadget_mod4a_addr
+0x0000	8FD8DCC0	sp_exit
+0x0000	00075480	wk_gadget stw r3,0(r31)
+0x0000	8FD8DCC0	sp_exit
+0x0000	00013B74	gadget_mod2_addr
+0x0000	8D000000	wk_temp_addr_8D_stage0
+0x0000	0060EFD8	gadget_mod1_addr
+0x0000	000002C9	r11_sys_net_socket
+0x0000	00000001	r4_sys_net_socket
+0x0000	00000002	r3_sys_net_socket
+0x0000	00013B74	gadget_mod2_addr
+0x0000	8D00011C	socket id pointer / wk_temp_addr_8D_stage0+0xXXX
+
+THIS AREA REPEATS UNTIL THE NEXT LISTED OFFSETS
+************************************************
+
+0x0005021C 8D0004F8 socket id pointer / wk_temp_addr_8D_stage0+0x4F8
+0x00050234 0042C778 gadget_mod4b_addr
+0x0005029C 8D000000 wk_temp_addr_8D_stage0
+0x000502A4 8FD8DCC0 sp_exit
+0x000502B4 002BACB8 gadget_mod8_addr
+
+0x000502B8 - 0x00054FFF padding
+
+0x00055000 DA7D4B5E index_key[1/4]
+0x00055004 499A4F53 index_key[2/4]
+0x00055008 B1C1A14A index_key[3/4]
+0x0005500C 7484443B index_key[4/4]
+
+0x00055010 948DA13E ps3hen_ecdsa_key[1/10]
+0x00055014 8CAFD5BA ps3hen_ecdsa_key[2/10]
+0x00055018 0E90CE43 ps3hen_ecdsa_key[3/10]
+0x0005501C 4461BB32 ps3hen_ecdsa_key[4/10]
+0x00055020 7FE7E080 ps3hen_ecdsa_key[5/10]
+0x00055024 475EAA0A ps3hen_ecdsa_key[6/10]
+0x00055028 D3AD4F5B ps3hen_ecdsa_key[7/10]
+0x0005502C 6247A7FD ps3hen_ecdsa_key[8/10]
+0x00055030 A86DF697 ps3hen_ecdsa_key[9/10]
+0x00055034 90196773 ps3hen_ecdsa_key[10/10]
+
+0x00055038 - 0x00060003 padding
+
+0x00060004 8FD8DCC0 sp_exit
+0x00060014 00013B74 gadget_mod2_addr
+0x0006007C 8D000000 wk_temp_addr_8D_stage0
+0x00060094 0060EFD8 gadget_mod1_addr
+0x000600F4 0000032E ???
+0x0006013C 8A065000 wk_temp_addr_8A_stage0+0x065000
+0x00060154 00013B74 gadget_mod2_addr
+0x000601BC 8D000000 wk_temp_addr_8D_stage0
+0x000601D4 000D9684 gadget_mod4a_addr
+0x00060244 8FD8DCC0 sp_exit
+0x00060254 00013B74 gadget_mod2_addr
+0x000602BC 8D000000 wk_temp_addr_8D_stage0
+0x000602D4 0060EFD8 gadget_mod1_addr
+0x00060334 0000017B ??? syscall num
+0x0006037C 00000200 ???
+0x00060394 00013B74 gadget_mod2_addr
+0x000603FC 8D000000 wk_temp_addr_8D_stage0
+0x00060414 000D9684 gadget_mod4a_addr
+0x00060484 8FD8DCC0 sp_exit
+0x00060494 002BACB8 gadget_mod8_addr
+
+0x00060498 - 0x00064FFF 00000000 padding
+
+0x00065000 2F646576 /dev
+0x00065004 5F686464 _hdd
+0x00065008 302F746D 0/tm
+0x0006500C 702F7475 p/tu
+0x00065010 726E6F66 rnof
+0x00065014 66000000 f
+
+0x00065018 - 0x0006FFFC 00000000 padding
+
+
+-----------------------
+0x0009FFF8 - 0x000A0387
+-----------------------
+0x0009FFFC 8D000000 wk_temp_addr_8D_stage0
+0x000A0000 8A0A0000 wk_temp_addr_8A_stage0+0x0A0000
+0x000A0014 0060EFD8 gadget_mod1_addr
+0x000A003C 8A0A0040 wk_temp_addr_8A_stage0+0x0A0040
+0x000A0040 00010B24 ???
+0x000A0044 006F5558 toc
+0x000A0074 000002D4 ???
+0x000A008C 10007300 ???
+0x000A00BC 8D0003C4 wk_temp_addr_8D_stage0+0x0003C4
+0x000A00D4 0042C778 ???
+0x000A013C 8D000000 wk_temp_addr_8D_stage0
+0x000A0144 8FD8DCC0 sp_exit
+0x000A0154 00013B74 gadget_mod2_addr
+0x000A01BC 8D000000 wk_temp_addr_8D_stage0
+0x000A01D4 0060EFD8 gadget_mod1_addr
+0x000A0234 00000029 ???
+0x000A0294 00013B74 gadget_mod2_addr
+0x000A02FC 8D000000 wk_temp_addr_8D_stage0
+0x000A0314 000D9684 gadget_mod4a_addr
+0x000A0384 8FD8DCC0 sp_exit
+
+0x000A0388 - 0x000A4FAF 00000000 padding
+
+
+-----------------------
+0x000A4FB0 - 0x000A5EEF
+-----------------------
+0x000A4FB0 - 0x000A4FFF padding (comment)
+
+0x000A5000 80000000
+0x000A5004 00670000
+
+************************************************
+THIS AREA REPEATS UNTIL THE NEXT LISTED OFFSETS
+************************************************
+
+0x000A5EE8 80000000
+0x000A5EEC 00670000
+
+
+-----------------------
+0x000FFFE0 - 0x00101FFF
+-----------------------
+0x000FFFE0 424E4554 BNET
+0x000FFFE4 5F494F43 _IOC
+0x000FFFE8 544C0000 TL
+0x000FFFF0 00474750 unk12 lwz r11, 0(r3)
+0x000FFFF4 006F5558 toc
+0x00100000 4D595354 MYST
+0x00100004 41434B46 ACKF
+0x00100008 52414D45 RAME
+0x00100010 80000000 lv2 offset1
+0x00100014 00020E98 lv2 offset1
+0x00100038 80000000 lv2 offset2
+0x0010003C 00670040 lv2 offset2
+0x00100040 80000000 lv2 offset3
+0x00100044 00294828 lv2 offset3
+0x00100050 80000000 lv2 offset4
+0x00100054 00670000 lv2 offset4
+0x00100070 80000000 lv2 offset5
+0x00100074 0012EF58 lv2 offset5
+0x00100080 80000000 lv2 offset6
+0x00100084 00670090 lv2 offset6
+0x00100090 80000000 lv2 offset7
+0x00100094 0012EF58 lv2 offset7
+0x001000A0 80000000 lv2 offset8
+0x001000A4 0F003F80 lv2 offset8
+0x001000B0 80000000 lv2 offset9
+0x001000B4 00198468 lv2 offset9
+0x00100150 80000000 lv2 offset10
+0x00100154 0004060C lv2 offset10
+0x001001C8 80000000 lv2 offset11
+0x001001CC 007E0000 lv2 offset11
+0x00100200 80000000 lv2 offset12
+0x00100204 001648B8 lv2 offset12
+0x00100280 80000000 lv2 offset13
+0x00100284 0000BB78 lv2 offset13
+0x00100318 80000000 lv2 offset14
+0x0010031C 007E0000 lv2 offset14
+0x00100330 80000000 lv2 offset15
+0x00100334 007E0000 lv2 offset15
+0x00100338 80000000 lv2 offset16
+0x0010033C 007E0000 lv2 offset16
+0x00100350 80000000 lv2 offset17
+0x00100354 0005028C lv2 offset17
+0x0010035C 000003F8 ???
+0x00100380 80000000 lv2 offset18
+0x00100384 00004548 lv2 offset18
+0x001003DC 000003F8 ???
+0x00100400 80000000 lv2 offset19
+0x00100404 001648B8 lv2 offset19
+0x0010043C 000003F8 ???
+0x00100460 80000000 lv2 offset20
+0x00100464 000137D8 lv2 offset20
+0x00100480 80000000 lv2 offset21
+0x00100484 000137D8 lv2 offset21
+0x00100510 80000000 lv2 offset22
+0x00100514 0007B410 lv2 offset22
+0x00100574 00000001 ???
+0x00100640 80000000 lv2 offset23
+0x00100644 001648B8 lv2 offset23
+0x001006C0 80000000 lv2 offset24
+0x001006C4 00025A34 lv2 offset24
+0x00100750 80000000 lv2 offset25
+0x00100754 001D4B04 lv2 offset25
+0x001007D8 80000000 lv2 offset26
+0x001007DC 007F0000 lv2 offset26
+0x00100810 80000000 lv2 offset27
+0x00100814 00672000 lv2 offset27
+0x00100850 80000000 lv2 offset28
+0x00100854 001D4C58 lv2 offset28
+0x001008B8 00000000 size of stage2
+0x001008BC 000004D0 size of stage2
+0x00100950 80000000 lv2 offset29
+0x00100954 007F0000 lv2 offset29
+0x00100B54 10007060 ???
+0x00100B58 00000000 ???
+0x00100B5C 00000000 ???
+0x00100BE8 00000000 ???
+0x00100BEC 00000000 ???
+
+0x100BF0 - 0x101FFF FFFFFFFF padding 
+
+
+-----------------------
+0x00102000 - 0x0010EFFF
+-----------------------
+0x00102000	-> Insert Stage0 Payload
+
+
+

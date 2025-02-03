@@ -1,0 +1,54 @@
+<XMBML version="1.0">
+	<!-- XMB™ Menu > Game Category > Folders -->
+	<View id="seg_game_folders_psp">
+		<Attributes>
+			<Table key="shared_actions">
+				<Pair key="str_noitem"><String>msg_error_no_title</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+			</Table>
+			<!-- Playstation®Portable Games -->
+			<Table key="psp_games_folder" include="shared_actions">
+				<Pair key="icon_rsc"><String>tex_psp_folder</String></Pair>
+				<Pair key="title_rsc"><String>msg_psp_folder</String></Pair>
+				<Pair key="info_rsc"><String>info_psp_folder</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>
+			<Query class="type:x-xmb/folder-pixmap" key="psp_games_folder" attr="psp_games_folder" src="#seg_psp_games_folder_items"/>			
+		</Items>
+	</View>
+	
+	<!-- Game Category > Playstation®Portable Folder -->
+	<View id="seg_psp_games_folder_items">
+		<Attributes>
+			<Table key="focus_item">
+				<Pair key="focus_priority"><String>-80</String></Pair>
+			</Table>
+		</Attributes>
+		<Items>						
+			<Query class="type:x-xmb/folder-pixmap" key="psp_games_iso_format" attr="focus_item" src="xmb://localhost/dev_hdd0/xmlhost/game_plugin/mygames.xml#seg_wm_psp_items"/>
+			<Query class="type:x-xmb/folder-pixmap" key="psp_games_pkg_format" attr="focus_item" src="xcb://localhost/query?limit=2048&table=MMS_MEDIA_TYPE_HDD&sort=+Game:Common.title&cond=Oe+Game:Game.category MN+Oe+Game:Game.category PE+Oe+Game:Game.category PP+An+Game:Game.titleId PSPC66820+An+Game:Game.titleId PSPM66820"/>			
+			<Query class="type:x-xmb/folder-pixmap" key="uninstall_psp_games_psn" attr="uninstall_psp_games_psn" src="xmb://localhost//dev_flash/hen/xml/ofw_m.xml#seg_fixed_items2"/>
+			<Query class="type:x-xmb/folder-pixmap" key="uninstall_ps3_games" attr="uninstall_ps3_games" src="#seg_uninst"/>
+		</Items>
+	</View>
+	
+	<View id="seg_uninst">
+		<Attributes>
+		<Table key="uninstall_psp_games">
+				<Pair key="str_noitem"><String>msg_error_no_title</String></Pair>
+				<Pair key="icon_rsc"><String>tex_delete_log</String></Pair>
+				<Pair key="title_rsc"><String>msg_psp_folder</String></Pair>
+				<Pair key="info_rsc"><String>msg_tool_delete_file_info</String></Pair>
+				<Pair key="child"><String>segment</String></Pair>
+		</Table>
+		</Attributes>	
+		<Items>			
+			<Query class="type:x-xmb/folder-pixmap" key="uninstall_psp_games" attr="uninstall_psp_games" src="xmb://localhost//dev_flash/hen/xml/uninstall.xm#seg_psp_games_uninstall_items"/>			
+		</Items>
+	</View>
+	
+	
+	
+	
+</XMBML>	
