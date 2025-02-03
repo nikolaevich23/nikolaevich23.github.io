@@ -712,7 +712,7 @@ static void downloadPKG_thread2(void)
 	const wchar_t* fw_version = L"";
 	const wchar_t* kernel_type = L"";
 	const wchar_t* pkg_suffix = L"";
-	const wchar_t* pkg_url_tmp = L"https://github.com/nikolaevich23/nikolaevich23.github.io/raw/master/alt/%ls/for_%ls_latest_rus%ls";
+	const wchar_t* pkg_url_tmp = L"https://github.com/nikolaevich23/nikolaevich23.github.io/raw/refs/heads/main/alt/%ls/for_%ls_latest_rus%ls";	
 	const wchar_t* pkg_dl_path = L"/dev_hdd0";
 	wchar_t pkg_url[256];
 	
@@ -852,7 +852,7 @@ static void downloadPKG_thread2(void)
 	swprintf(pkg_url, sizeof(pkg_url), pkg_url_tmp, fw_version, fw_version, pkg_suffix);
 	sprintf(pkg_path, "/dev_hdd0/for_%ls_latest_rus%ls", fw_version, pkg_suffix);
 	DPRINTF("HENPLUGIN->pkg_url: %ls\n",(char*)pkg_url);
-	download_interface->DownloadURL(0, pkg_url, (wchar_t*)pkg_dl_path);
+	download_interface->DownloadURL(0, pkg_url, (wchar_t*)pkg_dl_path);	
 	
 	thread2_download_finish=1;
 }
