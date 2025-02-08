@@ -1,10 +1,9 @@
 @echo off
 setlocal enabledelayedexpansion
 
-xcopy /Y PS3HEN.BIN_CEX_491 C:\PS3HEN-master\Make_PKG\4.91\dev_rewrite\hen\LITERU.BIN
-xcopy /Y PS3HEN.BIN_CEX_491 C:\PS3HEN-master\Make_PKG\4.91\dev_hdd0\hen\mode\lite\PS3HEN.BIN
+xcopy /Y PS3HEN.BIN_CEX_491 C:\PS3HEN-en\Make_PKG\4.91\dev_hdd0\hen\m\l\HEN.BIN
 
-CD C:\PS3HEN-master\Make_PKG 
+CD C:\PS3HEN-en\Make_PKG 
 set CID=CUSTOM-INSTALLER_00-0000000000000000
 if exist for_4.91_latest_rus_sign.pkg del /Q for_4.91_latest_rus_sign.pkg
 
