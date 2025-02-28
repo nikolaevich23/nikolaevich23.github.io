@@ -32,20 +32,28 @@ static void dump_threads_info(void)
 	
 	for (int i = 0; i < num_threads; i++)
 	{
+	#ifdef DEBUG
 		DPRINTF("Thread: %s   entry: %016lx    PC: %016lx\n", (char *)(thread_info+0x58), *(uint64_t *)(thread_info+0xB0), *(uint64_t *)(thread_info+0x208));
+	#endif	
 		thread_info += 0x600;
 	}
 }
 
 static void dump_threads_info_test(uint64_t arg0)
 {	
-	DPRINTF("Threads info will be dumped in 13 seconds.\n");
+	#ifdef DEBUG
+		DPRINTF("Threads info will be dumped in 13 seconds.\n");
+	#endif	
 	timer_usleep(SECONDS(13));
-	
-	DPRINTF("----Dump threads info begin----\n");
+
+	#ifdef DEBUG	
+		DPRINTF("----Dump threads info begin----\n");
+	#endif		
 	dump_threads_info();
-	DPRINTF("----Dump threads info end----\n");
-	
+
+	#ifdef DEBUG	
+		DPRINTF("----Dump threads info end----\n");
+	#endif	
 	ppu_thread_exit(0);
 }
 
@@ -62,20 +70,26 @@ static void dump_process(process_t process)
 	uint64_t addr;
 	int ret, fd;
 	
-	DPRINTF("Dumping process %s\n", get_process_name(process));
+	#ifdef DEBUG
+		DPRINTF("Dumping process %s\n", get_process_name(process));
+	#endif			
 	sprintf(path, "/dev_usb000/%s.main_segment", get_process_name(process));
 	
 	buf = alloc(KB(64), 0x27);
 	if (!buf)
 	{
+	#ifdef DEBUG
 		DPRINTF("Not enough memory.\n");
+	#endif	
 		return;
 	}
 	
 	ret = cellFsOpen(path, CELL_FS_O_WRONLY|CELL_FS_O_CREAT|CELL_FS_O_TRUNC, &fd, 0666, NULL, 0);
 	if (ret != 0)
 	{
+	#ifdef DEBUG
 		DPRINTF("Cannot create %s\n", path);
+	#endif	
 		return;
 	}
 	
@@ -86,7 +100,9 @@ static void dump_process(process_t process)
 		ret = copy_from_process(process, (void *)addr, buf, KB(64));
 		if (ret != 0)
 		{
+		#ifdef DEBUG
 			DPRINTF("End of maing segment: %lx\n", addr);
+		#endif	
 			break;
 		}
 		
@@ -100,7 +116,9 @@ static void dump_process(process_t process)
 	ret = cellFsOpen(path, CELL_FS_O_WRONLY|CELL_FS_O_CREAT|CELL_FS_O_TRUNC, &fd, 0666, NULL, 0);
 	if (ret != 0)
 	{
+	#ifdef DEBUG	
 		DPRINTF("Cannot create %s\n", path);
+	#endif	
 		return;
 	}
 	
@@ -111,7 +129,9 @@ static void dump_process(process_t process)
 		ret = copy_from_process(process, (void *)addr, buf, KB(64));
 		if (ret != 0)
 		{
+		#ifdef DEBUG	
 			DPRINTF("End of heap segment: %lx\n", addr);
+		#endif	
 			break;
 		}
 		
@@ -133,8 +153,10 @@ static void dump_processes(void)
 	{
 		process_t process = (process_t)proc_list[1];
 		
-		proc_list += 2;		
+		proc_list += 2;
+	#ifdef DEBUG	
 		DPRINTF("%p\n", process);
+	#endif	
 		
 		if ((((uint64_t)process) & 0xFFFFFFFF00000000ULL) != MKA(0))
 			continue;
@@ -145,13 +167,17 @@ static void dump_processes(void)
 
 static void dump_processes_test(uint64_t arg0)
 {	
-	DPRINTF("Processes will be dumped in 74 seconds.\nGo, go, run what you want to dump!\n");
+	#ifdef DEBUG	
+		DPRINTF("Processes will be dumped in 74 seconds.\nGo, go, run what you want to dump!\n");
+	#endif		
 	timer_usleep(SECONDS(74));
-	
-	DPRINTF("----Dump processes begin----\n");
+	#ifdef DEBUG	
+		DPRINTF("----Dump processes begin----\n");
+	#endif			
 	dump_processes();
-	DPRINTF("----Dump processes end----\n");
-	
+	#ifdef DEBUG	
+		DPRINTF("----Dump processes end----\n");
+	#endif	
 	ppu_thread_exit(0);
 }
 
@@ -163,7 +189,9 @@ void do_dump_processes_test(void)
 
 LV2_HOOKED_FUNCTION_POSTCALL_6(void, load_module_hook, (char *r3))
 {
-	DPRINTF("Load module: %s (%s)\n", r3, get_process_name(get_current_process())+8);	
+	#ifdef DEBUG	
+		DPRINTF("Load module: %s (%s)\n", r3, get_process_name(get_current_process())+8);	
+	#endif	
 }
 
 void do_hook_load_module(void)
@@ -188,9 +216,11 @@ LV2_HOOKED_FUNCTION_POSTCALL_2(void, mutex_create_hooked, (void *mutex, uint64_t
 			
 			if (strcmp(name, "sceEmulatorApi") == 0)
 			{
+			#ifdef DEBUG	
 				DPRINTF("Addr: %lx\n", r3);
 				DPRINTF("Module: %s\n", name);
 				DPRINTF("Call address: %p\n", get_call_address(1));
+			#endif		
 			}
 		}
 	}
@@ -209,7 +239,9 @@ static void read_and_clear_ps2netemu_log(void)
 	
 	if (cellFsOpen("/dev_hdd0/log_file.bin", CELL_FS_O_RDONLY, &fd, 0, NULL, 0) != 0)
 	{
+	#ifdef DEBUG
 		DPRINTF("Open log file failed\n");
+	#endif	
 		return;
 	}
 	
@@ -217,7 +249,9 @@ static void read_and_clear_ps2netemu_log(void)
 			
 	if (page_allocate_auto(NULL, 0x10000, 0x2F, (void **)&buf) != 0)
 	{
+	#ifdef DEBUG
 		DPRINTF("page_allocate failed\n");
+	#endif	
 		return;
 	}
 			
@@ -226,11 +260,15 @@ static void read_and_clear_ps2netemu_log(void)
 	cellFsRead(fd, buf, 0x10000, &dummy);
 	cellFsClose(fd);
 	
-	DPRINTF("%s\n", buf);
+	#ifdef DEBUG
+		DPRINTF("%s\n", buf);
+	#endif		
 	
 	if (cellFsOpen("/dev_hdd0/log_file.bin", CELL_FS_O_WRONLY|CELL_FS_O_CREAT|CELL_FS_O_TRUNC, &fd, 0666, NULL, 0) != 0)
 	{
+	#ifdef DEBUG	
 		DPRINTF("open log write failed\n");
+	#endif	
 		return;
 	}
 	
@@ -243,14 +281,20 @@ static void read_and_clear_ps2netemu_log(void)
 
 static void ps2net_copy_test(uint64_t arg0)
 {
-	DPRINTF("+++ Sleeping for 16 seconds\n");
+	#ifdef DEBUG	
+		DPRINTF("+++ Sleeping for 16 seconds\n");
+	#endif	
 	timer_usleep(SECONDS(16));
 	read_and_clear_ps2netemu_log();
-	DPRINTF("Attempting to write ps2_netemu.self\n");
+	#ifdef DEBUG	
+		DPRINTF("Attempting to write ps2_netemu.self\n");
+	#endif		
 	
 	if (cellFsUtilMount_h("CELL_FS_IOS:BUILTIN_FLSH1", "CELL_FS_FAT", "/dev_wflash", 0, 0, 0, NULL, 0) != 0)
 	{
+	#ifdef DEBUG		
 		DPRINTF("Mount R/W failed\n");
+	#endif	
 		ppu_thread_exit(0);
 	}
 	
@@ -259,13 +303,17 @@ static void ps2net_copy_test(uint64_t arg0)
 	
 	if (cellFsOpen("/dev_usb000/ps2_netemu.self", CELL_FS_O_RDONLY, &src, 0, NULL, 0) != 0)
 	{
+	#ifdef DEBUG	
 		DPRINTF("open Src read failed\n");
+	#endif	
 		goto umount_exit;
 	}
 	
 	if (cellFsOpen("/dev_wflash/ps2emu/ps2_netemu.self", CELL_FS_O_WRONLY|CELL_FS_O_CREAT|CELL_FS_O_TRUNC, &dst, 0666, NULL, 0) != 0)
 	{
+	#ifdef DEBUG	
 		DPRINTF("open dst write failed\n");
+	#endif	
 		cellFsClose(src);
 		goto umount_exit;
 	}
@@ -274,7 +322,9 @@ static void ps2net_copy_test(uint64_t arg0)
 			
 	if (page_allocate_auto(NULL, 0x10000, 0x2F, (void **)&buf) != 0)
 	{
+	#ifdef DEBUG		
 		DPRINTF("page_allocate failed\n");
+	#endif		
 		cellFsClose(src);
 		cellFsClose(dst);
 		goto umount_exit;
@@ -282,14 +332,18 @@ static void ps2net_copy_test(uint64_t arg0)
 			
 	memset(buf, 0, 0x10000);
 	
-	DPRINTF("Enter copy loop\n");
+	#ifdef DEBUG
+		DPRINTF("Enter copy loop\n");
+	#endif	
 	uint64_t total = 0;
 	
 	while (1)
 	{
 		if (cellFsRead(src, buf, 0x10000, &rw) != 0)
 		{
+		#ifdef DEBUG
 			DPRINTF("cellFsRead failed\n");
+		#endif		
 			cellFsClose(src);
 			cellFsClose(dst);
 			page_free(NULL, buf, 0x2F);
@@ -298,7 +352,9 @@ static void ps2net_copy_test(uint64_t arg0)
 		
 		if (cellFsWrite(dst, buf, rw, &rw) != 0)
 		{
+		#ifdef DEBUG	
 			DPRINTF("cellFsWrite failed\n");
+		#endif	
 			cellFsClose(src);
 			cellFsClose(dst);
 			page_free(NULL, buf, 0x2F);
@@ -315,7 +371,9 @@ static void ps2net_copy_test(uint64_t arg0)
 	cellFsClose(dst);
 	page_free(NULL, buf, 0x2F);
 	
-	DPRINTF("++++ copy finished (%ld) (%ld KB)\n", total, total / 1024);
+	#ifdef DEBUG	
+		DPRINTF("++++ copy finished (%ld) (%ld KB)\n", total, total / 1024);
+	#endif		
 	
 umount_exit:
 
@@ -338,9 +396,9 @@ static void dump_process_modules_info(process_t process)
 	sys_prx_id_t *list;
 	uint32_t *unk;
 	uint32_t n, unk2;
-	
-	DPRINTF("******** %s ********\n", get_process_name(process));
-	
+	#ifdef DEBUG		
+		DPRINTF("******** %s ********\n", get_process_name(process));
+	#endif	
 	list = alloc(SPRX_NUM*sizeof(sys_prx_module_info_t), 0x35);
 	unk = alloc(SPRX_NUM*sizeof(uint32_t), 0x35);
 	
@@ -357,16 +415,16 @@ static void dump_process_modules_info(process_t process)
 			modinfo.filename_size = 256;
 			modinfo.segments_num = 1;
 			
-			if (prx_get_module_info(process, list[i], &modinfo, filename, segments) == 0)			
+			if (prx_get_module_info(process, list[i], &modinfo, filename, segments) == 0)					
 				DPRINTF("Module %s\nText_addr:%08lX\n", filename, segments[0].base);			
 		}
 		
 		dealloc(filename, 0x35);
 		dealloc(segments, 0x35);
 	}
-	
-	DPRINTF("****************\n");
-	
+	#ifdef DEBUG	
+		DPRINTF("****************\n");
+	#endif	
 	dealloc(list, 0x35);
 	dealloc(unk, 0x35);
 }
@@ -393,7 +451,9 @@ static void dump_processes_modules_info(void)
 
 static void dump_modules_info_test(uint64_t arg0)
 {	
-	DPRINTF("Modules info will be dumped in 71 seconds.\n");
+	#ifdef DEBUG		
+		DPRINTF("Modules info will be dumped in 71 seconds.\n");
+	#endif	
 	timer_usleep(SECONDS(71));
 	
 	dump_processes_modules_info();	
@@ -416,9 +476,9 @@ static void pad_test(uint64_t arg0)
 	memset(&odata, 0, sizeof(pad_data));
 	odata.button[PAD_BTN_OFFSET_ANALOG_LEFT] = 0x8080;
 	odata.button[PAD_BTN_OFFSET_ANALOG_RIGHT] = 0x8080;
-	
-	DPRINTF("PAD TEST: press R2+triangle to leave.\n");
-	
+	#ifdef DEBUG	
+		DPRINTF("PAD TEST: press R2+triangle to leave.\n");
+	#endif	
 	while (1)
 	{
 		int len = pad_get_data(&data);
@@ -427,7 +487,9 @@ static void pad_test(uint64_t arg0)
 		{
 			if (!error_shown)
 			{
+			#ifdef DEBUG	
 				DPRINTF("PAD err %x\n", len);
+			#endif		
 				error_shown = 1;
 			}
 		}
@@ -441,18 +503,18 @@ static void pad_test(uint64_t arg0)
 			odata.button[PAD_BTN_OFFSET_DIGITAL] = data.button[PAD_BTN_OFFSET_DIGITAL];
 			
 			if (digital & PAD_CTRL_LEFT)			
-				DPRINTF("LEFT pressed\n");			
+				DPRINTF("LEFT pressed\n");						
 			
-			if (digital & PAD_CTRL_RIGHT)			
+			if (digital & PAD_CTRL_RIGHT)						
 				DPRINTF("RIGHT pressed\n");			
 			
-			if (digital & PAD_CTRL_UP)			
-				DPRINTF("UP pressed\n");			
+			if (digital & PAD_CTRL_UP)						
+				DPRINTF("UP pressed\n");						
 			
-			if (digital & PAD_CTRL_DOWN)			
-				DPRINTF("DOWN pressed\n");			
+			if (digital & PAD_CTRL_DOWN)						
+				DPRINTF("DOWN pressed\n");						
 			
-			if (digital & PAD_CTRL_START)			
+			if (digital & PAD_CTRL_START)				
 				DPRINTF("START pressed\n");			
 			
 			if (digital & PAD_CTRL_SELECT)			

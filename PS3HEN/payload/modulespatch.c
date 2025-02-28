@@ -890,12 +890,12 @@ LV2_PATCHED_FUNCTION(int, modules_patching, (uint64_t *arg1, uint32_t *arg2))
 
 							//DPRINTF("Button Shortcut detected! Applying pemucorelib Extra Savedata Patch...\n");
 
-							DPRINTF("Now patching %s %lx\n", hash_to_name(hash), hash);
+							//DPRINTF("Now patching %s %lx\n", hash_to_name(hash), hash);
 
 							uint32_t data = LI(R31, 1);
 							buf[psp_extra_savedata_patch/4] = data;
 
-							DPRINTF("Offset: 0x%08X | Data: 0x%08X\n", psp_extra_savedata_patch, data);
+							//DPRINTF("Offset: 0x%08X | Data: 0x%08X\n", psp_extra_savedata_patch, data);
 						}
 					}
 				}
@@ -1310,7 +1310,9 @@ void load_boot_plugins_kernel(int boot_plugins)
 
 				if (ret >= 0)
 				{
-					DPRINTF("Load boot plugin %s -> %x\n", path, current_slot_kernel);
+					#ifdef DEBUG
+						DPRINTF("Load boot plugin %s -> %x\n", path, current_slot_kernel);
+					#endif
 					current_slot_kernel++;
 					num_loaded_kernel++;
 			         }
@@ -1376,7 +1378,9 @@ void load_boot_plugins(int boot_plugins)
 
 				if (ret >= 0)
 				{
-					DPRINTF("Load boot plugin %s -> %x\n", path, current_slot);
+					#ifdef  DEBUG
+						DPRINTF("Load boot plugin %s -> %x\n", path, current_slot);
+					#endif
 					current_slot++;
 					num_loaded++;
 			}
@@ -1397,8 +1401,7 @@ void load_boot_plugins(int boot_plugins)
 	LV2_HOOKED_FUNCTION_PRECALL_SUCCESS_8(int, create_process_common_hooked, (process_t parent, uint32_t *pid, int fd, char *path, int r7, uint64_t r8, uint64_t r9, void *argp, uint64_t args, void *argp_user, uint64_t sp_80, void **sp_88, uint64_t *sp_90, process_t *process, uint64_t *sp_A0, uint64_t *sp_A8))
 	{
 		char *parent_name = get_process_name(parent);
-		DPRINTF("PROCESS %s (%s) (%08X) created from parent process: %s\n", path, get_process_name(*process), *pid, ((int64_t)parent_name < 0) ? parent_name : "KERNEL");
-
+		//DPRINTF("PROCESS %s (%s) (%08X) created from parent process: %s\n", path, get_process_name(*process), *pid, ((int64_t)parent_name < 0) ? parent_name : "KERNEL");
 		return 0;
 	}
 

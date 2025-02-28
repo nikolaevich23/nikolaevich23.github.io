@@ -298,7 +298,9 @@ static INLINE int process_read_iso_cmd(ReadIsoCmd *cmd)
 				if (discfd != UNDEFINED)
 					cellFsClose(discfd);
 
-				DPRINTF("Changed to part file %d\n", file);
+				#ifdef DEBUG
+					DPRINTF("Changed to part file %d\n", file);
+				#endif	
 
 				ret = cellFsOpen(discfile->files[file], CELL_FS_O_RDONLY, &discfd, 0, NULL, 0);
 				if (ret != SUCCEEDED)
@@ -1040,7 +1042,9 @@ int read_eeprom_by_offset(uint32_t offset, uint8_t *value, uint64_t auth_id);
 
 int enable_patches()
 {
-	DPRINTF("enabling patches!\n");
+	#ifdef DEBUG
+		DPRINTF("enabling patches!\n");
+	#endif	
 	suspend_intr();
 		#if defined (FIRMWARE_4_82DEX) ||  defined (FIRMWARE_4_84DEX)
 			//do_patch(MKA(vsh_patch),0x386000014E800020); // VSH Attach to Debugger
@@ -1097,7 +1101,9 @@ int enable_patches()
 
 int disable_patches()
 {
-	DPRINTF("disabling patches\n");
+	#ifdef DEBUG	
+		DPRINTF("disabling patches\n");
+	#endif
 	suspend_intr();
 	do_patch32(MKA(patch_func8_offset1),0x7FE307B4);
 	
@@ -1227,8 +1233,9 @@ int process_get_psx_video_mode(void)
 						if(ret == UNDEFINED)
 						{
 						strcat(exe_path, ";1");
-						DPRINTF("PSX EXE: %s\n", exe_path);
-
+						#ifdef DEBUG
+							DPRINTF("PSX EXE: %s\n", exe_path);
+						#endif
 						sector = find_file_sector((uint8_t *)buf+2048, exe_path);
 
 							if (sector != 0 && read_psx_sector(dma, buf, sector) == 0)
@@ -1555,7 +1562,9 @@ LV2_PATCHED_FUNCTION(int, device_event, (event_port_t event_port, uint64_t event
 
 		if (event == 3)
 		{
-			DPRINTF("Disc Insert\n");
+			#ifdef DEBUG
+				DPRINTF("Disc Insert\n");
+			#endif	
 			if (lock)
 				mutex_lock(mutex, 0);
 
@@ -2485,7 +2494,9 @@ static INLINE void do_video_mode_patch(void)
 
 		if (patch != 0)
 		{
-			DPRINTF("Doing patch %08X\n", patch);
+			#ifdef DEBUG	
+				DPRINTF("Doing patch %08X\n", patch);
+			#endif
 			//copy_to_user(&patch, (void *)(vmode_patch_offset+0x10000), 4);
 			
 			#if defined (FIRMWARE_4_80)
@@ -3183,7 +3194,9 @@ LV2_HOOKED_FUNCTION(int, shutdown_copy_params_patched, (uint8_t *argp_user, uint
 				}
 				else
 				{
-					DPRINTF("NPDRM game, skipping ps2emu preparation\n");
+					#ifdef DEBUG
+						DPRINTF("NPDRM game, skipping ps2emu preparation\n");
+					#endif	
 				}
 
 			}

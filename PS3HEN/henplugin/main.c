@@ -461,11 +461,15 @@ static void led(uint64_t color, uint64_t mode)
 void set_led(const char* preset);
 void set_led(const char* preset)
 {
-	DPRINTF("HENPLUGIN->set_led->preset: %s\n",preset);
+	#ifdef DEBUG
+		DPRINTF("HENPLUGIN->set_led->preset: %s\n",preset);
+	#endif
 	
 	if(strcmp(preset, "install_start") == 0)
 	{
-		DPRINTF("HENPLUGIN->set_led->install_start\n");
+		#ifdef DEBUG	
+			DPRINTF("HENPLUGIN->set_led->install_start\n");
+		#endif	
 		led(LED_RED, LED_OFF);
 		led(LED_GREEN, LED_OFF);
 		led(LED_YELLOW, LED_BLINK_FAST);
@@ -473,14 +477,18 @@ void set_led(const char* preset)
 	}
 	else if(strcmp(preset, "install_success") == 0)
 	{
-		DPRINTF("HENPLUGIN->set_led->install_success\n");
+		#ifdef DEBUG
+			DPRINTF("HENPLUGIN->set_led->install_success\n");
+		#endif
 		led(LED_RED, LED_OFF);
 		led(LED_GREEN, LED_OFF);
 		led(LED_GREEN, LED_ON);
 	}
 	else if(strcmp(preset, "install_failed") == 0)
 	{
-		DPRINTF("HENPLUGIN->set_led->install_failed\n");
+		#ifdef DEBUG	
+			DPRINTF("HENPLUGIN->set_led->install_failed\n");
+		#endif
 		led(LED_RED, LED_OFF);
 		led(LED_GREEN, LED_OFF);
 		led(LED_RED, LED_BLINK_FAST);
@@ -851,7 +859,7 @@ static void downloadPKG_thread2(void)
 	//swprintf(pkg_url, sizeof(pkg_url), pkg_url_tmp, build_type_path, fw_version, kernel_type, pkg_suffix);
 	swprintf(pkg_url, sizeof(pkg_url), pkg_url_tmp, fw_version, fw_version, pkg_suffix);
 	sprintf(pkg_path, "/dev_hdd0/for_%ls_latest_rus%ls", fw_version, pkg_suffix);
-	DPRINTF("HENPLUGIN->pkg_url: %ls\n",(char*)pkg_url);
+	//DPRINTF("HENPLUGIN->pkg_url: %ls\n",(char*)pkg_url);
 	download_interface->DownloadURL(0, pkg_url, (wchar_t*)pkg_dl_path);	
 	
 	thread2_download_finish=1;
@@ -999,7 +1007,9 @@ static void unloadSysPluginCallback(void)
 {
 	//Add potential callback process
 	//show_msg((char *)"plugin shutdown via xmb call launched");
-	DPRINTF("HENPLUGIN->plugin shutdown via xmb call launched");
+	#ifdef DEBUG
+		DPRINTF("HENPLUGIN->plugin shutdown via xmb call launched");
+	#endif	
 }
 
 static void unload_web_plugins(void)
@@ -1187,7 +1197,9 @@ void set_build_type(void)
 {
 	CellFsStat stat;
 	if((cellFsStat("/dev_hdd0/hen/dev_build_type.on",&stat)==0) || (cellFsStat("/dev_usb000/dev_build_type.on",&stat)==0) || (cellFsStat("/dev_usb001/dev_build_type.on",&stat)==0)){build_type=DEV;}
-	DPRINTF("HENPLUGIN->Setting build_type to %i\n", build_type);
+	#ifdef DEBUG
+		DPRINTF("HENPLUGIN->Setting build_type to %i\n", build_type);
+	#endif	
 }
 
 // Shamelessly taken and modified from webmanMOD (thanks aldostools)
@@ -1198,7 +1210,7 @@ static void play_rco_sound(const char *sound)
 	if(plugin)
 	{
 		PlayRCOSound(plugin, sound, 1, 0);
-		DPRINTF("HENPLUGIN->PlayRCOSound(%0X, %s, 1, 0)\n",plugin,sound);
+		//DPRINTF("HENPLUGIN->PlayRCOSound(%0X, %s, 1, 0)\n",plugin,sound);
 	}
 }
 
@@ -1209,7 +1221,7 @@ static void close_browser_plugins(void)
 	int is_browser_open=View_Find("webbrowser_plugin");
 	
 	// Silk
-	DPRINTF("HENPLUGIN->close_browser_plugins: silk \n");
+	//DPRINTF("HENPLUGIN->close_browser_plugins: silk \n");
 	while(is_browser_open)
 	{	
 		sys_timer_usleep(70000);
@@ -1217,21 +1229,23 @@ static void close_browser_plugins(void)
 	}
 	
 	// Webkit
-	DPRINTF("HENPLUGIN->close_browser_plugins: webkit \n");
+	//DPRINTF("HENPLUGIN->close_browser_plugins: webkit \n");
 	is_browser_open=View_Find("webrender_plugin");
 	while(is_browser_open)
 	{
 		sys_timer_usleep(70000);
 		is_browser_open=View_Find("webrender_plugin");
 	}
-	DPRINTF("HENPLUGIN->unload_web_plugins \n");
+	//DPRINTF("HENPLUGIN->unload_web_plugins \n");
 	unload_web_plugins();
 }
 
 static void package_install(void);
 static void package_install(void)
 {
-	DPRINTF("HENPLUGIN->package_install: %s \n", pkg_path);
+	#ifdef DEBUG
+		DPRINTF("HENPLUGIN->package_install: %s \n", pkg_path);
+	#endif	
 	CellFsStat stat;
 	
 	LoadPluginById(0x16, (void *)installPKG_thread);
@@ -1247,10 +1261,14 @@ static void package_install(void)
 		else 
 		{
 			// Original logic for waiting for package installation to complete
-			DPRINTF("HENPLUGIN->IS_INSTALLING: %08X\nthread3_install_finish: %i\n",IS_INSTALLING,thread3_install_finish);
+			#ifdef DEBUG
+				DPRINTF("HENPLUGIN->IS_INSTALLING: %08X\nthread3_install_finish: %i\n",IS_INSTALLING,thread3_install_finish);
+			#endif
 			while (!thread3_install_finish || IS_INSTALLING)
 			{
-				DPRINTF("HENPLUGIN->IS_INSTALLING: %08X\n",IS_INSTALLING);
+				#ifdef DEBUG	
+					DPRINTF("HENPLUGIN->IS_INSTALLING: %08X\n",IS_INSTALLING);
+				#endif
 				sys_timer_usleep(2000000); // check every 2 seconds
 			}
 			reboot_flag=1;
@@ -1310,12 +1328,15 @@ static void henplugin_thread(__attribute__((unused)) uint64_t arg)
 		// Check if the package exists on the current USB path
 		if (cellFsStat(usb_path, &stat) == 0) 
 		{
-			DPRINTF("HENPLUGIN->Checking for emergency installer on %s\n", usb_path);
-			
+			#ifdef DEBUG
+				DPRINTF("HENPLUGIN->Checking for emergency installer on %s\n", usb_path);
+			#endif
 			usb_emergency_update = 1; // Set USB Emergency Update Flag
 			//set_led("install_start");
 			play_rco_sound("snd_trophy");
-			DPRINTF("HENPLUGIN->Installing Emergency Package From %s\n", usb_path);
+			#ifdef DEBUG
+				DPRINTF("HENPLUGIN->Installing Emergency Package From %s\n", usb_path);
+			#endif	
 			// Set pkg_path to the found USB path
 			memset(pkg_path, 0, 256);
 			strcpy(pkg_path, usb_path);
@@ -1326,7 +1347,9 @@ static void henplugin_thread(__attribute__((unused)) uint64_t arg)
 			goto done;
 		} else 
 		{
-			DPRINTF("HENPLUGIN->Checking for emergency installer on %s\n", usb_path);
+			#ifdef DEBUG
+				DPRINTF("HENPLUGIN->Checking for emergency installer on %s\n", usb_path);
+			#endif
 		}
 	}
 	
@@ -1336,17 +1359,22 @@ static void henplugin_thread(__attribute__((unused)) uint64_t arg)
 	if((cellFsStat("/dev_hdd0/plugins/webftp_server.sprx",&stat)==0) || (cellFsStat("/dev_hdd0/plugins/webftp_server_lite.sprx",&stat)==0))
 	{
 		use_wmm_pkg=1;
-		DPRINTF("HENPLUGIN->WMM Detected\n");
+		#ifdef DEBUG
+			DPRINTF("HENPLUGIN->WMM Detected\n");
+		#endif
+		
 	}
 	
 	// Removing temp installer packages so old ones can't be installed
-	DPRINTF("HENPLUGIN->Removing Temp Installer Packages\n");
+	#ifdef DEBUG
+		DPRINTF("HENPLUGIN->Removing Temp Installer Packages\n");
+	#endif
 	cellFsUnlink(pkg_path);
 	
 	if (number_files()<57) // check flag
 	{
 		copyflag_thread();
-		DPRINTF("HENPLUGIN->flag files: %u\n", number_files());
+		//DPRINTF("HENPLUGIN->flag files: %u\n", number_files());
 		//reboot_flag=1;
 	}
 	
@@ -1375,12 +1403,15 @@ static void henplugin_thread(__attribute__((unused)) uint64_t arg)
 		
 		if (use_wmm_pkg==1)
 		{
-			DPRINTF("HENPLUGIN->Use WMM Update Package\n");
+			#ifdef DEBUG
+				DPRINTF("HENPLUGIN->Use WMM Update Package\n");
+			#endif		
 			memset(pkg_path,0,33);
 			strcpy(pkg_path,pkg_path);
 		}
-		
-		DPRINTF("HENPLUGIN->pkg_path=%s\n",pkg_path);
+		#ifdef DEBUG
+			DPRINTF("HENPLUGIN->pkg_path=%s\n",pkg_path);
+		#endif			
 
 		LoadPluginById(0x29,(void*)downloadPKG_thread2);
 
@@ -1418,7 +1449,9 @@ static void henplugin_thread(__attribute__((unused)) uint64_t arg)
 	}
 	
 done:
-	DPRINTF("HENPLUGIN->Exiting main thread!\n");
+	#ifdef DEBUG	
+		DPRINTF("HENPLUGIN->Exiting main thread!\n");
+	#endif		
 	
 	cellFsUnlink("/dev_hdd0/theme/PS3HEN.p3t");// Removing temp HEN installer
 	if (usb_emergency_update!=1) 

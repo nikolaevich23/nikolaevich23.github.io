@@ -62,7 +62,7 @@
 
 #define COBRA_VERSION		0x0F
 #define COBRA_VERSION_BCD	0x0840
-#define HEN_REV				0x0336
+#define HEN_REV				0x0337
 
 #if defined(FIRMWARE_4_80)
 	#define FIRMWARE_VERSION	0x0480
@@ -214,12 +214,12 @@ LV2_HOOKED_FUNCTION_COND_POSTCALL_3(int,bnet_ioctl,(int socket,uint32_t flags, v
 		int path_len=strlen(path);
 		if(strstr(path,".rif"))
 		{
-			DPRINTF("RIF fd open called:%s\n",path);
+			//DPRINTF("RIF fd open called:%s\n",path);
 			rif_fd=*fd;
 		}
 		else if(strstr(path,"act.dat"))
 		{
-			DPRINTF("act.dat fd open called:%s\n",path);
+			//DPRINTF("act.dat fd open called:%s\n",path);
 			act_fd=*fd;
 		}
 		else if((strstr(path,".edat")) || (strstr(path,".EDAT")) || (strstr(path,"ISO.BIN.ENC")) || (strstr(path+path_len-7,"CONFIG")))
@@ -382,10 +382,10 @@ LV2_HOOKED_FUNCTION_COND_POSTCALL_3(int,read_eeprom_by_offset,(uint32_t offset, 
 	{
 		if(rif_fd==fd)
 		{
-			DPRINTF("RIF fd read called:%x %p %016lx %p\n",fd,buf,nbytes,nread);
+			//DPRINTF("RIF fd read called:%x %p %016lx %p\n",fd,buf,nbytes,nread);
 			if(*nread==0x98)
 			{
-				DPRINTF("generating rif ECDSA\n");
+				//DPRINTF("generating rif ECDSA\n");
 				uint8_t *buf1;
 				page_allocate_auto(NULL, 0x98, 0x2F, (void*)&buf1);
 				memcpy(buf1,buf,0x98);
@@ -403,10 +403,10 @@ LV2_HOOKED_FUNCTION_COND_POSTCALL_3(int,read_eeprom_by_offset,(uint32_t offset, 
 		}
 		else if(act_fd==fd)
 		{
-			DPRINTF("act fd read called:%x %p %016lx %p\n\n",fd,buf,nbytes,nread);
+			//DPRINTF("act fd read called:%x %p %016lx %p\n\n",fd,buf,nbytes,nread);
 			if(*nread==0x1038)
 			{
-				DPRINTF("generating act ECDSA\n");
+				//DPRINTF("generating act ECDSA\n");
 				uint8_t *buf1;
 				page_allocate_auto(NULL, 0x1038, 0x2F, (void*)&buf1);
 				memcpy(buf1,buf,0x1038);
@@ -426,7 +426,7 @@ LV2_HOOKED_FUNCTION_COND_POSTCALL_3(int,read_eeprom_by_offset,(uint32_t offset, 
 		{
 			if(*nread==0x100)
 			{
-				DPRINTF("generating misc ECDSA\n");
+				//DPRINTF("generating misc ECDSA\n");
 				uint8_t *buf1;
 				page_allocate_auto(NULL, 0x100, 0x2F, (void*)&buf1);
 				memcpy(buf1,buf,0x100);
@@ -490,8 +490,10 @@ void _sys_cfw_poke(uint64_t *addr, uint64_t value);
 
 LV2_HOOKED_FUNCTION(void, sys_cfw_new_poke, (uint64_t *addr, uint64_t value))
 {
-	DPRINTF("New poke called\n");
-
+	#ifdef DEBUG
+		DPRINTF("New poke called\n");
+	#endif	
+	
 	_sys_cfw_poke(addr, value);
 	asm volatile("icbi 0,%0; isync" :: "r"(addr));
 }
@@ -537,7 +539,9 @@ LV2_SYSCALL2(void, sys_cfw_poke_lv1, (uint64_t _addr, uint64_t value))
 
 LV2_HOOKED_FUNCTION(void *, sys_cfw_memcpy, (void *dst, void *src, uint64_t len))
 {
-	DPRINTF("sys_cfw_memcpy: %p %p 0x%lx\n", dst, src, len);
+	#ifdef DEBUG
+		DPRINTF("sys_cfw_memcpy: %p %p 0x%lx\n", dst, src, len);
+	#endif
 
 	if (len == 8)
 	{
@@ -556,7 +560,10 @@ LV2_HOOKED_FUNCTION(void *, sys_cfw_memcpy, (void *dst, void *src, uint64_t len)
 
 LV2_SYSCALL2(void, sys_cfw_poke, (uint64_t *ptr, uint64_t value))
 {
-	DPRINTF("LV2 poke %p %016lx\n", ptr, value);
+	#ifdef DEBUG
+		DPRINTF("LV2 poke %p %016lx\n", ptr, value);
+	#endif	
+		
 	uint64_t addr=(uint64_t)ptr;
 	if (addr >= MKA(syscall_table_symbol))
 	{
@@ -569,13 +576,17 @@ LV2_SYSCALL2(void, sys_cfw_poke, (uint64_t *ptr, uint64_t value))
 
 			if (((value == sc_null) ||(value == syscall_not_impl)) && (syscall_num != 8)) //Allow removing protected syscall 6 7 9 10 35 NOT 8
 			{
-				DPRINTF("HB remove syscall %ld\n", syscall_num);
+				#ifdef DEBUG	
+					DPRINTF("HB remove syscall %ld\n", syscall_num);
+				#endif	
 				*ptr=value;
 				return;
 			}
 			else //Prevent syscall 6 7 9 10 and 35 from being re-written
 			{
-				DPRINTF("HB has been blocked from rewritting syscall %ld\n", syscall_num);
+				#ifdef DEBUG
+					DPRINTF("HB has been blocked from rewritting syscall %ld\n", syscall_num);
+				#endif	
 				return;
 			}
 		}
@@ -619,18 +630,22 @@ LV2_SYSCALL2(void, sys_cfw_poke, (uint64_t *ptr, uint64_t value))
 
 LV2_SYSCALL2(void, sys_cfw_lv1_poke, (uint64_t lv1_addr, uint64_t lv1_value))
 {
-	DPRINTF("LV1 poke %p %016lx\n", (void*)lv1_addr, lv1_value);
+	#ifdef DEBUG	
+		DPRINTF("LV1 poke %p %016lx\n", (void*)lv1_addr, lv1_value);
+	#endif	
 	lv1_poked(lv1_addr, lv1_value);
 }
 
-LV2_SYSCALL2(uint64_t, sys_cfw_lv1_peek, (uint64_t lv1_addr))
+/*LV2_SYSCALL2(uint64_t, sys_cfw_lv1_peek, (uint64_t lv1_addr))
 {
-	DPRINTF("lv1_peek %p\n", (void*)lv1_addr);
-	
+	#ifdef DEBUG
+		DPRINTF("lv1_peek %p\n", (void*)lv1_addr);
+	#endif
     uint64_t ret;
     ret = lv1_peekd(lv1_addr);
     return ret;
-}
+}*/
+
 LV2_SYSCALL2(void, sys_cfw_lv1_call, (uint64_t a1, uint64_t a2, uint64_t a3, uint64_t a4, uint64_t a5, uint64_t a6, uint64_t a7, uint64_t num))
 {
 	/* DO NOT modify */
@@ -691,8 +706,9 @@ static uint8_t disable_cobra = 0;
 LV2_SYSCALL2(int64_t, syscall8, (uint64_t function, uint64_t param1, uint64_t param2, uint64_t param3, uint64_t param4, uint64_t param5, uint64_t param6, uint64_t param7))
 {
 	extend_kstack(0);
-
-	DPRINTF("Syscall 8 -> %lx\n", function);
+	#ifdef DEBUG
+		DPRINTF("Syscall 8 -> %lx\n", function);
+	#endif	
 
 	// -- AV: temporary disable cobra syscall (allow dumpers peek 0x1000 to 0x9800)
 	static uint8_t tmp_lv1peek = 0;
@@ -766,7 +782,9 @@ LV2_SYSCALL2(int64_t, syscall8, (uint64_t function, uint64_t param1, uint64_t pa
 		case SYSCALL8_OPCODE_PS3MAPI:
 			switch ((int)param1)
 			{
-				DPRINTF("syscall8: PS3M_API function 0x%x\n", (int)param1);
+				#ifdef DEBUG
+					DPRINTF("syscall8: PS3M_API function 0x%x\n", (int)param1);
+				#endif	
 
 				//----------
 				//CORE
@@ -940,7 +958,9 @@ LV2_SYSCALL2(int64_t, syscall8, (uint64_t function, uint64_t param1, uint64_t pa
 				//DEFAULT
 				//----------
 				default:
-					DPRINTF("syscall8: Unsupported PS3M_API opcode: 0x%lx\n", function);
+					#ifdef DEBUG
+						DPRINTF("syscall8: Unsupported PS3M_API opcode: 0x%lx\n", function);
+					#endif	
 					return ENOSYS;
 				break;
 			}
@@ -1155,8 +1175,10 @@ LV2_SYSCALL2(int64_t, syscall8, (uint64_t function, uint64_t param1, uint64_t pa
 			if (1 <= ps3mapi_partial_disable_syscall8)	return ENOSYS;
 
 	}
-
-	DPRINTF("Unsupported syscall8 opcode: 0x%lx\n", function);
+	#ifdef DEBUG
+		DPRINTF("Unsupported syscall8 opcode: 0x%lx\n", function);
+	#endif
+	
 	return ENOSYS;
 }
 

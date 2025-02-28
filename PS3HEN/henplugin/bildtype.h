@@ -6,7 +6,7 @@
 #define LITE 2
 
 int build_type = RELEASE;
-int use_wmm_pkg = 1;
+int use_wmm_pkg = 0;
 
 
 #endif /* __BILDTYPE_H__ */

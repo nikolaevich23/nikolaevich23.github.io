@@ -139,10 +139,6 @@ static void read_act_dat_and_make_rif(uint8_t *rap, uint8_t *act_dat, const char
 {
 	int fd;
 
-	#ifdef DEBUG
-		DPRINTF("Creating %s\n", rif_path);
-	#endif
-
 	if(cellFsOpen(rif_path, CELL_FS_O_WRONLY | CELL_FS_O_CREAT | CELL_FS_O_TRUNC, &fd, 0666, NULL, 0) == CELL_FS_SUCCEEDED)
 	{
 		uint8_t idps_const[KEY_SIZE]	= { 0x5E, 0x06, 0xE0, 0x4F, 0xD9, 0x4A, 0x71, 0xBF, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01 };
@@ -189,9 +185,6 @@ static void read_act_dat_and_make_rif(uint8_t *rap, uint8_t *act_dat, const char
 		cellFsWrite(fd, rif, 0x98, &size);
 		cellFsClose(fd);
 		
-		#ifdef DEBUG
-			DPRINTF("created: %s\n", rif_path);
-		#endif
 	}
 }
 
@@ -201,10 +194,6 @@ static int create_act_dat(const char *userid)
 	uint64_t size;
 	char full_path[120], exdata_dir[120];
 	CellFsStat stat;
-
-	#ifdef DEBUG
-		DPRINTF("Creating act.dat for userID %s...\n", userid);
-	#endif
 
 	uint8_t timedata[0x10] =
 	{
@@ -238,10 +227,6 @@ static int create_act_dat(const char *userid)
 	{
 		cellFsWrite(fd, actdat, 0x1038, &size);
 		cellFsClose(fd);
-
-		#ifdef DEBUG
-			DPRINTF("created: %s\n", full_path);
-		#endif
 	}
 
 	free(actdat);
@@ -317,9 +302,6 @@ void make_rif(const char *path)
 			{
 				//memcpy(rap, cached_rap, KEY_SIZE); // "rap" already has the value from cached_rap
 				found_rap_in_bin = 1;
-				#ifdef DEBUG
-					DPRINTF("Using cached RAP value for content_id: %s\n", content_id);
-				#endif
 			}
 			else
 			{
@@ -335,20 +317,6 @@ void make_rif(const char *path)
 				{
 					strncpy(cached_content_id, content_id, CONTENTID_SIZE);
 					
-					/*
-					#ifdef DEBUG
-						char buf[0x100];
-						char *ptr = buf;
-						int offset = 0;
-
-						// Iterate over each byte of rap_value and convert it to hex format
-						for (int i = 0; i < KEY_SIZE; i++) {
-							offset += sprintf(ptr + offset, "%02X ", rap[i]);
-						}
-
-						DPRINTF("rap_value: %s\n", buf);
-					#endif
-					*/
 				}
 			}
 
@@ -381,13 +349,7 @@ void make_rif(const char *path)
 
 			if (found_rap_in_bin) {
 				// rap already has the value copied from cached_rap
-				#ifdef DEBUG
-					DPRINTF("found_rap_in_bin\n");
-				#endif
 			} else if (is_pslauncher) {
-				#ifdef DEBUG
-					DPRINTF("is_pslauncher\n");
-				#endif
 				// Use the hardcoded values for PS2 and PSP launchers
 				memcpy(rap, (uint8_t[]){ 0xF5, 0xDE, 0xCA, 0xBB, 0x09, 0x88, 0x4F, 0xF4, 0x02, 0xD4, 0x12, 0x3C, 0x25, 0x01, 0x71, 0xD9 }, KEY_SIZE);
 			} else {
@@ -419,9 +381,6 @@ void make_rif(const char *path)
 
 					if(cellFsStat(buffer, &stat) == CELL_FS_SUCCEEDED)
 					{
-						#ifdef DEBUG
-							DPRINTF("Exit make_rif(): Found act.dat in %08d\n", i);
-						#endif
 						return; // exit make_rif() -> the act.dat from another user account will be used
 					}
 				}
@@ -435,10 +394,6 @@ void make_rif(const char *path)
 				if(xreg_data(buffer))
 					create_act_dat(userid);
 			}
-
-			#ifdef DEBUG
-				DPRINTF("act_path: %s content_id: %s\n", act_path, content_id);
-			#endif
 
 			if(cellFsOpen(act_path, CELL_FS_O_RDONLY, &fd, 0666, NULL, 0) == CELL_FS_SUCCEEDED)
 			{

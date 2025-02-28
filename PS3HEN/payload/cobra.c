@@ -12,7 +12,9 @@
 
 int sys_cobra_usb_command(uint8_t command, uint8_t bmRequestType, uint32_t addr, void *buf, uint16_t size)
 {	
-	DPRINTF("App is calling sys_cobra_usb_command: %02X\n", command);
+	#ifdef DEBUG
+		DPRINTF("App is calling sys_cobra_usb_command: %02X\n", command);
+	#endif
 	
 	if (size > 4096)
 		return EINVAL;

@@ -393,7 +393,9 @@ Known values:
 
 int sys_psp_sony_bug(uint32_t *mips_registers, void *unk, uint32_t mips_PC)
 {
-	DPRINTF("sys_psp_sony_bug, game is gonna crash\n");
+	#ifdef DEBUG
+		DPRINTF("sys_psp_sony_bug, game is gonna crash\n");
+	#endif	
 	/*
 	DPRINTF("PSP registers info:\n");
 	DPRINTF("PC: %08X\n", mips_PC);
