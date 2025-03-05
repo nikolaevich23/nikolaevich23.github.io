@@ -1,6 +1,6 @@
 <title>AutoHEN Installer</title>
 <center>
-<h1>AutoHEN Installer (4.91 HFW)</h1>
+<h1>AutoHEN Installer (4.92.2 HFW)</h1>
 <hr>
 <div id="result"></div>
 <div id="exploit"></div>
@@ -396,7 +396,7 @@ function triggerX()
 }
 function HFWmsg()
 {
-	showMsg("<h2><span style='color:red'>You must install Hybrid Firmware (HFW) 4.91 before installing HEN!</h2></span>");
+	showMsg("<h2><span style='color:red'>You must install Hybrid Firmware (HFW) 4.92 before installing HEN!</h2></span>");
 	throw new Error('');
 }
 if(fwv=="4.92"){initROP(true)}else{HFWmsg()}
