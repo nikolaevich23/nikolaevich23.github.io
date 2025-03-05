@@ -860,51 +860,51 @@ var gadget_mod15_addr_491=0x39D038; //load r3 word
 var gadget_mod16_addr_491=0x4F732C; //set toc
 
 //CEX 4.92
-var toc_addr_492 = 0x6F5520;
-var default_vsh_pub_toc_492=0x6ED574;
-var vsh_opd_patch_492=0x096D5C;
-var vsh_opd_addr_492=0x6EBB38;
-var vsh_ps3hen_key_toc_492=0x70733C;
-var vsh_toc_addr_screenshot_492=0x72014C;//0x72057C
+var toc_addr_492 = 0x6F5558;
+var default_vsh_pub_toc_492=0x6ED5AC;
+var vsh_opd_patch_492=0x96D5C;
+var vsh_opd_addr_492=0x6EBB70;
+var vsh_toc_addr_screenshot_492=0x72082C;// Updated From 4.83/4.84/4.85
+var vsh_ps3hen_key_toc_492=0x707A1C;// Updated From 4.83/4.84/4.85
 var toc_entry1_addr_492=0x6DA3D0;
-var toc_entry2_addr_492=0x725608;
+var toc_entry2_addr_492=0x725CE8;//idps Updated From 4.83/4.84/4.85 Double-check 4.92
 var toc_entry3_addr_492=0x6DA3C8;
 var toc_entry4_addr_492=0x740000;
-var toc_entry5_addr_492=0x6EB690;
+var toc_entry5_addr_492=0x6EB6C8;
 var toc_entry6_addr_492=0x0;
 var gadget1_addr_492=0x097604;
-var gadget2_addr_492=0x6096A8;
+var gadget2_addr_492=0x60A0E4;
 var gadget3_addr_492=0x0D505C;
 var gadget4_addr_492=0x229838;
 var gadget5_addr_492=0x12BB1C;
-var gadget6_addr_492=0x6152A0;//malloc
+var gadget6_addr_492=0x615CDC;//malloc
 var gadget7_addr_492=0x01FFD0;//memset
 var gadget8_addr_492=0x020000;//memcpy
 var gadget9_addr_492=0x029B08;
-var gadget10_addr_492=0x62D5E8;
-var gadget11_addr_492=0x59A0AC;
+var gadget10_addr_492=0x62E024;
+var gadget11_addr_492=0x59A4B0;// sprintf
 var gadget12_addr_492=0x0C864C;
-var gadget13_addr_492=0x48E5A0;//free
-var gadget14_addr_492=0x48C79C;
-var gadget15_addr_492=0x489C84;
-var gadget_mod1_addr_492=0x60E59C;//
+var gadget13_addr_492=0x48E5A8;//free
+var gadget14_addr_492=0x48C7A0;
+var gadget15_addr_492=0x489C88;
+var gadget_mod1_addr_492=0x60EFD8;
 var gadget_mod2_addr_492=0x013B74;
 var gadget_mod3_addr_492=0x0B8E00;
-var gadget_mod4a_addr_492=0x0D9684;//
-var gadget_mod4b_addr_492=0x42C774;//
-var gadget_mod4c_addr_492=0x054AF0;
-var gadget_mod5_addr_492=0x4238D8;
+var gadget_mod4a_addr_492=0x0D9684;
+var gadget_mod4b_addr_492=0x42C778;
+var gadget_mod4c_addr_492=0x054AF0; //load r5 word
+var gadget_mod5_addr_492=0x4238DC;
 var gadget_mod6_addr_492=0x020C00;
 var gadget_mod7_addr_492=0x01A6AC;
-var gadget_mod8_addr_492=0x2BACB4;
+var gadget_mod8_addr_492=0x2BACB8;// graceful exit
 var gadget_mod9_addr_492=0x010B20;
 var gadget_mod10_addr_492=0x1C5794;
 var gadget_mod11_addr_492=0x18B144;
-var gadget_mod12_addr_492=0x6327C0;
-var gadget_mod13_addr_492=0x33686C;
-var gadget_mod14_addr_492=0x632EC4;
-var gadget_mod15_addr_492=0x39D034;
-var gadget_mod16_addr_492=0x4F7328;
+var gadget_mod12_addr_492=0x6331FC; //validation gadget
+var gadget_mod13_addr_492=0x336870; //store_r3 gadget
+var gadget_mod14_addr_492=0x633900; //load r3 dword
+var gadget_mod15_addr_492=0x39D038; //load r3 word
+var gadget_mod16_addr_492=0x4F732C; //set toc
 
 function hexh2bin(hex_val)
 {
@@ -2219,7 +2219,6 @@ function loadcex_491()
 	gadget_mod15_addr=gadget_mod15_addr_491;
 	gadget_mod16_addr=gadget_mod16_addr_491;
 }
-
 function loadcex_492()
 {
 	toc_addr = toc_addr_492;
@@ -2381,13 +2380,13 @@ function dex()
 			//loadcex_491();
 			//disable_trigger();
 			break;
-
+			
 		case "4.92":
-			//if(document.getElementById('dex').checked===true){loaddex_491();}//alert("calling loaddex_491");
-			//else {loadcex_491();}
-			//loadcex_491();
+			//if(document.getElementById('dex').checked===true){loaddex_492();}//alert("calling loaddex_492");
+			//else {loadcex_492();}
+			//loadcex_492();
 			//disable_trigger();
-			break;			
+			break;
 		
 		default:
 			break;
@@ -2730,7 +2729,7 @@ function ps3chk(){
 	var ua = navigator.userAgent;
 	var uaStringCheck = ua.substring(ua.indexOf("5.0 (") + 5, ua.indexOf(") Apple") - 7);
 	var fwVersion = ua.substring(ua.indexOf("5.0 (") + 19, ua.indexOf(") Apple"));
-	var msgHFW = "ATTENTION!\n\nYour firmware version requires 4.83 - 4.92 HFW (Hybrid Firmware) to be installed, containing exploitable modules.";
+	var msgHFW = "ATTENTION!\n\nYour firmware version requires 4.83 - 4.91 HFW (Hybrid Firmware) to be installed, containing exploitable modules.";
 	var msgCongrats = "Congratulations! We've detected your PlayStation 3 is running FW " + fwVersion + ", which is compatible with ps3hen! Enjoy!";
 	switch (uaStringCheck) {
 		case "PLAYSTATION":
@@ -2806,12 +2805,12 @@ function ps3chk(){
 //					initDEX();
 					loadcex_491();
 					break;
-				
+					
 				case fwCompat[34]:
 					//alert(msgHFW);
 //					initDEX();
 					loadcex_492();
-					break;
+					break;					
 					
 				default:
 					alert('Your PS3 is not on FW 4.80 - 4.92! Your current running FW version is ' + fwVersion + ', which is not compatible with PS3HEN. All features have been disabled');
