@@ -22,7 +22,7 @@
 #include <lv1/stor.h>
 #include <lv1/patch.h>
 #include "common.h"
-#include "lite.h"
+#include "lite.h"				 
 #include "syscall8.h"
 #include "modulespatch.h"
 #include "mappath.h"
@@ -89,11 +89,11 @@
 #elif defined(FIRMWARE_4_89)
 	#define FIRMWARE_VERSION	0x0489
 #elif defined(FIRMWARE_4_90)
-	#define FIRMWARE_VERSION	0x0490
+	#define FIRMWARE_VERSION	0x0490	
 #elif defined(FIRMWARE_4_91)
-	#define FIRMWARE_VERSION	0x0491
+	#define FIRMWARE_VERSION	0x0491	
 #elif defined(FIRMWARE_4_92)
-	#define FIRMWARE_VERSION	0x0492
+	#define FIRMWARE_VERSION	0x0492	
 #endif
 
 #if defined(CFW)
@@ -477,7 +477,9 @@ LV2_SYSCALL2(uint64_t, sys_cfw_peek, (uint64_t *addr))
 	/* if (block_peek)
 		return (uint64_t)ENOSYS; */
 
-	//DPRINTF("peek %p\n", addr);
+	/* #ifdef DEBUG
+		//DPRINTF("peek %p\n", addr);
+	#endif */
 
 	uint64_t ret = *addr;
 
@@ -492,8 +494,8 @@ LV2_HOOKED_FUNCTION(void, sys_cfw_new_poke, (uint64_t *addr, uint64_t value))
 {
 	#ifdef DEBUG
 		DPRINTF("New poke called\n");
-	#endif	
-	
+	#endif
+
 	_sys_cfw_poke(addr, value);
 	asm volatile("icbi 0,%0; isync" :: "r"(addr));
 }
@@ -562,8 +564,7 @@ LV2_SYSCALL2(void, sys_cfw_poke, (uint64_t *ptr, uint64_t value))
 {
 	#ifdef DEBUG
 		DPRINTF("LV2 poke %p %016lx\n", ptr, value);
-	#endif	
-		
+	#endif
 	uint64_t addr=(uint64_t)ptr;
 	if (addr >= MKA(syscall_table_symbol))
 	{
@@ -576,9 +577,9 @@ LV2_SYSCALL2(void, sys_cfw_poke, (uint64_t *ptr, uint64_t value))
 
 			if (((value == sc_null) ||(value == syscall_not_impl)) && (syscall_num != 8)) //Allow removing protected syscall 6 7 9 10 35 NOT 8
 			{
-				#ifdef DEBUG	
+				#ifdef DEBUG
 					DPRINTF("HB remove syscall %ld\n", syscall_num);
-				#endif	
+				#endif
 				*ptr=value;
 				return;
 			}
@@ -586,7 +587,7 @@ LV2_SYSCALL2(void, sys_cfw_poke, (uint64_t *ptr, uint64_t value))
 			{
 				#ifdef DEBUG
 					DPRINTF("HB has been blocked from rewritting syscall %ld\n", syscall_num);
-				#endif	
+				#endif
 				return;
 			}
 		}
@@ -630,21 +631,11 @@ LV2_SYSCALL2(void, sys_cfw_poke, (uint64_t *ptr, uint64_t value))
 
 LV2_SYSCALL2(void, sys_cfw_lv1_poke, (uint64_t lv1_addr, uint64_t lv1_value))
 {
-	#ifdef DEBUG	
+	#ifdef DEBUG
 		DPRINTF("LV1 poke %p %016lx\n", (void*)lv1_addr, lv1_value);
-	#endif	
+	#endif
 	lv1_poked(lv1_addr, lv1_value);
 }
-
-/*LV2_SYSCALL2(uint64_t, sys_cfw_lv1_peek, (uint64_t lv1_addr))
-{
-	#ifdef DEBUG
-		DPRINTF("lv1_peek %p\n", (void*)lv1_addr);
-	#endif
-    uint64_t ret;
-    ret = lv1_peekd(lv1_addr);
-    return ret;
-}*/
 
 LV2_SYSCALL2(void, sys_cfw_lv1_call, (uint64_t a1, uint64_t a2, uint64_t a3, uint64_t a4, uint64_t a5, uint64_t a6, uint64_t a7, uint64_t num))
 {
@@ -706,9 +697,10 @@ static uint8_t disable_cobra = 0;
 LV2_SYSCALL2(int64_t, syscall8, (uint64_t function, uint64_t param1, uint64_t param2, uint64_t param3, uint64_t param4, uint64_t param5, uint64_t param6, uint64_t param7))
 {
 	extend_kstack(0);
+
 	#ifdef DEBUG
 		DPRINTF("Syscall 8 -> %lx\n", function);
-	#endif	
+	#endif
 
 	// -- AV: temporary disable cobra syscall (allow dumpers peek 0x1000 to 0x9800)
 	static uint8_t tmp_lv1peek = 0;
@@ -784,7 +776,7 @@ LV2_SYSCALL2(int64_t, syscall8, (uint64_t function, uint64_t param1, uint64_t pa
 			{
 				#ifdef DEBUG
 					DPRINTF("syscall8: PS3M_API function 0x%x\n", (int)param1);
-				#endif	
+				#endif
 
 				//----------
 				//CORE
@@ -925,7 +917,6 @@ LV2_SYSCALL2(int64_t, syscall8, (uint64_t function, uint64_t param1, uint64_t pa
 
 				case PS3MAPI_OPCODE_GET_RESTORE_SYSCALLS:
 					return allow_restore_sc;
-				//----------
 				//REMOVE HOOK
 				//----------
 				case PS3MAPI_OPCODE_REMOVE_HOOK:
@@ -960,7 +951,7 @@ LV2_SYSCALL2(int64_t, syscall8, (uint64_t function, uint64_t param1, uint64_t pa
 				default:
 					#ifdef DEBUG
 						DPRINTF("syscall8: Unsupported PS3M_API opcode: 0x%lx\n", function);
-					#endif	
+					#endif
 					return ENOSYS;
 				break;
 			}
@@ -1175,10 +1166,10 @@ LV2_SYSCALL2(int64_t, syscall8, (uint64_t function, uint64_t param1, uint64_t pa
 			if (1 <= ps3mapi_partial_disable_syscall8)	return ENOSYS;
 
 	}
+
 	#ifdef DEBUG
 		DPRINTF("Unsupported syscall8 opcode: 0x%lx\n", function);
 	#endif
-	
 	return ENOSYS;
 }
 
@@ -1233,7 +1224,7 @@ void create_syscalls(void)
 	create_syscall2(389, sm_set_fan_policy_sc);
 	create_syscall2(409, sm_get_fan_policy_sc);
 	create_syscall2(SYS_MAP_PATH, sys_map_path);
-}
+}						  
 static INLINE void apply_kernel_patches(void)
 {
     /// Adding HEN patches on init for stability /// -- START
@@ -1345,7 +1336,6 @@ static void check_combo_buttons(void)
 	}
 	timer_usleep(20000);
 }
-
 // Check if HEN is being installed and if true, rename boot_plugins.txt
 void is_hen_being_installed(void)
 {
@@ -1411,11 +1401,11 @@ int main(void)
 		#endif
 	}
 	
-
 	// Check for disabled remap
 	if(cellFsStat("/dev_hdd0/hen/remap_files.off",&stat)==0)
 	{
 		mappath_disabled=1;
+		
 		#ifdef DEBUG
 			//DPRINTF("PAYLOAD->remap_files.off->Internal mappings disabled until reboot\n");
 		#endif
@@ -1476,6 +1466,7 @@ int main(void)
 		map_path("/dev_flash/vsh/module/sysconf_plugin.sprx","/dev_flash/vsh/resource/AAA/sysconf_plugin.sprx",FLAG_MAX_PRIORITY|FLAG_PROTECT);// Switches debug_menu
 		}*/
 	}
+
 	
 	#ifdef DEBUG
 		printMappingList();

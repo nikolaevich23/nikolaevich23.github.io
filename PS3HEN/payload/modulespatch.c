@@ -38,7 +38,7 @@
 #define BOOT_PLUGINS_FIRST_SLOT 	1
 #define MAX_BOOT_PLUGINS			(MAX_VSH_PLUGINS-BOOT_PLUGINS_FIRST_SLOT)
 #define MAX_BOOT_PLUGINS_KERNEL			5
-#define PRX_PATH					"/dev_flash/vsh/module/webftp_server.sprx"
+//#define PRX_PATH					"/dev_flash/vsh/module/webftp_server.sprx"
 
 LV2_EXPORT int decrypt_func(uint64_t *, uint32_t *);
 
@@ -804,12 +804,12 @@ LV2_PATCHED_FUNCTION(int, modules_patching, (uint64_t *arg1, uint32_t *arg2))
 		if (total == 0)
 			buf = (uint32_t *)saved_buf;
 
-		#ifdef	DEBUG
+		/* #ifdef	DEBUG
 			if (last_chunk)
 			{
-				//DPRINTF("Total section size: %x\n", total+ptr32[4/4]);
+				DPRINTF("Total section size: %x\n", total+ptr32[4/4]);
 			}
-		#endif
+		#endif */
 
 		saved_buf += ptr32[4/4];
 	}
@@ -1103,7 +1103,7 @@ int prx_unload_vsh_plugin(unsigned int slot)
 	int ret;
 	sys_prx_id_t prx;
 
-	#ifndef  DEBUG
+	#ifdef DEBUG
 		DPRINTF("Trying to unload vsh plugin %x\n", slot);
 	#endif
 
@@ -1112,9 +1112,9 @@ int prx_unload_vsh_plugin(unsigned int slot)
 
 	prx = vsh_plugins[slot];
 
-	#ifndef  DEBUG
+	/* #ifdef DEBUG
 		DPRINTF("Current plugin: %08X\n", prx);
-	#endif
+	#endif */
 
 	if (prx == 0)
 		return ENOENT;
@@ -1122,19 +1122,19 @@ int prx_unload_vsh_plugin(unsigned int slot)
 	ret = prx_stop_module_with_thread(prx, vsh_process, 0, 0);
 	if (ret == 0)
 		ret = prx_unload_module(prx, vsh_process);
-	#ifndef  DEBUG
+		/* #ifdef DEBUG
 		else
 			DPRINTF("Stop failed: %x!\n", ret);
-	#endif
+		#endif */
 
 	if (ret == 0)
 	{
 		vsh_plugins[slot] = 0;
-		#ifndef  DEBUG
+		#ifdef DEBUG
 			DPRINTF("Vsh plugin unloaded succesfully!\n");
 		#endif
 	}
-	#ifndef  DEBUG
+	#ifdef DEBUG
 		else
 			DPRINTF("Unload failed : %x!\n", ret);
 	#endif
@@ -1310,9 +1310,7 @@ void load_boot_plugins_kernel(int boot_plugins)
 
 				if (ret >= 0)
 				{
-					#ifdef DEBUG
 						DPRINTF("Load boot plugin %s -> %x\n", path, current_slot_kernel);
-					#endif
 					current_slot_kernel++;
 					num_loaded_kernel++;
 			         }
@@ -1378,9 +1376,9 @@ void load_boot_plugins(int boot_plugins)
 
 				if (ret >= 0)
 				{
-					#ifdef  DEBUG
+					#ifdef DEBUG
 						DPRINTF("Load boot plugin %s -> %x\n", path, current_slot);
-					#endif
+					#endif	   
 					current_slot++;
 					num_loaded++;
 			}
@@ -1402,6 +1400,7 @@ void load_boot_plugins(int boot_plugins)
 	{
 		char *parent_name = get_process_name(parent);
 		//DPRINTF("PROCESS %s (%s) (%08X) created from parent process: %s\n", path, get_process_name(*process), *pid, ((int64_t)parent_name < 0) ? parent_name : "KERNEL");
+
 		return 0;
 	}
 

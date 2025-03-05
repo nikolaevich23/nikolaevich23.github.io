@@ -8,7 +8,7 @@ set CYGWIN=C:\PSDK3v2\MinGW\msys\1.0\bin
 
 mv *CEX_480 *CEX_481 *CEX_482 *CEX_483 *CEX_484 *CEX_485 *CEX_486 *CEX_487 *CEX_488 *CEX_489 *CEX_490 *CEX_491 *CEX_492 PS3HEN_GEN
 cd henplugin
-cp bildtype.r bildtype.h
+cp bildtype.l bildtype.h
 %CYGWIN%\bash -i -c 'make release; rm -r objs; rm henplugin.prx; rm henplugin.sym; mv henplugin.sprx ../PS3HEN_GEN;'
 cd ../stage0_file
 rm -f *.o *.elf *.self *.bin *.map ../lv1/src/*.o ../debug/src/*.o ../lv2/src/*.o
