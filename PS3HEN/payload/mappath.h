@@ -20,6 +20,7 @@ void 	printMappingList();
 void	map_path_patches(int syscall);
 //int 	unmap_path(char *oldpath);
 int  	map_path(char *oldpath, char *newpath, uint32_t flags);
+void    map_path_slot(char *old, char *newp, int slot);
 int 	map_path_user(char *oldpath, char *newpath, uint32_t flags);
 int 	map_path_user2(char *oldpath, char *newpath, uint32_t flags);
 int 	sys_map_path(char *oldpath, char *newpath, uint32_t flags);

@@ -5,6 +5,8 @@
 <p align="center">
   <img alig src="https://github-profile-trophy.vercel.app/?username=nikolaevich23&column=6&rank=SSS,SS,S,AAA,AA,A,B,C" />
 </p>
+## Изменения в 3.4.1
+- Добавлена опция старого монтирования в раздел переключение режима HEN (для некоторых моделей, для стабильности)
 
 ## Изменения в 3.4.0
 - Изменение некоторых оффсетов для стандартной установки

@@ -26,6 +26,19 @@ typedef struct MapEntry {
 	struct MapEntry *next;
 } MapEntry_t;
 
+#define MAX_TABLE_ENTRIES 18
+
+typedef struct _MapEntry
+{
+	char *oldpath;
+	char *newpath;
+	int  newpath_len;
+	int  oldpath_len;
+	uint32_t flags;	
+} MapEntry;
+
+MapEntry map_table[MAX_TABLE_ENTRIES];
+
 // typedef struct CellFsMountInformation {
 	// char p_name[0x20];
 	// char p_type[0x20];
@@ -77,6 +90,20 @@ static void printMapTableList() {
 		}
 }
 #endif
+
+void map_path_slot(char *old, char *newp, int slot)
+{
+    if(slot<=MAX_TABLE_ENTRIES)
+    {
+        map_table[slot].oldpath=old;
+        map_table[slot].newpath = alloc(MAX_PATH, 0x27);
+        strncpy(map_table[slot].newpath, newp, MAX_PATH-1);
+        map_table[slot].newpath_len=strlen(newp);
+        map_table[slot].oldpath_len = strlen(old);
+        map_table[slot].flags = 0;
+        return;
+    }
+}
 
 void printMappingList() {
 	#ifdef DEBUG

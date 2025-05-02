@@ -976,6 +976,8 @@ static void copyflag_thread(void)
 	filecopy("/dev_hdd0/hen/off.png","/dev_hdd0/hen/hen_gpsn.png", "/dev_hdd0/hen/hen_gpsn.on");
 	filecopy("/dev_hdd0/hen/off.png","/dev_hdd0/hen/hen_ghb.png", "/dev_hdd0/hen/hen_ghb.on");
 	filecopy("/dev_hdd0/hen/off.png","/dev_hdd0/hen/hen_grg.png", "/dev_hdd0/hen/hen_grg.on");
+	filecopy("/dev_hdd0/hen/off.png","/dev_hdd0/hen/hen_old.png", "/dev_hdd0/hen/hen_old.on");
+	filecopy("/dev_hdd0/hen/off.off","/dev_hdd0/hen/hen_old.off", "/dev_hdd0/hen/hen_old.on");
 	filecopy("/dev_hdd0/hen/off.off","/dev_hdd0/hen/clear_web_auth_cache.on", "/dev_hdd0/hen/clear_web_auth_cache.off");
 	filecopy("/dev_hdd0/hen/off.off","/dev_hdd0/hen/clear_web_cookie.on", "/dev_hdd0/hen/clear_web_cookie.off");
 	filecopy("/dev_hdd0/hen/off.off","/dev_hdd0/hen/clear_web_history.on", "/dev_hdd0/hen/clear_web_history.off");
@@ -1379,7 +1381,7 @@ static void henplugin_thread(__attribute__((unused)) uint64_t arg)
 	#endif
 	cellFsUnlink(pkg_path);
 	
-	if (number_files()<57) // check flag
+	if (number_files()<59) // check flag
 	{
 		copyflag_thread();
 		//DPRINTF("HENPLUGIN->flag files: %u\n", number_files());
