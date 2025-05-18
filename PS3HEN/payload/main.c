@@ -1413,7 +1413,7 @@ int main(void)
 	
 	// File and folder redirections using mappath mappings
 	
-	if((mappath_disabled==0)||(cellFsStat("/dev_hdd0/hen/hen_old.off",&stat)!=0))
+	if((mappath_disabled==0)&&(cellFsStat("/dev_hdd0/hen/hen_old.off",&stat)!=0))
 	{
 		//map_path("/app_home/PS3_GAME","/dev_hdd0/game/RELOADXMB",FLAG_MAX_PRIORITY);
 		#ifndef DEBUG
@@ -1467,7 +1467,7 @@ int main(void)
 		}*/
 	}
 	
-	if((mappath_disabled==0)||(cellFsStat("/dev_hdd0/hen/hen_old.off",&stat)==0))
+	if((mappath_disabled==0)&&(cellFsStat("/dev_hdd0/hen/hen_old.off",&stat)==0))
 	{
 		map_path_slot("/app_home/PS3_GAME","/dev_hdd0/game/RELOADXMB",0);	
 		map_path_slot("/dev_flash/vsh/resource/explore/icon/hen_disabled.png","/dev_flash/vsh/resource/AAA/hen_enabled.png",1);// Switches the HEN Logo.	

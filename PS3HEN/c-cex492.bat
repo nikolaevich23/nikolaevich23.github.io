@@ -18,7 +18,7 @@ if exist "for_!nm!_latest_rus.pkg" echo !nm! PKG done
 echo.
 )
 
-rem ftp -n -s:ftp.dat "10.5.1.45"
+ftp -n -s:ftp.dat "10.5.1.45"
 
 
 
