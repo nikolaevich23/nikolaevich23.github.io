@@ -442,57 +442,67 @@ static void press_accept_button(void)
 {
 	press_cancel_button(1);
 }
-
 // LED Control (thanks aldostools)
-#define SC_SYS_CONTROL_LED				(386)
-#define LED_GREEN			1
-#define LED_RED				2
-#define LED_YELLOW			2 //RED+GREEN (RED alias due green is already on)
-#define LED_OFF			0
-#define LED_ON			1
-#define LED_BLINK_FAST		2
-#define LED_BLINK_SLOW		3
-static void led(uint64_t color, uint64_t mode)
-{
-	system_call_2(SC_SYS_CONTROL_LED, (uint64_t)color, (uint64_t)mode);
+#define SC_SYS_CONTROL_LED     386
+#define LED_GREEN              1
+#define LED_RED                2
+#define LED_YELLOW             2 //RED+GREEN (RED alias due green is already on)
+#define LED_OFF                0
+#define LED_ON                 1
+#define LED_BLINK_FAST         2
+#define LED_BLINK_SLOW         3
+
+static void led(uint64_t color, uint64_t mode);
+static void led(uint64_t color, uint64_t mode) {
+    system_call_2(SC_SYS_CONTROL_LED, color, mode);
 }
 
-// Some LED Presets
-void set_led(const char* preset);
-void set_led(const char* preset)
-{
-	#ifdef DEBUG
-		DPRINTF("HENPLUGIN->set_led->preset: %s\n",preset);
-	#endif
+// Resets all LEDs to OFF
+static void reset_leds(void);
+static void reset_leds(void) {
+    led(LED_RED, LED_OFF);
+    led(LED_GREEN, LED_OFF);
+}
+
 	
-	if(strcmp(preset, "install_start") == 0)
-	{
-		#ifdef DEBUG	
-			DPRINTF("HENPLUGIN->set_led->install_start\n");
-		#endif	
-		led(LED_RED, LED_OFF);
-		led(LED_GREEN, LED_OFF);
-		led(LED_YELLOW, LED_BLINK_FAST);
-		led(LED_GREEN, LED_BLINK_FAST);
-	}
-	else if(strcmp(preset, "install_success") == 0)
-	{
-		#ifdef DEBUG
-			DPRINTF("HENPLUGIN->set_led->install_success\n");
-		#endif
-		led(LED_RED, LED_OFF);
-		led(LED_GREEN, LED_OFF);
-		led(LED_GREEN, LED_ON);
-	}
-	else if(strcmp(preset, "install_failed") == 0)
-	{
-		#ifdef DEBUG	
-			DPRINTF("HENPLUGIN->set_led->install_failed\n");
-		#endif
-		led(LED_RED, LED_OFF);
-		led(LED_GREEN, LED_OFF);
-		led(LED_RED, LED_BLINK_FAST);
-	}
+static void set_led(const char* preset);
+static void set_led(const char* preset) {
+ 
+	
+    DPRINTF("HENPLUGIN->set_led->preset: %s\n", preset);
+    reset_leds();  // Turn off all LEDs initially
+
+    if (strcmp(preset, "install_start") == 0) {
+  
+	
+        DPRINTF("HENPLUGIN->set_led->install_start\n");
+
+	
+		
+		
+        led(LED_GREEN, LED_BLINK_FAST);
+  
+    } else if (strcmp(preset, "install_success") == 0) {
+  
+	
+        DPRINTF("HENPLUGIN->set_led->install_success\n");
+
+	
+		
+        led(LED_GREEN, LED_ON);
+  
+    } else if (strcmp(preset, "install_failed") == 0) {
+  
+	
+        DPRINTF("HENPLUGIN->set_led->install_failed\n");
+
+	
+		
+        led(LED_RED, LED_BLINK_FAST);
+    } else if (strcmp(preset, "off") == 0) {
+        DPRINTF("HENPLUGIN->set_led->off\n");
+        reset_leds();
+    }
 }
 
 // Reboot PS3
@@ -879,6 +889,18 @@ static int sysLv2FsLink(const char *oldpath, const char *newpath)
     return_to_user_prog(int);
 }
 
+static int sysLv2FsMkdir(const char *path, int mode)
+{
+    system_call_2(811, (uint64_t)(uintptr_t)path, (uint64_t)mode);
+    return_to_user_prog(int);
+}
+
+static int sysLv2FsRename(const char *from, const char *to)
+{
+    system_call_2(812, (uint64_t)(uintptr_t)from, (uint64_t)(uintptr_t)to);
+    return_to_user_prog(int);
+}
+
 // Restore act.dat (thanks bucanero)
 void restore_act_dat(void);
 void restore_act_dat(void)
@@ -895,6 +917,8 @@ void restore_act_dat(void)
 			sysLv2FsLink(path1, path2);	
 		}
 }
+
+
 
 int filecopy(const char *src, const char *dst, const char *chk)
 {
@@ -1202,6 +1226,30 @@ void clear_web_cache_check(void)
 	}
 }
 
+// Create default directories if they do not exist (thanks LuanTeles)
+void create_default_dirs(void);
+void create_default_dirs(void) {
+    DPRINTF("HENPLUGIN->Begin checking and creating default directories under /dev_hdd0/\n");
+
+    const char* dirs[] = {
+        "/dev_hdd0/BDISO", "/dev_hdd0/DVDISO", "/dev_hdd0/GAMES", "/dev_hdd0/PS2ISO",
+        "/dev_hdd0/PS3ISO", "/dev_hdd0/PSPISO", "/dev_hdd0/PSXISO", "/dev_hdd0/ROMS",
+        "/dev_hdd0/exdata", "/dev_hdd0/packages", "/dev_hdd0/plugins", "/dev_hdd0/theme",
+        "/dev_hdd0/updater", "/dev_hdd0/updater/01"
+    };
+    CellFsStat stat;
+    size_t dirCount = sizeof(dirs) / sizeof(dirs[0]);
+    for (size_t i = 0; i < dirCount; ++i) {
+        if (cellFsStat(dirs[i], &stat) != CELL_OK) {
+            if (sysLv2FsMkdir(dirs[i], CELL_FS_S_IFDIR | 0777) != CELL_OK) {
+                DPRINTF("HENPLUGIN->Error creating directory: %s\n", dirs[i]);
+            }
+        }
+    }
+
+    DPRINTF("HENPLUGIN->Done checking and creating default directories under /dev_hdd0/\n");
+}
+
 void set_build_type(void);
 void set_build_type(void)
 {
@@ -1363,6 +1411,8 @@ static void henplugin_thread(__attribute__((unused)) uint64_t arg)
 		}
 	}
 	
+	// Create default directories for BDISO, PSXISO, PS2ISO, PS3ISO, PSPISO, etc
+	create_default_dirs();
 	restore_act_dat(); // restore act.dat from act.bak backup
 	
 	// Check for webMAN-MOD

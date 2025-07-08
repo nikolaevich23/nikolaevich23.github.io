@@ -62,7 +62,7 @@
 
 #define COBRA_VERSION		0x0F
 #define COBRA_VERSION_BCD	0x0840
-#define HEN_REV				0x0342
+#define HEN_REV				0x0340
 
 #if defined(FIRMWARE_4_80)
 	#define FIRMWARE_VERSION	0x0480
@@ -1413,7 +1413,7 @@ int main(void)
 	
 	// File and folder redirections using mappath mappings
 	
-	if((mappath_disabled==0)&&(cellFsStat("/dev_hdd0/hen/hen_old.off",&stat)!=0))
+	if(mappath_disabled==0)
 	{
 		//map_path("/app_home/PS3_GAME","/dev_hdd0/game/RELOADXMB",FLAG_MAX_PRIORITY);
 		#ifndef DEBUG
@@ -1466,46 +1466,7 @@ int main(void)
 		map_path("/dev_flash/vsh/module/sysconf_plugin.sprx","/dev_flash/vsh/resource/AAA/sysconf_plugin.sprx",FLAG_MAX_PRIORITY|FLAG_PROTECT);// Switches debug_menu
 		}*/
 	}
-	
-	if((mappath_disabled==0)&&(cellFsStat("/dev_hdd0/hen/hen_old.off",&stat)==0))
-	{
-		map_path_slot("/app_home/PS3_GAME","/dev_hdd0/game/RELOADXMB",0);	
-		map_path_slot("/dev_flash/vsh/resource/explore/icon/hen_disabled.png","/dev_flash/vsh/resource/AAA/hen_enabled.png",1);// Switches the HEN Logo.	
-		map_path_slot("/dev_hdd0/hen/hfw_settings.xml","/dev_flash/hen/xml/hfw_settings.xml",2);
-		
-	
-		if((cellFsStat("/dev_hdd0/hen/hen_pm.off",&stat)!=0))
-		{
-			map_path_slot("/dev_hdd0/hen/package_manager.xml","/dev_flash/hen/xml/package_manager.xml",3);
-		}
-		else
-		{
-			map_path_slot("/dev_hdd0/hen/package_manager.xml","/dev_flash/hen/xml/empty.xml",3);
-		}
-		if((cellFsStat("/dev_hdd0/hen/hen_xmb.off",&stat)!=0))
-		{
-			map_path_slot("/dev_hdd0/hen/hen_enabler.xml","/dev_flash/hen/xml/hen_enabled.xml",4);
-		}
-		else
-		{
-			map_path_slot("/dev_hdd0/hen/hen_enabler.xml","/dev_flash/hen/xml/empty.xml",4);
-		}
-		if((cellFsStat("/dev_hdd0/hen/trophy.off",&stat)!=0))
-		{
-			map_path_slot("/dev_flash/vsh/module/explore_plugin.sprx","/dev_flash/vsh/resource/AAA/explore_plugin.sprx",5);// Switches the additional trophy.
-		}	
-	
-		if((cellFsStat("/dev_hdd0/hen/hen_apphome.off",&stat)!=0))
-		{
-			map_path_slot("/dev_hdd0/hen/apphome.xml","/dev_flash/hen/xml/apphome.xml",6);
-		}
-	
-		if((cellFsStat("/dev_hdd0/hen/gameboot.off",&stat)!=0)&&(cellFsStat("/dev_hdd0/hen/gameboot.on",&stat)==0))
-		{	
-			map_path_slot("/dev_flash/vsh/module/game_ext_plugin.sprx","/dev_flash/vsh/resource/AAA/game_ext_plugin.sprx",7);// Switches gameboot
-			map_path_slot("/dev_flash/vsh/resource/custom_render_plugin.rco","/dev_flash/vsh/resource/AAA/custom_render_plugin.rco",8);// Switches gameboot rco
-		}
-	}
+
 	
 	#ifdef DEBUG
 		printMappingList();

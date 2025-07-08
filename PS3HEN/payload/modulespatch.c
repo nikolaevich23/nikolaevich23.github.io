@@ -435,7 +435,8 @@ PatchTableEntry patch_table[] =
 
 #define N_PATCH_TABLE_ENTRIES	(sizeof(patch_table) / sizeof(PatchTableEntry))
 
-#ifdef DEBUG
+//#ifdef DEBUG
+#if 0
 
 static char *hash_to_name(uint64_t hash)
 {
@@ -631,6 +632,26 @@ void do_hook_all_syscalls(void)
 	set_syscall_handler(syscall_handler);
 }
 
+
+struct SceHeader_s
+{
+    uint32_t magic;
+    uint32_t version;
+    uint16_t attribute;
+    uint16_t category;
+    uint32_t ext_header_size;
+    uint64_t file_offset;
+    uint64_t file_size;
+};
+
+struct SceProgramIdentHeader_s
+{
+    uint64_t program_authority_id;
+    uint32_t program_vender_id;
+    uint32_t program_type;
+    uint64_t program_sceversion;
+    uint64_t padding;
+};				  
 LV2_HOOKED_FUNCTION_PRECALL_2(int, post_lv1_call_99_wrapper, (uint64_t *spu_obj, uint64_t *spu_args))
 {
 	sleep_done=1;
@@ -654,36 +675,94 @@ LV2_HOOKED_FUNCTION_PRECALL_2(int, post_lv1_call_99_wrapper, (uint64_t *spu_obj,
 
 	if(is_ptr==0x80) //new
 	{
-		if((*(uint64_t *)(saved_sce_hdr+0x48)>=0x200) || (*(uint64_t *)(saved_sce_hdr+0x48)==0x130))
+		uint64_t type = *(uint64_t *)(saved_sce_hdr + 0x48);
+		if ((type >= 0x200) || (type == 0x130))
 		{
-			sleep_done=0;
+			sleep_done = 0;
 			event_queue_drain(result_queue);
-			event_port_send(command_port, CMD_DISABLE_PATCHES, (uint64_t)&res,0);
+			event_port_send(command_port, CMD_DISABLE_PATCHES, (uint64_t)&res, 0);
 			event_queue_receive(result_queue, &event, 0);
 			event_queue_drain(result_queue);
+
 			#ifdef DEBUG
 				DPRINTF("SELF loading!\n");
 			#endif
+
 			suspend_intr();
 			uint64_t state = spin_lock_irqsave();
+
+			// --- NPDRM / Retail Type Detection --- thanks to @aomsin2526
+			uint64_t self_header_addr = (uint64_t)saved_sce_hdr;
+			struct SceHeader_s *sceHeader = (struct SceHeader_s *)self_header_addr;
+
+			uint8_t isNpdrm = 0;
+			uint8_t isRetailNpdrm = 0;
+			uint8_t isRetailNonNpdrm = 0;
+			uint8_t isCustomVshModules = 0;
+
+			if (sceHeader->magic == 0x53434500 && sceHeader->category == 1)
+			{
+				struct SceProgramIdentHeader_s *sceProgramIdentHeader = (struct SceProgramIdentHeader_s *)(self_header_addr + 0x70);
+
+				uint64_t auth_id = sceProgramIdentHeader->program_authority_id;
+				uint64_t program_type = sceProgramIdentHeader->program_type;
+				uint16_t attribute = sceHeader->attribute;
+
+				isCustomVshModules = (auth_id == 0x1070000052000001 && attribute < 0x1C);
+				isNpdrm = (program_type == 8);
+				isRetailNpdrm = (isNpdrm && !isCustomVshModules);
+				isRetailNonNpdrm = (!isNpdrm && !isCustomVshModules);
+			}
+
+			// Delay Selection and Debug Message
 			#ifdef DEBUG
-				//DPRINTF("interrupt suspended!\n");
+				const char *elf_type_str = "Homebrew / 3.xx ELF";
 			#endif
-			current_ticks=get_ticks();
-			target_ticks=current_ticks+0x3000000; // Testing
-			while(get_ticks()<target_ticks)
-			{}
-			//func_sleep.addr=(void*)MKA(get_syscall_address(141));
-			//func_sleep.toc=(void*)MKA(TOC);
-			//uint64_t (*sleep_thread_user)(uint64_t usecs)=(void*)&func_sleep;
-			//sleep_thread_user(500000);
-			sleep_done=1;
+		
+			uint64_t delay_ticks = 0x3000000; // default 0.63 sec
+
+			if (isRetailNpdrm)
+			{
+				delay_ticks = 0x5B52E80; // 1.2 sec
+				
+		
+	
+				#ifdef DEBUG
+					elf_type_str = "Retail NPDRM ELF";
+				#endif
+			}
+			else if (isRetailNonNpdrm)
+			{
+				delay_ticks = 0x3000000; // 0.63 sec
+				#ifdef DEBUG
+					elf_type_str = "Retail non-NPDRM ELF";
+				#endif
+			}
+			else if (isCustomVshModules)
+			{
+				delay_ticks = 0x5B52E80; // 1.2 sec
+				#ifdef DEBUG
+					elf_type_str = "Custom VSH Module";
+				#endif
+			}
+
 			#ifdef DEBUG
-				//DPRINTF("sleep finished!\n");
+				uint64_t delay_ms = delay_ticks / 79800;
+				DPRINTF("%s detected, sleeping for %llu ticks (~%llu ms)\n",
+					elf_type_str,
+					(unsigned long long)delay_ticks,
+					(unsigned long long)delay_ms);
 			#endif
+
+			current_ticks = get_ticks();
+			target_ticks = current_ticks + delay_ticks;
+			while (get_ticks() < target_ticks) {}
+
+			sleep_done = 1;
 			spin_unlock_irqrestore(state);
 			resume_intr();
-			event_port_send(command_port, CMD_ENABLE_PATCHES, (uint64_t)&res,0);
+
+			event_port_send(command_port, CMD_ENABLE_PATCHES, (uint64_t)&res, 0);
 			event_queue_receive(result_queue, &event, 0);
 			event_queue_drain(result_queue);
 		}
@@ -912,7 +991,7 @@ LV2_PATCHED_FUNCTION(int, modules_patching, (uint64_t *arg1, uint32_t *arg2))
 			if (patch_table[i].hash == hash)
 			{
 				#ifdef	DEBUG
-					DPRINTF("Now patching  %s %lx\n", hash_to_name(hash), hash);
+				//	DPRINTF("Now patching  %s %lx\n", hash_to_name(hash), hash);
 				#endif
 
 				int j = 0;

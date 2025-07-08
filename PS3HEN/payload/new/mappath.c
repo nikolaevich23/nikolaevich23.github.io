@@ -17,7 +17,6 @@
 #include "homebrew_blocker.h"
 #include "make_rif.h"
 
-char ntfs_iso_path[256];
 typedef struct MapEntry {
 	char *oldpath;
 	char *newpath;
@@ -26,19 +25,6 @@ typedef struct MapEntry {
 	uint32_t flags;
 	struct MapEntry *next;
 } MapEntry_t;
-
-#define MAX_TABLE_ENTRIES 18
-
-typedef struct _MapEntry
-{
-	char *oldpath;
-	char *newpath;
-	int  newpath_len;
-	int  oldpath_len;
-	uint32_t flags;	
-} MapEntry;
-
-MapEntry map_table[MAX_TABLE_ENTRIES];
 
 // typedef struct CellFsMountInformation {
 	// char p_name[0x20];
@@ -91,20 +77,6 @@ static void printMapTableList() {
 		}
 }
 #endif
-
-void map_path_slot(char *old, char *newp, int slot)
-{
-    if(slot<=MAX_TABLE_ENTRIES)
-    {
-        map_table[slot].oldpath=old;
-        map_table[slot].newpath = alloc(MAX_PATH, 0x27);
-        strncpy(map_table[slot].newpath, newp, MAX_PATH-1);
-        map_table[slot].newpath_len=strlen(newp);
-        map_table[slot].oldpath_len = strlen(old);
-        map_table[slot].flags = 0;
-        return;
-    }
-}
 
 void printMappingList() {
 	#ifdef DEBUG
@@ -245,7 +217,7 @@ int addMapping(const char *opath, const char *npath, uint32_t flags) {
 					}
 					mpcount++;
 					#ifdef DEBUG
-						//DPRINTF("addMapping: Mapping Added: %s - Mapping Count: %u - Table Mapping Size: 0x%lx bytes\n", opath, mpcount, mapTableByteSize);
+						DPRINTF("addMapping: Mapping Added: %s - Mapping Count: %u - Table Mapping Size: 0x%lx bytes\n", opath, mpcount, mapTableByteSize);
 					#endif
 					return 0;
 				}
@@ -710,7 +682,7 @@ int map_path(char *oldpath, char *newpath, uint32_t flags)
 		if (strcmp(oldpath, "/dev_bdvd") == 0) {
 			condition_apphome = (newpath != NULL);
 			#ifdef DEBUG
-				//DPRINTF("map_path: condition_apphome set to %s\n",condition_apphome ? "true":"false" );
+				DPRINTF("map_path: condition_apphome set to %s\n",condition_apphome ? "true":"false" );
 			#endif
 		}
 		lock_mtx(&map_mtx);
@@ -719,10 +691,10 @@ int map_path(char *oldpath, char *newpath, uint32_t flags)
 		#ifdef DEBUG
 
 			if(ret==0) {
-				//DPRINTF("map_path: mapped path: %s -> %s flags %x\n", oldpath, newpath, flags);
+				DPRINTF("map_path: mapped path: %s -> %s flags %x\n", oldpath, newpath, flags);
 			}
 			else{
-				//DPRINTF("map_path: add mapping error %X for path: %s -> %s flags %x\n",ret, oldpath, newpath, flags);
+				DPRINTF("map_path: add mapping error %X for path: %s -> %s flags %x\n",ret, oldpath, newpath, flags);
 			}
 		#endif
 	}
@@ -849,10 +821,6 @@ static uint8_t libft2d_access = 0;
 
 LV2_HOOKED_FUNCTION_POSTCALL_2(int, open_path_hook, (char *path0, char *path1))
 {
-	// Save path when a ISO is mounted from NTFS partition (By Evilnat)
-	if(strstr(path0, "ntfs[PS3ISO]"))
-		strcpy(ntfs_iso_path, path0); 
-	
 	//extend_kstack(0);
 	if(path0) {
 		#ifdef DEBUG
@@ -967,7 +935,7 @@ LV2_HOOKED_FUNCTION_POSTCALL_2(int, open_path_hook, (char *path0, char *path1))
 				if(curr) {
 					set_patched_func_param(1, (uint64_t)curr->newpath);
 					#ifdef DEBUG
-						//DPRINTF("open_path_hook:= found matching entry for %s in Map Table oldpath: [%s] \nMap Table newpath: [%s] \nMap Table newpath_len: [0x%x]\n",path,curr->oldpath,curr->newpath,(unsigned int)curr->newpath_len);
+						DPRINTF("open_path_hook:= found matching entry for %s in Map Table oldpath: [%s] \nMap Table newpath: [%s] \nMap Table newpath_len: [0x%x]\n",path,curr->oldpath,curr->newpath,(unsigned int)curr->newpath_len);
 					#endif
 				}
 				else{
