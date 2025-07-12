@@ -6,11 +6,11 @@
   <img alig src="https://github-profile-trophy.vercel.app/?username=nikolaevich23&column=6&rank=SSS,SS,S,AAA,AA,A,B,C" />
 </p>
 ## Изменения в 3.4.2
-
 - Создание директорий PS3ISO и других при смене hdd
 - Изменение xai_plugin:
 	- конвертирование rif/rap на hdd, если нет usb
 	- ключи дешифровки теперь имеют вид имя-файла-iso.dkey или имя-файла-iso.key
+- Чистка кода.
 - Другие мелкие правки.
 
 ## Изменения в 3.4.1

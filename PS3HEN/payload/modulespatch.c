@@ -1474,10 +1474,10 @@ void load_boot_plugins(int boot_plugins)
 	// EVILNAT END
 }
 
-#ifdef DEBUG
+/*#ifdef DEBUG
 	LV2_HOOKED_FUNCTION_PRECALL_SUCCESS_8(int, create_process_common_hooked, (process_t parent, uint32_t *pid, int fd, char *path, int r7, uint64_t r8, uint64_t r9, void *argp, uint64_t args, void *argp_user, uint64_t sp_80, void **sp_88, uint64_t *sp_90, process_t *process, uint64_t *sp_A0, uint64_t *sp_A8))
 	{
-		char *parent_name = get_process_name(parent);
+		//char *parent_name = get_process_name(parent);
 		//DPRINTF("PROCESS %s (%s) (%08X) created from parent process: %s\n", path, get_process_name(*process), *pid, ((int64_t)parent_name < 0) ? parent_name : "KERNEL");
 
 		return 0;
@@ -1490,7 +1490,7 @@ void load_boot_plugins(int boot_plugins)
 		#endif
 	}
 
-#endif
+#endif*/
 
 void modules_patch_init(void)
 {

@@ -452,59 +452,6 @@ static void press_accept_button(void)
 #define LED_BLINK_FAST         2
 #define LED_BLINK_SLOW         3
 
-static void led(uint64_t color, uint64_t mode);
-static void led(uint64_t color, uint64_t mode) {
-    system_call_2(SC_SYS_CONTROL_LED, color, mode);
-}
-
-// Resets all LEDs to OFF
-static void reset_leds(void);
-static void reset_leds(void) {
-    led(LED_RED, LED_OFF);
-    led(LED_GREEN, LED_OFF);
-}
-
-	
-static void set_led(const char* preset);
-static void set_led(const char* preset) {
- 
-	
-    DPRINTF("HENPLUGIN->set_led->preset: %s\n", preset);
-    reset_leds();  // Turn off all LEDs initially
-
-    if (strcmp(preset, "install_start") == 0) {
-  
-	
-        DPRINTF("HENPLUGIN->set_led->install_start\n");
-
-	
-		
-		
-        led(LED_GREEN, LED_BLINK_FAST);
-  
-    } else if (strcmp(preset, "install_success") == 0) {
-  
-	
-        DPRINTF("HENPLUGIN->set_led->install_success\n");
-
-	
-		
-        led(LED_GREEN, LED_ON);
-  
-    } else if (strcmp(preset, "install_failed") == 0) {
-  
-	
-        DPRINTF("HENPLUGIN->set_led->install_failed\n");
-
-	
-		
-        led(LED_RED, LED_BLINK_FAST);
-    } else if (strcmp(preset, "off") == 0) {
-        DPRINTF("HENPLUGIN->set_led->off\n");
-        reset_leds();
-    }
-}
-
 // Reboot PS3
 int reboot_flag=0;
 int do_install_hen=0;
@@ -895,12 +842,6 @@ static int sysLv2FsMkdir(const char *path, int mode)
     return_to_user_prog(int);
 }
 
-static int sysLv2FsRename(const char *from, const char *to)
-{
-    system_call_2(812, (uint64_t)(uintptr_t)from, (uint64_t)(uintptr_t)to);
-    return_to_user_prog(int);
-}
-
 // Restore act.dat (thanks bucanero)
 void restore_act_dat(void);
 void restore_act_dat(void)
@@ -917,8 +858,6 @@ void restore_act_dat(void)
 			sysLv2FsLink(path1, path2);	
 		}
 }
-
-
 
 int filecopy(const char *src, const char *dst, const char *chk)
 {
