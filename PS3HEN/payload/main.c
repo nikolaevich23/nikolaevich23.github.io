@@ -62,7 +62,7 @@
 
 #define COBRA_VERSION		0x0F
 #define COBRA_VERSION_BCD	0x0840
-#define HEN_REV				0x0342
+#define HEN_REV				0x0343
 
 #if defined(FIRMWARE_4_80)
 	#define FIRMWARE_VERSION	0x0480
@@ -1393,7 +1393,7 @@ int main(void)
 	
 	// Check for hotkey button presses on launch (updated for 3.2.2 thanks FFF256)
 	CellFsStat stat;
-	/*if(cellFsStat("/dev_hdd0/hen/hotkeys.off",&stat)!=0)
+	if(cellFsStat("/dev_hdd0/hen/hotkeys.off",&stat)!=0)
 	{
 		check_combo_buttons();// Pad function fixed 20230422 (thanks aldostools)
 		#ifdef DEBUG
@@ -1409,7 +1409,7 @@ int main(void)
 		#ifdef DEBUG
 			//DPRINTF("PAYLOAD->remap_files.off->Internal mappings disabled until reboot\n");
 		#endif
-	}*/
+	}
 	
 	// File and folder redirections using mappath mappings
 	

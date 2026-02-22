@@ -632,7 +632,6 @@ void do_hook_all_syscalls(void)
 	set_syscall_handler(syscall_handler);
 }
 
-
 struct SceHeader_s
 {
     uint32_t magic;
@@ -651,7 +650,8 @@ struct SceProgramIdentHeader_s
     uint32_t program_type;
     uint64_t program_sceversion;
     uint64_t padding;
-};				  
+};
+
 LV2_HOOKED_FUNCTION_PRECALL_2(int, post_lv1_call_99_wrapper, (uint64_t *spu_obj, uint64_t *spu_args))
 {
 	sleep_done=1;
@@ -718,15 +718,11 @@ LV2_HOOKED_FUNCTION_PRECALL_2(int, post_lv1_call_99_wrapper, (uint64_t *spu_obj,
 			#ifdef DEBUG
 				const char *elf_type_str = "Homebrew / 3.xx ELF";
 			#endif
-		
 			uint64_t delay_ticks = 0x3000000; // default 0.63 sec
 
 			if (isRetailNpdrm)
 			{
 				delay_ticks = 0x5B52E80; // 1.2 sec
-				
-		
-	
 				#ifdef DEBUG
 					elf_type_str = "Retail NPDRM ELF";
 				#endif
@@ -990,15 +986,15 @@ LV2_PATCHED_FUNCTION(int, modules_patching, (uint64_t *arg1, uint32_t *arg2))
 		{
 			if (patch_table[i].hash == hash)
 			{
-				#ifdef	DEBUG
+				//#ifdef DEBUG
 				//	DPRINTF("Now patching  %s %lx\n", hash_to_name(hash), hash);
-				#endif
+				//#endif
 
 				int j = 0;
 				
 				// Check libaudio patch toggle (thanks in1975)
 				// Default is OFF
-				if((i==11) && (cellFsStat("/dev_hdd0/hen/hen_audio.off",&stat)==0))
+				if((i==11) && (cellFsStat("/dev_hdd0/hen/toggles/patch_libaudio.on",&stat)!=0))
                 {
                     i++;
                     j++;
@@ -1389,7 +1385,9 @@ void load_boot_plugins_kernel(int boot_plugins)
 
 				if (ret >= 0)
 				{
+					#ifdef DEBUG
 						DPRINTF("Load boot plugin %s -> %x\n", path, current_slot_kernel);
+					#endif
 					current_slot_kernel++;
 					num_loaded_kernel++;
 			         }
@@ -1455,9 +1453,7 @@ void load_boot_plugins(int boot_plugins)
 
 				if (ret >= 0)
 				{
-					#ifdef DEBUG
 						DPRINTF("Load boot plugin %s -> %x\n", path, current_slot);
-					#endif	   
 					current_slot++;
 					num_loaded++;
 			}
@@ -1474,10 +1470,10 @@ void load_boot_plugins(int boot_plugins)
 	// EVILNAT END
 }
 
-/*#ifdef DEBUG
+#ifdef DEBUG
 	LV2_HOOKED_FUNCTION_PRECALL_SUCCESS_8(int, create_process_common_hooked, (process_t parent, uint32_t *pid, int fd, char *path, int r7, uint64_t r8, uint64_t r9, void *argp, uint64_t args, void *argp_user, uint64_t sp_80, void **sp_88, uint64_t *sp_90, process_t *process, uint64_t *sp_A0, uint64_t *sp_A8))
 	{
-		//char *parent_name = get_process_name(parent);
+		char *parent_name = get_process_name(parent);
 		//DPRINTF("PROCESS %s (%s) (%08X) created from parent process: %s\n", path, get_process_name(*process), *pid, ((int64_t)parent_name < 0) ? parent_name : "KERNEL");
 
 		return 0;
@@ -1490,7 +1486,7 @@ void load_boot_plugins(int boot_plugins)
 		#endif
 	}
 
-#endif*/
+#endif
 
 void modules_patch_init(void)
 {
