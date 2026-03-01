@@ -38,7 +38,7 @@ HEN_GEN PS3HEN.BIN_CEX_489_DEBUG stage2.bin_debug_489C stage0.bin_489C HENplugin
 HEN_GEN PS3HEN.BIN_CEX_490_DEBUG stage2.bin_debug_490C stage0.bin_490C HENplugin.sprx
 HEN_GEN PS3HEN.BIN_CEX_491_DEBUG stage2.bin_debug_491C stage0.bin_491C HENplugin.sprx
 HEN_GEN PS3HEN.BIN_CEX_492_DEBUG stage2.bin_debug_492C stage0.bin_492C HENplugin.sprx
-HEN_GEN PS3HEN.BIN_CEX_493_DEBUG stage2.bin_debug_492C stage0.bin_493C HENplugin.sprx
+HEN_GEN PS3HEN.BIN_CEX_493_DEBUG stage2.bin_debug_493C stage0.bin_493C HENplugin.sprx
 rm stage* *.sprx *.exe
 mv PS3HEN* ../
 pause
