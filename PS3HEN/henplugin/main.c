@@ -795,6 +795,13 @@ static void downloadPKG_thread2(void)
 		fw_version = L"4.92";
 		kernel_type = L"cex";
 	}
+	// 4.93 CEX 
+	// Kernel offset is off by 0x10 so we are checking this value instead of the timestamp
+	else if(val==0x323032362F30322FULL)
+	{                                  
+		fw_version = L"4.93";     
+		kernel_type = L"cex";      
+	}				
 
 	// 4.82 DEX
 	else if(valD==0x323031372F30382FULL)
