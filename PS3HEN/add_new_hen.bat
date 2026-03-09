@@ -31,8 +31,7 @@ move ./main.c ./henplugin/main.c
 sfk replace lv2\include\lv2\symbols.h "/defined(FIRMWARE_4_!l!)/defined(FIRMWARE_4_!l!) || defined(FIRMWARE_4_!n!)/" -yes
 
 rem for /f "usebackq" %%k in (`sfk hexfind -text "/Makefile_4!l!C_release/" -dir . -file Makefile +thead -lines=1 +getcol 6`) do set oset=%%k
-copy .\payload\Mf .\payload\Makefile
-sfk replace payload\Makefile "/4__/4!n!/" -yes
+call add_makefile_payload.bat
 
 copy .\payload\Makefile_4!l!C_debug .\payload\Makefile_4!n!C_debug
 sfk replace payload\Makefile_4!n!C_debug "/!l!/!n!/" -yes
@@ -77,28 +76,7 @@ move ./ps3mapi_core.h ./payload/ps3mapi_core.h
 copy .\stage0_file\Makefile_4!l!C .\stage0_file\Makefile_4!n!C
 sfk replace .\stage0_file\Makefile_4!n!C "/!l!/!n!/" -yes
 
-for /f "usebackq" %%k in (`sfk hexfind -text "/*.self *.4!l!/" -dir stage0_file -file Makefile +thead -lines=1 +getcol 6`) do set oset=%%k
-set /a ofset=oset+0x48
-sfk partcopy "./stage0_file/Makefile" 0x0 !ofset! "./Makefile" -yes
-echo		rm -f *.o *.elf *.self *.4!n! *.bin *.map ../lv1/src/*.o ../debug/src/*.o ../lv2/src/*.o>>Makefile
-
-for /f "usebackq" %%k in (`sfk hexfind -text "/*.elf *.4!l!/" -dir stage0_file -file Makefile +thead -lines=1 +getcol 6`) do set oset2=%%k
-set /a ofset2=oset2+0x48
-sfk partcopy "./stage0_file/Makefile" -fromto !ofset! !ofset2! "./Makefile" -append -yes
-echo.>>Makefile
-echo		rm -f *.o *.elf *.self *.4!n! *.bin *.4!n!C *.map ../lv1/src/*.o ../debug/src/*.o ../lv2/src/*.o>>Makefile
-echo		make -f Makefile_4!n!C --no-print-directory>>Makefile
-echo		rm -f *.o *.bin *.elf *.4!n! *.4!n!c *.map ../lv1/src/*.o ../debug/src/*.o ../lv2/src/*.o>>Makefile
-echo.>>Makefile
-sfk partcopy "./stage0_file/Makefile" -allfrom !ofset2! "./Makefile" -append -yes
-for /f "usebackq" %%k in (`sfk hexfind -text "/4!l!:/" -dir stage0_file -file Makefile +thead -lines=1 +getcol 6`) do set oset3=%%k
-set /a ofset3=oset3+0x5
-echo.>>Makefile
-echo 4!n!:>>Makefile
-echo 	rm -f *.o *.elf *.self *.4!n! *.bin *.4!n!C *.map ../lv1/src/*.o ../debug/src/*.o ../lv2/src/*.o>>Makefile
-echo 	make -f Makefile_4!n!C --no-print-directory>>Makefile
-echo 	rm -f *.o *.bin *.elf *.4!n! *.4!n!c *.map ../lv1/src/*.o ../debug/src/*.o ../lv2/src/*.o>>Makefile
-move ./Makefile ./stage0_file/Makefile
+call add_makefile_stagefile.bat
 
 echo done > new-hen.done
 :end
