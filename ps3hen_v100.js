@@ -911,12 +911,12 @@ var toc_addr_493 = 0x6F5558;
 var default_vsh_pub_toc_493=0x6ED5AC;
 var vsh_opd_patch_493=0x96D5C;
 var vsh_opd_addr_493=0x6EBB70;
-var vsh_toc_addr_screenshot_493=0x72091C;// Updated From 4.91
-var vsh_ps3hen_key_toc_493=0x707B0C;// Updated From 4.91
+var vsh_toc_addr_screenshot_493=0x72082C;// Updated From 4.83/4.84/4.85
+var vsh_ps3hen_key_toc_493=0x707A1C;// Updated From 4.83/4.84/4.85
 var toc_entry1_addr_493=0x6DA3D0;
-var toc_entry2_addr_493=0x725DD8;//idps Updated From 4.91
+var toc_entry2_addr_493=0x725CE8;//idps Updated From 4.83/4.84/4.85
 var toc_entry3_addr_493=0x6DA3C8;
-var toc_entry4_addr_493=0x7400F0;// Updated From 4.91
+var toc_entry4_addr_493=0x740000;
 var toc_entry5_addr_493=0x6EB6C8;
 var toc_entry6_addr_493=0x0;
 var gadget1_addr_493=0x097604;
@@ -952,7 +952,6 @@ var gadget_mod13_addr_493=0x336870; //store_r3 gadget
 var gadget_mod14_addr_493=0x633900; //load r3 dword
 var gadget_mod15_addr_493=0x39D038; //load r3 word
 var gadget_mod16_addr_493=0x4F732C; //set toc
-
 
 function hexh2bin(hex_val)
 {
