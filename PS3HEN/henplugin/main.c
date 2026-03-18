@@ -795,15 +795,16 @@ static void downloadPKG_thread2(void)
 		fw_version = L"4.92";
 		kernel_type = L"cex";
 	}
+	
 	// 4.93 CEX 
 	// Kernel offset is off by 0x10 so we are checking this value instead of the timestamp
-	else if(val==0x323032362F30322FULL)
+	else if(val==0x323032362F30312FULL)
 	{                                  
 		fw_version = L"4.93";     
 		kernel_type = L"cex";      
 	}				
 
-	// 4.82 DEX
+	//4.82 DEX
 	else if(valD==0x323031372F30382FULL)
 	{
 		fw_version = L"4.82";
@@ -819,6 +820,8 @@ static void downloadPKG_thread2(void)
 	
 	//char msg[200];
 	//sprintf(msg,"val: 0x%llx",val);
+	//DPRINTF("VAL: %ls\n",(char*)val);
+	//DPRINTF("VALD: %ls\n",(char*)valD);
 	//show_msg((char *)msg);
 		
 	//DPRINTF("HENPLUGIN->build_type_path: %ls\n",(char*)build_type_path);
@@ -833,6 +836,7 @@ static void downloadPKG_thread2(void)
 	sprintf(pkg_path, "/dev_hdd0/for_%ls_latest_rus%ls", fw_version, pkg_suffix);
 	//DPRINTF("HENPLUGIN->pkg_url: %ls\n",(char*)pkg_url);
 	download_interface->DownloadURL(0, pkg_url, (wchar_t*)pkg_dl_path);	
+	//show_msg((wchar_t*) pkg_url);
 	
 	thread2_download_finish=1;
 }
