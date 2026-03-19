@@ -2922,7 +2922,7 @@ function ps3chk(){
 					break;						
 					
 				default:
-					alert('Your PS3 is not on FW 4.80 - 4.92! Your current running FW version is ' + fwVersion + ', which is not compatible with PS3HEN. All features have been disabled');
+					alert('Your PS3 is not on FW 4.80 - 4.93! Your current running FW version is ' + fwVersion + ', which is not compatible with PS3HEN. All features have been disabled');
 					disable_all();
 					break;
 			}
